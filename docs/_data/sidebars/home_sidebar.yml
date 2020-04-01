@@ -12,6 +12,9 @@ entries:
     - output: web,pdf
       title: module name here
       url: /core
+    - output: web,pdf
+      title: Title
+      url: /motor
     output: web
     title: yx_motor
   output: web
