@@ -2,9 +2,11 @@
 
 __all__ = ["index", "modules", "custom_doc_links", "git_url"]
 
-index = {"say_hello": "00_core.ipynb"}
+index = {"say_hello": "00_core.ipynb",
+         "Motor": "01_motor.ipynb"}
 
-modules = ["core.py"]
+modules = ["core.py",
+           "motor.py"]
 
 doc_url = "https://johnkabler.github.io/yx_motor/"
 
