@@ -14,7 +14,10 @@ class Motor:
                  login_pwd: str):
 
         self.base_url = base_url
-        self.auth_url = f"{self.base_url}api/v1/authenticate"
+        self.api_url = f"{base_url}api/v1/"
+
+        self.auth_endpoint = "authenticate"
+
         self.login_email = login_email
         self.login_pwd = login_pwd
 
@@ -25,7 +28,11 @@ class Motor:
             "Accept-Encoding": "gzip,deflate"
         }
 
-        self.jar = requests.cookies.RequestsCookieJar()
+        self.api = API(api_url=self.api_url,
+                       headers=self.headers)
+
+        self.jobs = Jobs(self.api)
+
         self.is_authenticated = False
         self.authenticate()
 
@@ -35,18 +42,13 @@ class Motor:
             "email": self.login_email,
             "password": self.login_pwd
         }
-        response = requests.post(url=self.auth_url,
-                                 json=payload,
-                                 cookies=self.jar,
-                                 verify=False,
-                                 headers=self.headers)
+        response = self.api.post(url=self.auth_endpoint,
+                                 json=payload)
         if response.status_code == 200:
-            self.jar.update(response.cookies)
+            self.api.jar.update(response.cookies)
             self.is_authenticated = True
-            return response
+        return response
 
-    def get_jobs(self):
-        response = requests.get(f"{self.base_url}api/v1/jobs",
-                     cookies=self.jar,
-                     verify=False)
+    def get_users(self):
+        response = self.api.get("users")
         return response
