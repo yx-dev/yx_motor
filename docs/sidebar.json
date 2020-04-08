@@ -2,6 +2,6 @@
   "yx_motor": {
     "Overview": "/",
     "module name here": "/core",
-    "Title": "/Client"
+    "Title": "/authenticate"
   }
 }
