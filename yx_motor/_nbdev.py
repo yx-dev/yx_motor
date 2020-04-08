@@ -3,15 +3,17 @@
 __all__ = ["index", "modules", "custom_doc_links", "git_url"]
 
 index = {"say_hello": "00_core.ipynb",
-         "Motor": "01_motor.ipynb",
-         "Jobs": "02_motor.jobs.ipynb",
-         "API": "03_motor.api.ipynb",
-         "default_headers": "03_motor.api.ipynb"}
+         "Client": "01_client.ipynb",
+         "Jobs": "02_jobs.ipynb",
+         "API": "03_api.ipynb",
+         "default_headers": "03_api.ipynb",
+         "Authenticate": "04_authenticate.ipynb"}
 
 modules = ["core.py",
            "client.py",
            "jobs.py",
-           "api.py"]
+           "api.py",
+           "authenticate.py"]
 
 doc_url = "https://jesseclarkayx.github.io/yx_motor/"
 
