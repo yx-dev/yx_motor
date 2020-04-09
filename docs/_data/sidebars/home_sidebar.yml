@@ -14,7 +14,7 @@ entries:
       url: /core
     - output: web,pdf
       title: Title
-      url: /Untitled
+      url: /authenticate
     output: web
     title: yx_motor
   output: web
