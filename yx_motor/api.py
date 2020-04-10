@@ -27,16 +27,29 @@ class API(object):
         template = "{}{}" if url.startswith("/") else "{}/{}"
         return template.format(api_url, url)
 
-    def post(self, url, json=None, params=None, files=None, data=None, cookies=None, verify=False):
+    def post(self,
+             url,
+             json=None,
+             params=None,
+             files=None,
+             data=None,
+             cookies=None,
+             verify=False,
+             non_default_headers=None):
         if not cookies:
             cookies = self.jar
         path = self.get_path(url)
 #         logger.debug("POST request sent to: {} \n\theaders: {}\n\tjson: {}\n\tparams: {}\n\tfiles: {}\n\tdata: {}"
 #                      .format(path, self.headers, json, params, files, data))
+        if non_default_headers:
+            headers = non_default_headers
+        else:
+            headers = self.headers
+
         response = requests.post(path,
                                  json=json,
                                  params=params,
-                                 headers=self.headers,
+                                 headers=headers,
                                  files=files,
                                  data=data,
                                  cookies=cookies,

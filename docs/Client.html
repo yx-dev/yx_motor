@@ -136,6 +136,949 @@ description: "summary"
 </div>
     {% endraw %}
 
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">test</span> <span class="o">=</span> <span class="n">motor</span><span class="o">.</span><span class="n">jobs</span><span class="o">.</span><span class="n">get_job</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">test</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>{&#39;jobs&#39;: [{&#39;jobId&#39;: &#39;446d6653-70a8-4010-b45d-875b27c2ce4b&#39;,
+   &#39;workerId&#39;: &#39;3b0d8827-c3a9-4e1d-ba77-304d339c71a6&#39;,
+   &#39;scheduleId&#39;: &#39;8fad86ed-2f5e-4b99-9a5d-f45497e51635&#39;,
+   &#39;executionOrdinal&#39;: 1,
+   &#39;queuedDate&#39;: &#39;2020-04-10T21:19:38.164Z&#39;,
+   &#39;scheduledStartDate&#39;: &#39;2020-04-10T21:19:38.164Z&#39;,
+   &#39;actualStartDate&#39;: &#39;2020-04-10T21:19:39.399Z&#39;,
+   &#39;completionDate&#39;: &#39;2020-04-10T21:19:41.836Z&#39;,
+   &#39;runTime&#39;: 2,
+   &#39;status&#39;: &#39;completed&#39;,
+   &#39;result&#39;: &#39;success&#39;,
+   &#39;siteId&#39;: &#39;2794a094-abf0-4adf-b74c-ba0f41011d17&#39;,
+   &#39;creationDate&#39;: &#39;2020-04-10T21:19:38.153Z&#39;,
+   &#39;lastUpdate&#39;: &#39;2020-04-10T21:19:41.829Z&#39;,
+   &#39;assetVersion&#39;: 1,
+   &#39;retryCount&#39;: 0,
+   &#39;notes&#39;: None,
+   &#39;priority&#39;: 50,
+   &#39;jobNo&#39;: 9,
+   &#39;name&#39;: &#39;mssql_take2.yxmd&#39;,
+   &#39;userId&#39;: &#39;3ec0bcbd-f7e2-413b-93c0-166ee2aee5d8&#39;,
+   &#39;assetId&#39;: &#39;23e82706-46aa-4fd2-a2a0-3992f261a02b&#39;,
+   &#39;type&#39;: &#39;immediate&#39;,
+   &#39;frequencyInterval&#39;: &#39;manual&#39;,
+   &#39;outputs&#39;: []},
+  {&#39;jobId&#39;: &#39;755fbb0a-cc93-4ff8-8108-4eb567108fba&#39;,
+   &#39;workerId&#39;: &#39;3b0d8827-c3a9-4e1d-ba77-304d339c71a6&#39;,
+   &#39;scheduleId&#39;: &#39;f4d4a466-a49c-4dad-b504-fb4513d9258f&#39;,
+   &#39;executionOrdinal&#39;: 1,
+   &#39;queuedDate&#39;: &#39;2020-04-10T15:04:48.157Z&#39;,
+   &#39;scheduledStartDate&#39;: &#39;2020-04-10T15:04:48.157Z&#39;,
+   &#39;actualStartDate&#39;: &#39;2020-04-10T15:07:30.365Z&#39;,
+   &#39;completionDate&#39;: &#39;2020-04-10T15:07:33.407Z&#39;,
+   &#39;runTime&#39;: 3,
+   &#39;status&#39;: &#39;completed&#39;,
+   &#39;result&#39;: &#39;success&#39;,
+   &#39;siteId&#39;: &#39;2794a094-abf0-4adf-b74c-ba0f41011d17&#39;,
+   &#39;creationDate&#39;: &#39;2020-04-10T15:04:48.191Z&#39;,
+   &#39;lastUpdate&#39;: &#39;2020-04-10T15:07:33.399Z&#39;,
+   &#39;assetVersion&#39;: 1,
+   &#39;retryCount&#39;: 0,
+   &#39;notes&#39;: None,
+   &#39;priority&#39;: 50,
+   &#39;jobNo&#39;: 1,
+   &#39;name&#39;: &#39;SeededOracleWorkflow.yxmd&#39;,
+   &#39;userId&#39;: &#39;3ec0bcbd-f7e2-413b-93c0-166ee2aee5d8&#39;,
+   &#39;assetId&#39;: &#39;957d1358-6e04-4a47-9fb8-d5066bafafd4&#39;,
+   &#39;type&#39;: &#39;once&#39;,
+   &#39;frequencyInterval&#39;: &#39;once&#39;,
+   &#39;outputs&#39;: [{&#39;fileName&#39;: &#39;simple_question_outputs.csv&#39;,
+     &#39;assetId&#39;: &#39;4d085a63-50ef-4ed1-b71e-69954639c77f&#39;,
+     &#39;version&#39;: 1,
+     &#39;permissions&#39;: [&#39;CREATE&#39;, &#39;DELETE&#39;, &#39;DOWNLOAD&#39;, &#39;EDIT&#39;, &#39;OWNER&#39;, &#39;VIEW&#39;],
+     &#39;breadcrumbs&#39;: [&#39;users&#39;, &#39;siteadmin1&#39;, &#39;simple_question_outputs.csv&#39;]}]},
+  {&#39;jobId&#39;: &#39;f4f93c1f-4a28-4517-8f16-e7e51a8b0d14&#39;,
+   &#39;workerId&#39;: &#39;3b0d8827-c3a9-4e1d-ba77-304d339c71a6&#39;,
+   &#39;scheduleId&#39;: &#39;b4867845-a9a4-46f4-8860-30268349631e&#39;,
+   &#39;executionOrdinal&#39;: 1,
+   &#39;queuedDate&#39;: &#39;2020-04-10T16:56:10.960Z&#39;,
+   &#39;scheduledStartDate&#39;: &#39;2020-04-10T16:56:10.960Z&#39;,
+   &#39;actualStartDate&#39;: &#39;2020-04-10T16:56:11.020Z&#39;,
+   &#39;completionDate&#39;: &#39;2020-04-10T16:56:12.178Z&#39;,
+   &#39;runTime&#39;: 1,
+   &#39;status&#39;: &#39;completed&#39;,
+   &#39;result&#39;: &#39;success&#39;,
+   &#39;siteId&#39;: &#39;2794a094-abf0-4adf-b74c-ba0f41011d17&#39;,
+   &#39;creationDate&#39;: &#39;2020-04-10T16:56:10.954Z&#39;,
+   &#39;lastUpdate&#39;: &#39;2020-04-10T16:56:12.165Z&#39;,
+   &#39;assetVersion&#39;: 1,
+   &#39;retryCount&#39;: 0,
+   &#39;notes&#39;: None,
+   &#39;priority&#39;: 100,
+   &#39;jobNo&#39;: 2,
+   &#39;name&#39;: &#39;SQLMacro.yxmc&#39;,
+   &#39;userId&#39;: &#39;f11613c1-0591-4358-848e-0146cabeb261&#39;,
+   &#39;assetId&#39;: &#39;9fefe64f-5ec8-4649-9e1d-54ae61debb62&#39;,
+   &#39;type&#39;: &#39;validation&#39;,
+   &#39;frequencyInterval&#39;: &#39;manual&#39;,
+   &#39;outputs&#39;: []},
+  {&#39;jobId&#39;: &#39;c282b7e6-a78f-4b7a-b7ae-1b958f902c69&#39;,
+   &#39;workerId&#39;: &#39;3b0d8827-c3a9-4e1d-ba77-304d339c71a6&#39;,
+   &#39;scheduleId&#39;: &#39;ef666fea-7ace-4089-8032-480ad9d96e18&#39;,
+   &#39;executionOrdinal&#39;: 1,
+   &#39;queuedDate&#39;: &#39;2020-04-10T21:21:59.210Z&#39;,
+   &#39;scheduledStartDate&#39;: &#39;2020-04-10T21:21:59.210Z&#39;,
+   &#39;actualStartDate&#39;: &#39;2020-04-10T21:21:59.974Z&#39;,
+   &#39;completionDate&#39;: &#39;2020-04-10T21:22:01.351Z&#39;,
+   &#39;runTime&#39;: 1,
+   &#39;status&#39;: &#39;completed&#39;,
+   &#39;result&#39;: &#39;error&#39;,
+   &#39;siteId&#39;: &#39;2794a094-abf0-4adf-b74c-ba0f41011d17&#39;,
+   &#39;creationDate&#39;: &#39;2020-04-10T21:21:59.200Z&#39;,
+   &#39;lastUpdate&#39;: &#39;2020-04-10T21:22:01.348Z&#39;,
+   &#39;assetVersion&#39;: 1,
+   &#39;retryCount&#39;: 0,
+   &#39;notes&#39;: None,
+   &#39;priority&#39;: 50,
+   &#39;jobNo&#39;: 10,
+   &#39;name&#39;: &#39;mssql_take2.yxmd&#39;,
+   &#39;userId&#39;: &#39;b7da0bdf-0761-49bd-b222-d5a468abaec4&#39;,
+   &#39;assetId&#39;: &#39;23e82706-46aa-4fd2-a2a0-3992f261a02b&#39;,
+   &#39;type&#39;: &#39;immediate&#39;,
+   &#39;frequencyInterval&#39;: &#39;manual&#39;,
+   &#39;outputs&#39;: []},
+  {&#39;jobId&#39;: &#39;78fdd0c0-a406-4f6c-9081-81378acc32dd&#39;,
+   &#39;workerId&#39;: &#39;3b0d8827-c3a9-4e1d-ba77-304d339c71a6&#39;,
+   &#39;scheduleId&#39;: &#39;4b7bda31-2b60-4c28-9a18-460480650289&#39;,
+   &#39;executionOrdinal&#39;: 1,
+   &#39;queuedDate&#39;: &#39;2020-04-10T17:29:00.716Z&#39;,
+   &#39;scheduledStartDate&#39;: &#39;2020-04-10T17:29:00.716Z&#39;,
+   &#39;actualStartDate&#39;: &#39;2020-04-10T17:29:02.418Z&#39;,
+   &#39;completionDate&#39;: &#39;2020-04-10T17:29:03.108Z&#39;,
+   &#39;runTime&#39;: 1,
+   &#39;status&#39;: &#39;completed&#39;,
+   &#39;result&#39;: &#39;success&#39;,
+   &#39;siteId&#39;: &#39;2794a094-abf0-4adf-b74c-ba0f41011d17&#39;,
+   &#39;creationDate&#39;: &#39;2020-04-10T17:29:00.710Z&#39;,
+   &#39;lastUpdate&#39;: &#39;2020-04-10T17:29:03.100Z&#39;,
+   &#39;assetVersion&#39;: 1,
+   &#39;retryCount&#39;: 0,
+   &#39;notes&#39;: None,
+   &#39;priority&#39;: 100,
+   &#39;jobNo&#39;: 3,
+   &#39;name&#39;: &#39;SQLMacro.yxmc&#39;,
+   &#39;userId&#39;: &#39;f11613c1-0591-4358-848e-0146cabeb261&#39;,
+   &#39;assetId&#39;: &#39;9fefe64f-5ec8-4649-9e1d-54ae61debb62&#39;,
+   &#39;type&#39;: &#39;validation&#39;,
+   &#39;frequencyInterval&#39;: &#39;manual&#39;,
+   &#39;outputs&#39;: []},
+  {&#39;jobId&#39;: &#39;650c218f-fcc2-4c69-a529-f264c2206814&#39;,
+   &#39;workerId&#39;: &#39;3b0d8827-c3a9-4e1d-ba77-304d339c71a6&#39;,
+   &#39;scheduleId&#39;: &#39;b290a455-55d9-453a-8d8d-0a82ce7e9811&#39;,
+   &#39;executionOrdinal&#39;: 1,
+   &#39;queuedDate&#39;: &#39;2020-04-10T19:15:24.515Z&#39;,
+   &#39;scheduledStartDate&#39;: &#39;2020-04-10T19:15:24.515Z&#39;,
+   &#39;actualStartDate&#39;: &#39;2020-04-10T19:15:25.648Z&#39;,
+   &#39;completionDate&#39;: &#39;2020-04-10T19:15:26.234Z&#39;,
+   &#39;runTime&#39;: 1,
+   &#39;status&#39;: &#39;completed&#39;,
+   &#39;result&#39;: &#39;success&#39;,
+   &#39;siteId&#39;: &#39;2794a094-abf0-4adf-b74c-ba0f41011d17&#39;,
+   &#39;creationDate&#39;: &#39;2020-04-10T19:15:24.503Z&#39;,
+   &#39;lastUpdate&#39;: &#39;2020-04-10T19:15:26.234Z&#39;,
+   &#39;assetVersion&#39;: 1,
+   &#39;retryCount&#39;: 0,
+   &#39;notes&#39;: None,
+   &#39;priority&#39;: 50,
+   &#39;jobNo&#39;: 4,
+   &#39;name&#39;: &#39;Magic-8-Ball.yxmd&#39;,
+   &#39;userId&#39;: &#39;c331da80-a0fe-44fe-ace2-39260ebd9a19&#39;,
+   &#39;assetId&#39;: &#39;bbdc7276-c0c6-49b7-85f8-e68d3aa40954&#39;,
+   &#39;type&#39;: &#39;immediate&#39;,
+   &#39;frequencyInterval&#39;: &#39;manual&#39;,
+   &#39;outputs&#39;: [{&#39;fileName&#39;: &#39;answer.csv&#39;,
+     &#39;assetId&#39;: &#39;34fcc7b5-b3f8-431f-a905-46bc2c50ef00&#39;,
+     &#39;version&#39;: 1,
+     &#39;permissions&#39;: [&#39;CREATE&#39;, &#39;DELETE&#39;, &#39;DOWNLOAD&#39;, &#39;EDIT&#39;, &#39;OWNER&#39;, &#39;VIEW&#39;],
+     &#39;breadcrumbs&#39;: [&#39;users&#39;, &#39;contributor4_96f3a335&#39;, &#39;answer.csv&#39;]}]},
+  {&#39;jobId&#39;: &#39;3bde3349-3d1e-4677-8eb1-3e2eeb6378e5&#39;,
+   &#39;workerId&#39;: &#39;3b0d8827-c3a9-4e1d-ba77-304d339c71a6&#39;,
+   &#39;scheduleId&#39;: &#39;8b2799aa-a754-47f7-90ae-1ce75873297c&#39;,
+   &#39;executionOrdinal&#39;: 1,
+   &#39;queuedDate&#39;: &#39;2020-04-10T21:22:56.412Z&#39;,
+   &#39;scheduledStartDate&#39;: &#39;2020-04-10T21:22:56.412Z&#39;,
+   &#39;actualStartDate&#39;: &#39;2020-04-10T21:22:58.239Z&#39;,
+   &#39;completionDate&#39;: &#39;2020-04-10T21:22:59.600Z&#39;,
+   &#39;runTime&#39;: 1,
+   &#39;status&#39;: &#39;completed&#39;,
+   &#39;result&#39;: &#39;error&#39;,
+   &#39;siteId&#39;: &#39;2794a094-abf0-4adf-b74c-ba0f41011d17&#39;,
+   &#39;creationDate&#39;: &#39;2020-04-10T21:22:56.409Z&#39;,
+   &#39;lastUpdate&#39;: &#39;2020-04-10T21:22:59.594Z&#39;,
+   &#39;assetVersion&#39;: 1,
+   &#39;retryCount&#39;: 0,
+   &#39;notes&#39;: None,
+   &#39;priority&#39;: 50,
+   &#39;jobNo&#39;: 11,
+   &#39;name&#39;: &#39;mssql_take2.yxmd&#39;,
+   &#39;userId&#39;: &#39;3ec0bcbd-f7e2-413b-93c0-166ee2aee5d8&#39;,
+   &#39;assetId&#39;: &#39;23e82706-46aa-4fd2-a2a0-3992f261a02b&#39;,
+   &#39;type&#39;: &#39;immediate&#39;,
+   &#39;frequencyInterval&#39;: &#39;manual&#39;,
+   &#39;outputs&#39;: []},
+  {&#39;jobId&#39;: &#39;b33c7652-3b75-451e-8975-c04f6c629a69&#39;,
+   &#39;workerId&#39;: &#39;3b0d8827-c3a9-4e1d-ba77-304d339c71a6&#39;,
+   &#39;scheduleId&#39;: &#39;45fd6118-333f-4d12-8964-4ee71476e862&#39;,
+   &#39;executionOrdinal&#39;: 1,
+   &#39;queuedDate&#39;: &#39;2020-04-10T19:40:20.618Z&#39;,
+   &#39;scheduledStartDate&#39;: &#39;2020-04-10T19:40:20.618Z&#39;,
+   &#39;actualStartDate&#39;: &#39;2020-04-10T19:40:21.637Z&#39;,
+   &#39;completionDate&#39;: &#39;2020-04-10T19:40:21.899Z&#39;,
+   &#39;runTime&#39;: 0,
+   &#39;status&#39;: &#39;completed&#39;,
+   &#39;result&#39;: &#39;success&#39;,
+   &#39;siteId&#39;: &#39;2794a094-abf0-4adf-b74c-ba0f41011d17&#39;,
+   &#39;creationDate&#39;: &#39;2020-04-10T19:40:20.607Z&#39;,
+   &#39;lastUpdate&#39;: &#39;2020-04-10T19:40:21.880Z&#39;,
+   &#39;assetVersion&#39;: 1,
+   &#39;retryCount&#39;: 0,
+   &#39;notes&#39;: None,
+   &#39;priority&#39;: 100,
+   &#39;jobNo&#39;: 5,
+   &#39;name&#39;: &#39;macro_wf.yxzp&#39;,
+   &#39;userId&#39;: &#39;3ec0bcbd-f7e2-413b-93c0-166ee2aee5d8&#39;,
+   &#39;assetId&#39;: &#39;ce81a2c5-2438-4ac6-888a-811dd3068969&#39;,
+   &#39;type&#39;: &#39;validation&#39;,
+   &#39;frequencyInterval&#39;: &#39;manual&#39;,
+   &#39;outputs&#39;: []},
+  {&#39;jobId&#39;: &#39;6202e63f-6cd8-43d0-a067-a2136edaf38b&#39;,
+   &#39;workerId&#39;: &#39;3b0d8827-c3a9-4e1d-ba77-304d339c71a6&#39;,
+   &#39;scheduleId&#39;: &#39;09e734a6-c12b-463d-86f3-7a60e70a44cd&#39;,
+   &#39;executionOrdinal&#39;: 1,
+   &#39;queuedDate&#39;: &#39;2020-04-10T19:58:51.893Z&#39;,
+   &#39;scheduledStartDate&#39;: &#39;2020-04-10T19:58:51.893Z&#39;,
+   &#39;actualStartDate&#39;: &#39;2020-04-10T19:58:52.290Z&#39;,
+   &#39;completionDate&#39;: &#39;2020-04-10T19:58:52.487Z&#39;,
+   &#39;runTime&#39;: 0,
+   &#39;status&#39;: &#39;completed&#39;,
+   &#39;result&#39;: &#39;success&#39;,
+   &#39;siteId&#39;: &#39;2794a094-abf0-4adf-b74c-ba0f41011d17&#39;,
+   &#39;creationDate&#39;: &#39;2020-04-10T19:58:51.871Z&#39;,
+   &#39;lastUpdate&#39;: &#39;2020-04-10T19:58:52.468Z&#39;,
+   &#39;assetVersion&#39;: 1,
+   &#39;retryCount&#39;: 0,
+   &#39;notes&#39;: None,
+   &#39;priority&#39;: 100,
+   &#39;jobNo&#39;: 6,
+   &#39;name&#39;: &#39;New Workflow1.yxmd&#39;,
+   &#39;userId&#39;: &#39;3ec0bcbd-f7e2-413b-93c0-166ee2aee5d8&#39;,
+   &#39;assetId&#39;: &#39;ff957626-07db-4c51-a254-b40a7d6e617e&#39;,
+   &#39;type&#39;: &#39;validation&#39;,
+   &#39;frequencyInterval&#39;: &#39;manual&#39;,
+   &#39;outputs&#39;: []},
+  {&#39;jobId&#39;: &#39;ff962578-bc67-478d-894f-df8088e39cf9&#39;,
+   &#39;workerId&#39;: &#39;3b0d8827-c3a9-4e1d-ba77-304d339c71a6&#39;,
+   &#39;scheduleId&#39;: &#39;95135458-76f6-4c27-8189-54adb6f2dd29&#39;,
+   &#39;executionOrdinal&#39;: 1,
+   &#39;queuedDate&#39;: &#39;2020-04-10T21:41:31.346Z&#39;,
+   &#39;scheduledStartDate&#39;: &#39;2020-04-10T21:41:31.346Z&#39;,
+   &#39;actualStartDate&#39;: &#39;2020-04-10T21:41:32.844Z&#39;,
+   &#39;completionDate&#39;: &#39;2020-04-10T21:41:33.080Z&#39;,
+   &#39;runTime&#39;: 0,
+   &#39;status&#39;: &#39;completed&#39;,
+   &#39;result&#39;: &#39;success&#39;,
+   &#39;siteId&#39;: &#39;2794a094-abf0-4adf-b74c-ba0f41011d17&#39;,
+   &#39;creationDate&#39;: &#39;2020-04-10T21:41:31.325Z&#39;,
+   &#39;lastUpdate&#39;: &#39;2020-04-10T21:41:33.075Z&#39;,
+   &#39;assetVersion&#39;: 1,
+   &#39;retryCount&#39;: 0,
+   &#39;notes&#39;: None,
+   &#39;priority&#39;: 100,
+   &#39;jobNo&#39;: 12,
+   &#39;name&#39;: &#39;mssql_take2.yxmd&#39;,
+   &#39;userId&#39;: &#39;3ec0bcbd-f7e2-413b-93c0-166ee2aee5d8&#39;,
+   &#39;assetId&#39;: &#39;23e82706-46aa-4fd2-a2a0-3992f261a02b&#39;,
+   &#39;type&#39;: &#39;validation&#39;,
+   &#39;frequencyInterval&#39;: &#39;manual&#39;,
+   &#39;outputs&#39;: []}],
+ &#39;offset&#39;: 0,
+ &#39;limit&#39;: 10,
+ &#39;total&#39;: 14}</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>{&#39;asset&#39;: {&#39;created&#39;: &#39;2020-04-10T15:04:53.091Z&#39;,
+  &#39;versionCreated&#39;: &#39;2020-04-10T15:04:53.091Z&#39;,
+  &#39;folderType&#39;: None,
+  &#39;links&#39;: None,
+  &#39;metadata&#39;: {&#39;loadId&#39;: &#39;8c08fa83-4ad5-4caa-82e3-ec002d52d99b&#39;,
+   &#39;tstamp&#39;: 1557969510,
+   &#39;extension&#39;: &#39;xlsx&#39;,
+   &#39;dataSource&#39;: {&#39;id&#39;: &#39;3e7399c5-e237-4eb0-815c-36a749c8a371&#39;,
+    &#39;name&#39;: &#39;ayxFile&#39;,
+    &#39;type&#39;: &#39;default&#39;,
+    &#39;state&#39;: &#39;standalone&#39;,
+    &#39;ownerId&#39;: &#39;3ec0bcbd-f7e2-413b-93c0-166ee2aee5d8&#39;,
+    &#39;primaryId&#39;: None,
+    &#39;parameters&#39;: {&#39;path&#39;: &#39;\\testPath&#39;},
+    &#39;technology&#39;: &#39;File&#39;,
+    &#39;description&#39;: &#39;Seeded datasource for File&#39;,
+    &#39;creationDate&#39;: &#39;2019-03-26T00:00:00.000Z&#39;,
+    &#39;sharedWithIds&#39;: {&#39;userIds&#39;: [&#39;26e0d5a7-a53e-43ba-8de5-e505222c6e6d&#39;,
+      &#39;3c3fff1f-153f-40e1-800f-8b9ecc92de52&#39;,
+      &#39;7d81f8d2-9f18-4027-89e2-19082a73cb0a&#39;,
+      &#39;e601dc87-40f6-44d1-9aee-c65ba435b612&#39;],
+     &#39;groupIds&#39;: []},
+    &#39;connectionCount&#39;: 1,
+    &#39;onlyOwnerCanShare&#39;: False,
+    &#39;technologyVersion&#39;: None,
+    &#39;usedInWorkflowsCount&#39;: 0},
+   &#39;parsedInfo&#39;: [{&#39;name&#39;: &#39;TestTable1&#39;,
+     &#39;lines&#39;: 0,
+     &#39;types&#39;: [&#39;string&#39;, &#39;string&#39;],
+     &#39;encode&#39;: &#39;&#39;,
+     &#39;headers&#39;: [&#39;Name&#39;, &#39;Phone&#39;],
+     &#39;records&#39;: 0,
+     &#39;warnings&#39;: [],
+     &#39;delimiter&#39;: &#39;&#39;,
+     &#39;hasHeader&#39;: False,
+     &#39;quoteChar&#39;: None,
+     &#39;commentedLines&#39;: 0,
+     &#39;newLineDelimiter&#39;: &#39;&#39;,
+     &#39;invalidFieldLength&#39;: 0},
+    {&#39;name&#39;: &#39;sheet2&#39;,
+     &#39;lines&#39;: 0,
+     &#39;types&#39;: [&#39;int64&#39;, &#39;int64&#39;],
+     &#39;encode&#39;: &#39;&#39;,
+     &#39;headers&#39;: [&#39;INCCYPCAP&#39;, &#39;HHDCY&#39;],
+     &#39;records&#39;: 0,
+     &#39;warnings&#39;: [],
+     &#39;delimiter&#39;: &#39;&#39;,
+     &#39;hasHeader&#39;: False,
+     &#39;quoteChar&#39;: None,
+     &#39;commentedLines&#39;: 0,
+     &#39;newLineDelimiter&#39;: &#39;&#39;,
+     &#39;invalidFieldLength&#39;: 0},
+    {&#39;name&#39;: &#39;ABC&#39;,
+     &#39;lines&#39;: 0,
+     &#39;types&#39;: [&#39;int64&#39;,
+      &#39;string&#39;,
+      &#39;string&#39;,
+      &#39;string&#39;,
+      &#39;int64&#39;,
+      &#39;float64&#39;,
+      &#39;float64&#39;],
+     &#39;encode&#39;: &#39;&#39;,
+     &#39;headers&#39;: [&#39;Store Num&#39;, &#39;Address&#39;, &#39;City&#39;, &#39;State&#39;, &#39;ZIP&#39;, &#39;Lat&#39;, &#39;Lon&#39;],
+     &#39;records&#39;: 0,
+     &#39;warnings&#39;: [],
+     &#39;delimiter&#39;: &#39;&#39;,
+     &#39;hasHeader&#39;: False,
+     &#39;quoteChar&#39;: None,
+     &#39;commentedLines&#39;: 0,
+     &#39;newLineDelimiter&#39;: &#39;&#39;,
+     &#39;invalidFieldLength&#39;: 0}],
+   &#39;description&#39;: &#39;file system description&#39;},
+  &#39;metaHash&#39;: &#39;e7b763d277adf9e2e38a64c7b03ed7a350b9f9e1ccee92fc902f48408c73d994&#39;,
+  &#39;maxVersion&#39;: 1,
+  &#39;isHidden&#39;: False,
+  &#39;onlyOwnerShares&#39;: False,
+  &#39;onlySiteAdminShares&#39;: False,
+  &#39;extension&#39;: &#39;xlsx&#39;,
+  &#39;assetCategory&#39;: &#39;OTHER&#39;,
+  &#39;contentId&#39;: &#39;b66e31ec-c868-4ddc-9706-9bf83c4aba71&#39;,
+  &#39;contentHash&#39;: &#39;60f5237ed4049f0382661ef009d2bc42e48c3ceb3edb6600f7024e7ab3b838f3&#39;,
+  &#39;contentSize&#39;: 17,
+  &#39;comment&#39;: None,
+  &#39;entryOwner&#39;: {&#39;avatar&#39;: None,
+   &#39;email&#39;: &#39;siteadmin1@example.com&#39;,
+   &#39;firstName&#39;: &#39;Seeded&#39;,
+   &#39;id&#39;: &#39;3ec0bcbd-f7e2-413b-93c0-166ee2aee5d8&#39;,
+   &#39;lastName&#39;: &#39;siteadmin1&#39;,
+   &#39;name&#39;: &#39;Seeded siteadmin1&#39;,
+   &#39;userName&#39;: &#39;siteadmin1&#39;},
+  &#39;fileName&#39;: &#39;Sheets.xlsx&#39;,
+  &#39;inherits&#39;: True,
+  &#39;path&#39;: &#39;/DataCatalog/SeededFileSystem/testPath/Sheets.xlsx&#39;,
+  &#39;version&#39;: 1,
+  &#39;location&#39;: &#39;&#39;,
+  &#39;uuid&#39;: &#39;22ffa1f9-4e55-4952-af90-387d2a9b9f78&#39;,
+  &#39;md5Hash&#39;: &#39;c785060c866796cc2a1708c997154c8e&#39;},
+ &#39;permissions&#39;: [&#39;CREATE&#39;, &#39;DELETE&#39;, &#39;DOWNLOAD&#39;, &#39;EDIT&#39;, &#39;OWNER&#39;, &#39;VIEW&#39;],
+ &#39;breadcrumbs&#39;: [{&#39;path&#39;: &#39;/&#39;, &#39;view&#39;: True, &#39;create&#39;: True, &#39;delete&#39;: True},
+  {&#39;path&#39;: &#39;/DataCatalog&#39;, &#39;view&#39;: True, &#39;create&#39;: True, &#39;delete&#39;: True},
+  {&#39;path&#39;: &#39;/DataCatalog/SeededFileSystem&#39;,
+   &#39;view&#39;: True,
+   &#39;create&#39;: True,
+   &#39;delete&#39;: True},
+  {&#39;path&#39;: &#39;/DataCatalog/SeededFileSystem/testPath&#39;,
+   &#39;view&#39;: True,
+   &#39;create&#39;: True,
+   &#39;delete&#39;: True},
+  {&#39;path&#39;: &#39;/DataCatalog/SeededFileSystem/testPath/Sheets.xlsx&#39;,
+   &#39;view&#39;: True,
+   &#39;create&#39;: True,
+   &#39;delete&#39;: True}]}</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Jesse-and-JP-testing-stuff-below-(remove/breakout-later)">Jesse and JP testing stuff below (remove/breakout later)<a class="anchor-link" href="#Jesse-and-JP-testing-stuff-below-(remove/breakout-later)"> </a></h1>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="VFS-Router-API-Investigation">VFS Router API Investigation<a class="anchor-link" href="#VFS-Router-API-Investigation"> </a></h2>
+</div>
+</div>
+</div>
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Gets the payload of recently viewed files for a given user</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">motor</span><span class="o">.</span><span class="n">api</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;files/recentlyViewed&quot;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">response</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&lt;Response [200]&gt;</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Recently-Viewed-Files-Response-Object">Recently Viewed Files Response Object<a class="anchor-link" href="#Recently-Viewed-Files-Response-Object"> </a></h3><ul>
+<li>Keys at top level<ul>
+<li>members  (what is this exactly?  Looks like it has access control stuff for file)</li>
+<li>totalCount: integer, exactly what it sounds like</li>
+<li>assets: array of what appears to be vfs "asset/file" objects.  </li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div>
+</div>
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>dict_keys([&#39;members&#39;, &#39;totalCount&#39;, &#39;assets&#39;])</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">asset_list</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()[</span><span class="s1">&#39;assets&#39;</span><span class="p">]</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="VFS-File-object-investigation">VFS File object investigation<a class="anchor-link" href="#VFS-File-object-investigation"> </a></h3><ul>
+<li>fileName: exactly what you think, but no path</li>
+<li>path: full path, weird in a vfs as Jesse has pointed out</li>
+<li>folderType: What is that and what are its implications?</li>
+<li>version: integer</li>
+<li>maxVersion: Latest version.  interesting, should investigate if there are different uuids for different version or same uuid?????</li>
+<li>uuid: very important, core to all things workflow, vfs, etc.  all workflows appear to be vfs assets.  </li>
+<li>metadata: object with critical keys regarding permissions, etc.</li>
+<li>activityTime: ???  last run??</li>
+<li>contentId: Why and what is this?  Is it useful?</li>
+<li>entryOwner:  What is this for?  Why so much?</li>
+<li>permissions: list of strings of file permission types</li>
+<li>assetCategory: string, what are the valid types for this?  differences in behavior???</li>
+<li>onlySiteAdminShares: bool: Per Jesse, this is a setting on a file to ensure only admins can share or not share a file</li>
+</ul>
+
+</div>
+</div>
+</div>
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">test_asset</span> <span class="o">=</span> <span class="n">asset_list</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">test_asset</span><span class="p">[</span><span class="s1">&#39;uuid&#39;</span><span class="p">]</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&#39;22ffa1f9-4e55-4952-af90-387d2a9b9f78&#39;</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">test_asset</span><span class="p">[</span><span class="s1">&#39;version&#39;</span><span class="p">]</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>1</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">test_asset</span><span class="p">[</span><span class="s1">&#39;path&#39;</span><span class="p">]</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&#39;/users/siteadmin1/simple_questions.log&#39;</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Download-File">Download File<a class="anchor-link" href="#Download-File"> </a></h2><h4 id="File-Content">File Content<a class="anchor-link" href="#File-Content"> </a></h4><p>Seems like content isn't what I thought it was.</p>
+<p>EDIT:  No, this works, but not with Excel files.  Luckily nobody uses excel in business</p>
+
+</div>
+</div>
+</div>
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Didn&#39;t return a file, but not sure.</span>
+
+<span class="n">response</span> <span class="o">=</span> <span class="n">motor</span><span class="o">.</span><span class="n">api</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="o">=</span><span class="s1">&#39;files/content&#39;</span><span class="p">,</span> 
+                         <span class="n">params</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;f4929cd7-fbfc-4093-991b-17586a216f93&quot;</span><span class="p">,</span> 
+                                 <span class="s2">&quot;version&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">})</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Below code successfully writes the file in proper format.</p>
+
+</div>
+</div>
+</div>
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;test.yxzp&#39;</span><span class="p">,</span> <span class="s1">&#39;wb&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">content</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Upload-File">Upload File<a class="anchor-link" href="#Upload-File"> </a></h2><p>This is pretty weird.</p>
+<p>Talk to Alexander Potanin.</p>
+<p>Currently, this API is incredibly confusing.  It isn't clear, even by observing browser traffic, how a file actually gets uploaded.</p>
+<p>Using headers for the parameters is inconsistent with, hmm, i don't know, everything else in here.</p>
+<p>Latest note:</p>
+<p><a href="https://git.alteryx.com/s2/demo-seeder/-/blob/dev/04-UploadFilesAndDecorate.js">https://git.alteryx.com/s2/demo-seeder/-/blob/dev/04-UploadFilesAndDecorate.js</a></p>
+<p>see that we just need to specify what appears to be a binary object as payload.</p>
+<p>We will need to add to the existing headers for this one, due to the api inconsistencies.</p>
+<p>Added an optional arg (just to post) for non_default_headers.</p>
+<p>Success!  uploaded a file with the below code.</p>
+<h3 id="TODO:--The-code-below-works,-so-we-will-want-to-convert-into-a-nice-clean-function.">TODO:  The code below works, so we will want to convert into a nice clean function.<a class="anchor-link" href="#TODO:--The-code-below-works,-so-we-will-want-to-convert-into-a-nice-clean-function."> </a></h3>
+</div>
+</div>
+</div>
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">blob</span> <span class="o">=</span> <span class="kc">None</span>
+
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;test.yxzp&#39;</span><span class="p">,</span> <span class="s2">&quot;rb&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">blob</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">upload_headers</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;Content-Type&quot;</span><span class="p">:</span> <span class="s2">&quot;application/json&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;Accept&quot;</span><span class="p">:</span> <span class="s2">&quot;*/*&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;Accept-Language&quot;</span><span class="p">:</span> <span class="s2">&quot;en-US,en;q=0.5&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;Accept-Encoding&quot;</span><span class="p">:</span> <span class="s2">&quot;gzip,deflate&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;path&quot;</span><span class="p">:</span> <span class="s1">&#39;/Workspaces/Public/asdf/jp_test.yxzp&#39;</span>
+                  <span class="p">}</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">response</span> <span class="o">=</span> <span class="n">motor</span><span class="o">.</span><span class="n">api</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">url</span><span class="o">=</span><span class="s1">&#39;files&#39;</span><span class="p">,</span> 
+                          <span class="n">data</span><span class="o">=</span><span class="n">blob</span><span class="p">,</span>
+                          <span class="n">non_default_headers</span><span class="o">=</span><span class="n">upload_headers</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">response</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&lt;Response [200]&gt;</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>{&#39;fileName&#39;: &#39;jp_test.yxzp&#39;,
+ &#39;extension&#39;: &#39;yxzp&#39;,
+ &#39;inherits&#39;: True,
+ &#39;isHidden&#39;: False,
+ &#39;onlyOwnerShares&#39;: False,
+ &#39;path&#39;: &#39;/Workspaces/Public/asdf/jp_test.yxzp&#39;,
+ &#39;folderType&#39;: None,
+ &#39;version&#39;: 1,
+ &#39;created&#39;: &#39;2020-04-10T23:21:20.252Z&#39;,
+ &#39;versionCreated&#39;: &#39;2020-04-10T23:21:20.252Z&#39;,
+ &#39;maxVersion&#39;: 1,
+ &#39;links&#39;: None,
+ &#39;location&#39;: &#39;&#39;,
+ &#39;uuid&#39;: &#39;bee0b8dd-6387-4740-be36-06887e0d9921&#39;,
+ &#39;metaHash&#39;: &#39;d214d65ab55a2a1c73de7c90fcc1aecfc28dd88dbec71cdeaeb3ffb1ef170053&#39;,
+ &#39;metadata&#39;: {&#39;yxType&#39;: &#39;WORKFLOW_APP&#39;},
+ &#39;contentHash&#39;: &#39;b7960c08c75e5e4e2bcf5fa32582eee75a07560554c6993c603759a8a2ce2f5f&#39;,
+ &#39;contentId&#39;: &#39;6a411b4e-6e57-4d27-b357-421e280aaa51&#39;,
+ &#39;contentSize&#39;: 2176,
+ &#39;entryOwner&#39;: {&#39;avatar&#39;: None,
+  &#39;email&#39;: &#39;siteadmin1@example.com&#39;,
+  &#39;firstName&#39;: &#39;Seeded&#39;,
+  &#39;id&#39;: &#39;3ec0bcbd-f7e2-413b-93c0-166ee2aee5d8&#39;,
+  &#39;lastName&#39;: &#39;siteadmin1&#39;,
+  &#39;name&#39;: &#39;Seeded siteadmin1&#39;,
+  &#39;userName&#39;: &#39;siteadmin1&#39;},
+ &#39;md5Hash&#39;: &#39;1316e622c535fcfef109f75484910f38&#39;,
+ &#39;assetCategory&#39;: &#39;WORKFLOW_APP&#39;,
+ &#39;onlySiteAdminShares&#39;: False}</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
 </div>
  
 
