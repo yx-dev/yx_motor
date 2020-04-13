@@ -7,13 +7,15 @@ index = {"say_hello": "00_core.ipynb",
          "Jobs": "02_jobs.ipynb",
          "API": "03_api.ipynb",
          "default_headers": "03_api.ipynb",
-         "Authenticate": "04_authenticate.ipynb"}
+         "Authenticate": "04_authenticate.ipynb",
+         "Files": "05_files.ipynb"}
 
 modules = ["core.py",
            "client.py",
            "jobs.py",
            "api.py",
-           "authenticate.py"]
+           "authenticate.py",
+           "files.py"]
 
 doc_url = "https://jesseclarkayx.github.io/yx_motor/"
 
