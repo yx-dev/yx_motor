@@ -7,23 +7,24 @@ import requests
 
 from .api import API
 
+
 class Files:
     "Class for handling authenticate API actions"
 
     def __init__(self, api: API):
         self.api = api
-        self.base_endpoint = 'files/'
+        self.base_endpoint = "files/"
 
     def download_file(self, file_uuid: str, download_path: str):
-        #TODO: MVP
+        # TODO: MVP
         pass
 
     def upload_file(self):
-        #TODO: MVP
+        # TODO: MVP
         pass
 
     def update_file(self):
-        #TODO: MVP
+        # TODO: MVP
         pass
 
     def get_file_versions(self):
@@ -36,8 +37,8 @@ class Files:
         pass
 
     def move_file(self, source_path: str, target_path: str):
-        #TODO: MVP
+        # TODO: MVP
         pass
 
-    def restore_deleted_file(self, asset_path: str=None, asset_id: str=None):
+    def restore_deleted_file(self, asset_path: str = None, asset_id: str = None):
         pass

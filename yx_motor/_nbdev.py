@@ -8,17 +8,20 @@ index = {"say_hello": "00_core.ipynb",
          "API": "03_api.ipynb",
          "default_headers": "03_api.ipynb",
          "Authenticate": "04_authenticate.ipynb",
-         "Files": "05_files.ipynb"}
+         "Files": "05_files.ipynb",
+         "Workflows": "06_workflows.ipynb"}
 
 modules = ["core.py",
            "client.py",
            "jobs.py",
            "api.py",
            "authenticate.py",
-           "files.py"]
+           "files.py",
+           "workflows.py"]
 
 doc_url = "https://jesseclarkayx.github.io/yx_motor/"
 
 git_url = "https://github.com/jesseclarkayx/yx_motor/tree/master/"
 
-def custom_doc_links(name): return None
+def custom_doc_links(name):
+    return None
