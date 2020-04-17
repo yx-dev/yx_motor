@@ -8,6 +8,7 @@ import requests
 from .api import API
 from .authenticate import Authenticate
 from .jobs import Jobs
+from .files import Files
 
 class Client:
     "Wrapper for Alteryx Server API."
@@ -36,6 +37,7 @@ class Client:
 
         self.authenticate = Authenticate(self.api)
         self.jobs = Jobs(self.api)
+        self.files = Files(self.api)
 
         self.authenticate.authenticate(login_email=self.login_email,
                                        login_pwd=self.login_pwd)
