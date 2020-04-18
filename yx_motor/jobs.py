@@ -9,6 +9,7 @@ from .api import API
 class Jobs:
     "class for all supported jobs APIs"
 
+
     def __init__(self, api: API):
         self.api = api
         self.base_endpoint = "jobs/"
