@@ -13,8 +13,23 @@ entries:
       title: module name here
       url: /core
     - output: web,pdf
-      title: Title
+      title: client
+      url: /client
+    - output: web,pdf
+      title: jobs
+      url: /jobs
+    - output: web,pdf
+      title: api
+      url: /api
+    - output: web,pdf
+      title: authenticate
       url: /authenticate
+    - output: web,pdf
+      title: files
+      url: /files
+    - output: web,pdf
+      title: workflows
+      url: /workflows
     output: web
     title: yx_motor
   output: web
