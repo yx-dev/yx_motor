@@ -71,7 +71,7 @@ class Files:
         else:
             targeturl = "softDelete"
 
-        response = self.api.post(url=f"{self.base_endpoint}{targeturl}", data=payload)
+        response = self.api.post(url=f"{self.base_endpoint}{targeturl}", json=payload)
 
         return response
 
