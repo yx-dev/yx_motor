@@ -2,8 +2,7 @@
 
 __all__ = ["index", "modules", "custom_doc_links", "git_url"]
 
-index = {"say_hello": "00_core.ipynb",
-         "Client": "01_client.ipynb",
+index = {"Client": "01_client.ipynb",
          "Jobs": "02_jobs.ipynb",
          "log_request": "03_api.ipynb",
          "API": "03_api.ipynb",
@@ -13,8 +12,7 @@ index = {"say_hello": "00_core.ipynb",
          "Files": "05_files.ipynb",
          "Workflows": "06_workflows.ipynb"}
 
-modules = ["core.py",
-           "client.py",
+modules = ["client.py",
            "jobs.py",
            "api.py",
            "authenticate.py",

@@ -1,24 +1,27 @@
-# Project name here
-> Summary description here.
+# yx_motor
+> Python client library for Alteryx Analytics Hub.
 
 
 This file will become your README and also the index of your documentation.
 
-## Install
+WIP: Still a work in progress.
 
-`pip install your_project_name`
+## Install 
 
-## How to use
+Not ready yet.  Will update when we are ready to create a pip module.
+
+`pip install yx_motor`
+
+## Examples
 
 Fill me in please! Don't forget code examples:
 
+```python
+# TODO: Put in mocked examples of client performing basic functions.
 ```
-1+1
-```
 
+## View Jobs
 
+## Download and Upload Files
 
-
-    2
-
-
+## Trigger Workflows and Fetch Results

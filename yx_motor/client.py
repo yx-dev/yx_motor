@@ -13,10 +13,8 @@ from .files import Files
 
 class Client:
     "Wrapper for Alteryx Server API."
-    def __init__(self,
-                 base_url: str,
-                 login_email: str,
-                 login_pwd: str):
+
+    def __init__(self, base_url: str, login_email: str, login_pwd: str):
         """Initialize a yx_motor client object."""
         self.base_url = base_url
         self.api_url = f"{base_url}api/v1/"
@@ -33,15 +31,15 @@ class Client:
             "Accept-Encoding": "gzip,deflate",
         }
 
-        self.api = API(api_url=self.api_url,
-                       headers=self.headers)
+        self.api = API(api_url=self.api_url, headers=self.headers)
 
         self.authenticate = Authenticate(self.api)
         self.jobs = Jobs(self.api)
         self.files = Files(self.api)
 
-        self.authenticate.authenticate(login_email=self.login_email,
-                                       login_pwd=self.login_pwd)
+        self.authenticate.authenticate(
+            login_email=self.login_email, login_pwd=self.login_pwd
+        )
 
     def get_users(self):
         response = self.api.get("users")

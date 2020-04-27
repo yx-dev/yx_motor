@@ -9,9 +9,7 @@ import functools
 import requests
 
 # TODO: Break this out into import
-logger = SimpleNamespace(
-    debug=print
-)
+logger = SimpleNamespace(debug=print)
 
 default_headers = {
     "Content-Type": "application/json",
@@ -24,6 +22,7 @@ default_headers = {
 # TODO: Wrap this one layer deeper and allow for
 # passing in a custom logging function as a parameterized
 # decorator.
+
 
 def log_request(func):
     @functools.wraps(func)
@@ -40,6 +39,7 @@ def log_request(func):
                 f"Response Status: {response.status_code}"
             )
         return response
+
     return wrapper
 
 
@@ -61,15 +61,17 @@ class API(object):
         template = "{}{}" if url.startswith("/") else "{}/{}"
         return template.format(api_url, url)
 
-    def _post(self,
-             url,
-             json=None,
-             params=None,
-             files=None,
-             data=None,
-             cookies=None,
-             verify=False,
-             non_default_headers=None):
+    def _post(
+        self,
+        url,
+        json=None,
+        params=None,
+        files=None,
+        data=None,
+        cookies=None,
+        verify=False,
+        non_default_headers=None,
+    ):
         if not cookies:
             cookies = self.jar
         path = self.get_path(url)
@@ -79,14 +81,16 @@ class API(object):
         else:
             headers = self.headers
 
-        response = requests.post(path,
-                                 json=json,
-                                 params=params,
-                                 headers=headers,
-                                 files=files,
-                                 data=data,
-                                 cookies=cookies,
-                                 verify=verify)
+        response = requests.post(
+            path,
+            json=json,
+            params=params,
+            headers=headers,
+            files=files,
+            data=data,
+            cookies=cookies,
+            verify=verify,
+        )
 
         return response
 
@@ -113,14 +117,16 @@ class API(object):
         if not cookies:
             cookies = self.jar
         path = self.get_path(url)
-        response = requests.get(path,
-                                params=params,
-                                headers=self.headers,
-                                json=json,
-                                files=files,
-                                data=data,
-                                cookies=cookies,
-                                verify=verify)
+        response = requests.get(
+            path,
+            params=params,
+            headers=self.headers,
+            json=json,
+            files=files,
+            data=data,
+            cookies=cookies,
+            verify=verify,
+        )
         return response
 
     def _delete(self, url, json=None, params=None):
