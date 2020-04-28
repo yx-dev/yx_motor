@@ -79,7 +79,7 @@ class Files:
         self,
         source_path: str,
         target_path: str,
-        move_type="move",
+        move_type="moveFiles",
         versions_action="ALL_VERSIONS",
         conflicts_action="SKIP",
     ):
@@ -88,12 +88,11 @@ class Files:
             "assets": [
                 {"sourcePath": f"{source_path}", "targetPath": f"{target_path}"}
             ],
-            "targetPath": "string",
             "versionsAction": f"{versions_action}",
             "conflictsAction": f"{conflicts_action}",
         }
 
-        response = self.api.post(url=f"{self.base_endpoint}{move_type}", data=payload)
+        response = self.api.post(url=f"{self.base_endpoint}{move_type}", json=payload)
         return response
 
     def restore_deleted_file(self, asset_path: str = None, asset_id: str = None):
@@ -103,9 +102,10 @@ class Files:
             asset_paths = {"assetPaths": [f"{asset_path}"]}
         if asset_id:
             asset_ids = {"assetIds": [f"{asset_id}"]}
-        payload = {**asset_paths, **asset_ids, **{"onlyDescendants": True}}
+        payload = {**asset_paths, **asset_ids}
+        #Does onlyDescendants have other values besides True?
         response = self.api.post(
-            url=f"{self.base_endpoint}restoreDeleted", data=payload
+            url=f"{self.base_endpoint}restoreDeleted", json=payload
         )
         return response
 
