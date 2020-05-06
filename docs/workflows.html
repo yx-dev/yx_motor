@@ -59,18 +59,6 @@ description: "Execute workflows on Server"
 </div>
     {% endraw %}
 
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Development-Scaffolding:-Replace-With-Code-Examples-Later">Development Scaffolding: Replace With Code Examples Later<a class="anchor-link" href="#Development-Scaffolding:-Replace-With-Code-Examples-Later"> </a></h2>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="End-Development-Scaffolding">End Development Scaffolding<a class="anchor-link" href="#End-Development-Scaffolding"> </a></h2>
-</div>
-</div>
-</div>
     {% raw %}
     
 <div class="cell border-box-sizing code_cell rendered">
@@ -120,7 +108,7 @@ description: "Execute workflows on Server"
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">asset_uid</span> <span class="o">=</span> <span class="s1">&#39;045ae8fa-18df-4a55-8c41-89c23d80f588&#39;</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">asset_uid</span> <span class="o">=</span> <span class="n">questions_wf_uuid</span>
 </pre></div>
 
     </div>
@@ -146,6 +134,16 @@ description: "Execute workflows on Server"
 
 <div class="output_wrapper">
 <div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>POST sent to: https://test.aep-mono.devops.alteryx.com/api/v1/workflows/473e09c3-9a30-4e84-b5ee-04ed6f4d586b/questions
+with headers: {&#39;User-Agent&#39;: &#39;python-requests/2.23.0&#39;, &#39;Accept-Encoding&#39;: &#39;gzip,deflate&#39;, &#39;Accept&#39;: &#39;*/*&#39;, &#39;Connection&#39;: &#39;keep-alive&#39;, &#39;Content-Type&#39;: &#39;application/json&#39;, &#39;Accept-Language&#39;: &#39;en-US,en;q=0.5&#39;, &#39;Cookie&#39;: &#39;ayxSession=s%3Aa9a20c88-e0c5-4639-ba6e-1b05f2c5a067.hsEwETIipdYRtBcRPkjvo8KEXMYVPiwQfetSG9gBq0s&#39;, &#39;Content-Length&#39;: &#39;0&#39;}
+Response Status: 200
+</pre>
+</div>
+</div>
 
 <div class="output_area">
 
@@ -277,6 +275,16 @@ description: "Execute workflows on Server"
 
 <div class="output_area">
 
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>GET sent to: https://test.aep-mono.devops.alteryx.com/api/v1/workflows/473e09c3-9a30-4e84-b5ee-04ed6f4d586b/vfsInputs
+with headers: {&#39;User-Agent&#39;: &#39;python-requests/2.23.0&#39;, &#39;Accept-Encoding&#39;: &#39;gzip,deflate&#39;, &#39;Accept&#39;: &#39;*/*&#39;, &#39;Connection&#39;: &#39;keep-alive&#39;, &#39;Content-Type&#39;: &#39;application/json&#39;, &#39;Accept-Language&#39;: &#39;en-US,en;q=0.5&#39;, &#39;Cookie&#39;: &#39;ayxSession=s%3Aa9a20c88-e0c5-4639-ba6e-1b05f2c5a067.hsEwETIipdYRtBcRPkjvo8KEXMYVPiwQfetSG9gBq0s&#39;}
+Response Status: 200
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
 
 
 <div class="output_text output_subarea output_execute_result">
@@ -336,6 +344,16 @@ description: "Execute workflows on Server"
 
 <div class="output_area">
 
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>GET sent to: https://test.aep-mono.devops.alteryx.com/api/v1/workflows/473e09c3-9a30-4e84-b5ee-04ed6f4d586b/dependencies
+with headers: {&#39;User-Agent&#39;: &#39;python-requests/2.23.0&#39;, &#39;Accept-Encoding&#39;: &#39;gzip,deflate&#39;, &#39;Accept&#39;: &#39;*/*&#39;, &#39;Connection&#39;: &#39;keep-alive&#39;, &#39;Content-Type&#39;: &#39;application/json&#39;, &#39;Accept-Language&#39;: &#39;en-US,en;q=0.5&#39;, &#39;Cookie&#39;: &#39;ayxSession=s%3Aa9a20c88-e0c5-4639-ba6e-1b05f2c5a067.hsEwETIipdYRtBcRPkjvo8KEXMYVPiwQfetSG9gBq0s&#39;}
+Response Status: 200
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
 
 
 <div class="output_text output_subarea output_execute_result">
@@ -376,6 +394,35 @@ Returns a schedule object.</p>
 </div>
     {% endraw %}
 
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>Arguments</strong>:</p>
+<ul>
+<li>asset_id: Unique VFS identifier for the workflow you want to execute.</li>
+<li>schedule_name: Optional: Name of the schedule that will be created when workflow execution is triggered.</li>
+<li>vfs_inputs: TODO, need to research this more and test it.</li>
+</ul>
+
+</div>
+</div>
+</div>
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">asset_uid</span> <span class="o">=</span> <span class="n">questions_wf_uuid</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
     {% raw %}
     
 <div class="cell border-box-sizing code_cell rendered">
@@ -384,7 +431,8 @@ Returns a schedule object.</p>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">workflows</span> <span class="o">=</span> <span class="n">Workflows</span><span class="p">(</span><span class="n">dev_client</span><span class="o">.</span><span class="n">api</span><span class="p">)</span>
-<span class="n">workflows</span><span class="o">.</span><span class="n">run_workflow</span><span class="p">(</span><span class="n">asset_id</span><span class="o">=</span><span class="n">asset_uid</span><span class="p">,</span> <span class="n">schedule_name</span><span class="o">=</span><span class="s2">&quot;jp_client_test&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+<span class="n">workflows</span><span class="o">.</span><span class="n">run_workflow</span><span class="p">(</span><span class="n">asset_id</span><span class="o">=</span><span class="n">asset_uid</span><span class="p">,</span>
+                       <span class="n">schedule_name</span><span class="o">=</span><span class="s2">&quot;jp_client_test&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
 </pre></div>
 
     </div>
@@ -396,13 +444,23 @@ Returns a schedule object.</p>
 
 <div class="output_area">
 
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>POST sent to: https://test.aep-mono.devops.alteryx.com/api/v1/workflows/run
+with headers: {&#39;User-Agent&#39;: &#39;python-requests/2.23.0&#39;, &#39;Accept-Encoding&#39;: &#39;gzip,deflate&#39;, &#39;Accept&#39;: &#39;*/*&#39;, &#39;Connection&#39;: &#39;keep-alive&#39;, &#39;Content-Type&#39;: &#39;application/json&#39;, &#39;Accept-Language&#39;: &#39;en-US,en;q=0.5&#39;, &#39;Cookie&#39;: &#39;ayxSession=s%3A00c3bae2-9735-4fdb-8ae4-4b57f27c738f.ZGV%2Fvd7nTS%2FwwrK1g5QmdthQ5vHpi8JV6vxiQV%2BohCE&#39;, &#39;Content-Length&#39;: &#39;91&#39;}
+Response Status: 200
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>{&#39;scheduleId&#39;: &#39;4e8ea156-a52f-4c37-baaa-b726d278ab56&#39;,
+<pre>{&#39;scheduleId&#39;: &#39;76ea8585-839d-444c-9f99-7c2abb526932&#39;,
  &#39;name&#39;: &#39;jp_client_test&#39;,
- &#39;userId&#39;: &#39;62ee25c6-588c-4183-8833-32dc3be8a40e&#39;,
- &#39;assetId&#39;: &#39;045ae8fa-18df-4a55-8c41-89c23d80f588&#39;,
+ &#39;userId&#39;: &#39;352d4b64-1477-4f46-a9fe-b29031639783&#39;,
+ &#39;assetId&#39;: &#39;275bfa23-f718-4a19-a587-f45c33bebaba&#39;,
  &#39;assetVersion&#39;: None,
  &#39;runAsId&#39;: None,
  &#39;toolConnections&#39;: None,
@@ -417,18 +475,215 @@ Returns a schedule object.</p>
  &#39;isDisabled&#39;: False,
  &#39;isDeleted&#39;: False,
  &#39;comment&#39;: None,
- &#39;siteId&#39;: &#39;315437a6-7200-4e6c-bf97-22f12d841d90&#39;,
+ &#39;siteId&#39;: &#39;9964463b-7c64-42c8-856f-38b93bd14c42&#39;,
  &#39;parameters&#39;: {&#39;runMode&#39;: 0},
  &#39;analyticAppAnswers&#39;: None,
  &#39;inputFiles&#39;: None,
- &#39;creationDate&#39;: &#39;2020-04-17T18:24:25.627Z&#39;,
- &#39;lastUpdate&#39;: &#39;2020-04-17T18:24:25.627Z&#39;,
+ &#39;creationDate&#39;: &#39;2020-05-05T20:15:06.436Z&#39;,
+ &#39;lastUpdate&#39;: &#39;2020-05-05T20:15:06.436Z&#39;,
  &#39;outputLocation&#39;: None,
  &#39;timezone&#39;: &#39;UTC&#39;,
  &#39;utcOffset&#39;: 0,
  &#39;priority&#39;: 50}</pre>
 </div>
 
+</div>
+
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">workflows</span> <span class="o">=</span> <span class="n">Workflows</span><span class="p">(</span><span class="n">dev_client</span><span class="o">.</span><span class="n">api</span><span class="p">)</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">workflows</span><span class="o">.</span><span class="n">run_workflow</span><span class="p">(</span><span class="n">asset_id</span><span class="o">=</span><span class="n">asset_uid</span><span class="p">,</span>
+                       <span class="n">schedule_name</span><span class="o">=</span><span class="s2">&quot;jp_client_test&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>POST sent to: https://test.aep-mono.devops.alteryx.com/api/v1/workflows/run
+with headers: {&#39;User-Agent&#39;: &#39;python-requests/2.23.0&#39;, &#39;Accept-Encoding&#39;: &#39;gzip,deflate&#39;, &#39;Accept&#39;: &#39;*/*&#39;, &#39;Connection&#39;: &#39;keep-alive&#39;, &#39;Content-Type&#39;: &#39;application/json&#39;, &#39;Accept-Language&#39;: &#39;en-US,en;q=0.5&#39;, &#39;Cookie&#39;: &#39;ayxSession=s%3A00c3bae2-9735-4fdb-8ae4-4b57f27c738f.ZGV%2Fvd7nTS%2FwwrK1g5QmdthQ5vHpi8JV6vxiQV%2BohCE&#39;, &#39;Content-Length&#39;: &#39;91&#39;}
+Response Status: 200
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">schedule_id</span> <span class="o">=</span> <span class="n">response</span><span class="p">[</span><span class="s1">&#39;scheduleId&#39;</span><span class="p">]</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">workflow_job</span> <span class="o">=</span> <span class="n">dev_client</span><span class="o">.</span><span class="n">jobs</span><span class="o">.</span><span class="n">get_job</span><span class="p">(</span><span class="n">params</span><span class="o">=</span><span class="p">{</span>
+    <span class="s2">&quot;scheduleId&quot;</span><span class="p">:</span> <span class="n">schedule_id</span>
+<span class="p">})</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>GET sent to: https://test.aep-mono.devops.alteryx.com/api/v1/jobs/?scheduleId=e93143aa-9be8-407b-8740-03360a81ae1b
+with headers: {&#39;User-Agent&#39;: &#39;python-requests/2.23.0&#39;, &#39;Accept-Encoding&#39;: &#39;gzip,deflate&#39;, &#39;Accept&#39;: &#39;*/*&#39;, &#39;Connection&#39;: &#39;keep-alive&#39;, &#39;Content-Type&#39;: &#39;application/json&#39;, &#39;Accept-Language&#39;: &#39;en-US,en;q=0.5&#39;, &#39;Cookie&#39;: &#39;ayxSession=s%3A00c3bae2-9735-4fdb-8ae4-4b57f27c738f.ZGV%2Fvd7nTS%2FwwrK1g5QmdthQ5vHpi8JV6vxiQV%2BohCE&#39;}
+Response Status: 200
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">workflow_job</span><span class="o">.</span><span class="n">json</span><span class="p">()[</span><span class="s1">&#39;jobs&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;outputs&#39;</span><span class="p">]</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>[{&#39;fileName&#39;: &#39;simple_question_outputs.csv&#39;,
+  &#39;assetId&#39;: &#39;a0038e62-51f3-471a-9c5a-2028787b9e86&#39;,
+  &#39;version&#39;: 5,
+  &#39;permissions&#39;: [&#39;CREATE&#39;, &#39;DELETE&#39;, &#39;DOWNLOAD&#39;, &#39;EDIT&#39;, &#39;OWNER&#39;, &#39;VIEW&#39;],
+  &#39;breadcrumbs&#39;: [&#39;Workspaces&#39;, &#39;Public&#39;, &#39;simple_question_outputs.csv&#39;]}]</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">get_wf_job_output</span><span class="p">(</span><span class="n">wf_job</span><span class="p">:</span> <span class="nb">object</span><span class="p">):</span>
+    <span class="n">jobs_object</span> <span class="o">=</span> <span class="n">wf_job</span><span class="o">.</span><span class="n">json</span><span class="p">()[</span><span class="s1">&#39;jobs&#39;</span><span class="p">]</span>
+    <span class="n">job</span> <span class="o">=</span> <span class="n">jobs_object</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">outputs</span> <span class="o">=</span> <span class="n">job</span><span class="p">[</span><span class="s1">&#39;outputs&#39;</span><span class="p">]</span>
+    <span class="n">output_asset_id_list</span> <span class="o">=</span> <span class="p">[</span><span class="n">file</span><span class="p">[</span><span class="s1">&#39;assetId&#39;</span><span class="p">]</span> <span class="k">for</span> <span class="n">file</span> <span class="ow">in</span> <span class="n">outputs</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">output_asset_id_list</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">output_id</span> <span class="o">=</span> <span class="n">get_wf_job_output</span><span class="p">(</span><span class="n">workflow_job</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">response</span> <span class="o">=</span> <span class="n">dev_client</span><span class="o">.</span><span class="n">files</span><span class="o">.</span><span class="n">download_file</span><span class="p">(</span><span class="n">file_uuid</span><span class="o">=</span><span class="n">output_id</span><span class="p">,</span> 
+                               <span class="n">download_path</span><span class="o">=</span><span class="s1">&#39;wf_output.csv&#39;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>GET sent to: https://test.aep-mono.devops.alteryx.com/api/v1/files/content?id=a0038e62-51f3-471a-9c5a-2028787b9e86
+with headers: {&#39;User-Agent&#39;: &#39;python-requests/2.23.0&#39;, &#39;Accept-Encoding&#39;: &#39;gzip,deflate&#39;, &#39;Accept&#39;: &#39;*/*&#39;, &#39;Connection&#39;: &#39;keep-alive&#39;, &#39;Content-Type&#39;: &#39;application/json&#39;, &#39;Accept-Language&#39;: &#39;en-US,en;q=0.5&#39;, &#39;Cookie&#39;: &#39;ayxSession=s%3A00c3bae2-9735-4fdb-8ae4-4b57f27c738f.ZGV%2Fvd7nTS%2FwwrK1g5QmdthQ5vHpi8JV6vxiQV%2BohCE&#39;}
+Response Status: 200
+</pre>
+</div>
 </div>
 
 </div>
