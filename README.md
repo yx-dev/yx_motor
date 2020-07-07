@@ -16,7 +16,7 @@ Not ready yet.  Will update when we are ready to create a pip module.
 
 Fill me in please! Don't forget code examples:
 
-```python
+```
 # TODO: Put in mocked examples of client performing basic functions.
 ```
 
