@@ -1,7 +1,12 @@
 {
   "yx_motor": {
     "Overview": "/",
-    "module name here": "/core",
-    "Title": "/authenticate"
+    "client": "/client",
+    "jobs": "/jobs",
+    "api": "/api",
+    "authenticate": "/authenticate",
+    "files": "/files",
+    "workflows": "/workflows",
+    "Title": "/integration_tests"
   }
 }

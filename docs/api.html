@@ -1,12 +1,12 @@
 ---
 
-title: Title
+title: api
 
 keywords: fastai
 sidebar: home_sidebar
 
-summary: "summary"
-description: "summary"
+summary: "Wrapper for all requests made to server by various submodules."
+description: "Wrapper for all requests made to server by various submodules."
 ---
 <!--
 
@@ -45,13 +45,90 @@ description: "summary"
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h2 id="API" class="doc_header"><code>class</code> <code>API</code><a href="https://github.com/jesseclarkayx/yx_motor/tree/master/yx_motor/api.py#L17" class="source_link" style="float:right">[source]</a></h2><blockquote><p><code>API</code>(<strong><code>api_url</code></strong>, <strong><code>headers</code></strong>=<em><code>None</code></em>)</p>
+<h4 id="log_request" class="doc_header"><code>log_request</code><a href="https://github.com/jesseclarkayx/yx_motor/tree/master/yx_motor/api.py#L27" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>log_request</code>(<strong><code>func</code></strong>)</p>
 </blockquote>
 
 </div>
 
 </div>
 
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_markdown rendered_html output_subarea ">
+<h2 id="API" class="doc_header"><code>class</code> <code>API</code><a href="https://github.com/jesseclarkayx/yx_motor/tree/master/yx_motor/api.py#L46" class="source_link" style="float:right">[source]</a></h2><blockquote><p><code>API</code>(<strong><code>api_url</code></strong>, <strong><code>headers</code></strong>=<em><code>None</code></em>)</p>
+</blockquote>
+
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;test&quot;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>test
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">dev_api</span> <span class="o">=</span> <span class="n">API</span><span class="p">(</span><span class="n">api_url</span><span class="o">=</span><span class="n">base_url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="p">{</span>
+            <span class="s2">&quot;Content-Type&quot;</span><span class="p">:</span> <span class="s2">&quot;application/json&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;Accept&quot;</span><span class="p">:</span> <span class="s2">&quot;*/*&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;Accept-Language&quot;</span><span class="p">:</span> <span class="s2">&quot;en-US,en;q=0.5&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;Accept-Encoding&quot;</span><span class="p">:</span> <span class="s2">&quot;gzip,deflate&quot;</span><span class="p">,</span>
+        <span class="p">})</span>
+</pre></div>
+
+    </div>
 </div>
 </div>
 

@@ -1,12 +1,12 @@
 ---
 
-title: Title
+title: jobs
 
 keywords: fastai
 sidebar: home_sidebar
 
-summary: "summary"
-description: "summary"
+summary: "Handles tracking and managing jobs on server."
+description: "Handles tracking and managing jobs on server."
 ---
 <!--
 
@@ -47,7 +47,7 @@ description: "summary"
 <div class="output_markdown rendered_html output_subarea ">
 <h2 id="Jobs" class="doc_header"><code>class</code> <code>Jobs</code><a href="" class="source_link" style="float:right">[source]</a></h2><blockquote><p><code>Jobs</code>(<strong><code>api</code></strong>:<a href="/yx_motor/api#API"><code>API</code></a>)</p>
 </blockquote>
-<p>class for all supported jobs APIs</p>
+<p>Class for tracking and managing jobs</p>
 
 </div>
 
@@ -70,7 +70,7 @@ description: "summary"
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="Jobs.get_job" class="doc_header"><code>Jobs.get_job</code><a href="__main__.py#L11" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>Jobs.get_job</code>(<strong><code>jobid</code></strong>=<em><code>''</code></em>)</p>
+<h4 id="Jobs.get_job" class="doc_header"><code>Jobs.get_job</code><a href="__main__.py#L14" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>Jobs.get_job</code>(<strong><code>job_id</code></strong>:<code>str</code>=<em><code>''</code></em>, <strong><code>params</code></strong>=<em><code>None</code></em>)</p>
 </blockquote>
 
 </div>
@@ -83,6 +83,17 @@ description: "summary"
 </div>
     {% endraw %}
 
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Fetch all jobs for the authenticated user, or optionally a specific job if job_id is passed.</p>
+<p><strong>Arguments</strong>:</p>
+<ul>
+<li>job_id (Optional): The unique identifier for an AAH job.  If no job_id is passed, all jobs for the user will be returned.</li>
+</ul>
+
+</div>
+</div>
+</div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>Jobs object is intended to be initialized within the client object which passes it an API object. Note that we are doing this for unit test and example purposes</p>
@@ -107,6 +118,19 @@ description: "summary"
 </div>
     {% endraw %}
 
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="Fetch-All-Jobs-for-Current-User">Fetch All Jobs for Current User<a class="anchor-link" href="#Fetch-All-Jobs-for-Current-User"> </a></h4>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>First, let's call the get_job method without a job_id passed to it.  This will return all jobs for a given user.</p>
+
+</div>
+</div>
+</div>
     {% raw %}
     
 <div class="cell border-box-sizing code_cell rendered">
@@ -127,276 +151,339 @@ description: "summary"
 
 <div class="output_area">
 
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>GET sent to: https://test.aep-mono.devops.alteryx.com/api/v1/jobs/
+with headers: {&#39;User-Agent&#39;: &#39;python-requests/2.23.0&#39;, &#39;Accept-Encoding&#39;: &#39;gzip,deflate&#39;, &#39;Accept&#39;: &#39;*/*&#39;, &#39;Connection&#39;: &#39;keep-alive&#39;, &#39;Content-Type&#39;: &#39;application/json&#39;, &#39;Accept-Language&#39;: &#39;en-US,en;q=0.5&#39;, &#39;Cookie&#39;: &#39;ayxSession=s%3Ad11557f7-e9b1-4bff-b881-6db10120c31e.JOuyBVy9PwXUTe%2Fd%2BNj07blgt4R2stkAyqzxgvWPom0&#39;}
+Response Status: 200
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>{&#39;jobs&#39;: [{&#39;jobId&#39;: &#39;845ace15-cfca-46f6-89c5-83cdf9c217a0&#39;,
+<pre>{&#39;jobs&#39;: [{&#39;jobId&#39;: &#39;fd0c2e1b-30cd-4567-a2f9-8ea2c4d28679&#39;,
    &#39;workerId&#39;: &#39;3b0d8827-c3a9-4e1d-ba77-304d339c71a6&#39;,
-   &#39;scheduleId&#39;: &#39;c68a62f6-24dd-47b6-ac5c-840323d0f75b&#39;,
+   &#39;scheduleId&#39;: &#39;9b60e020-1f81-4d8f-aae0-e54bdb3d5a92&#39;,
    &#39;executionOrdinal&#39;: 1,
-   &#39;queuedDate&#39;: &#39;2020-04-07T14:01:11.890Z&#39;,
-   &#39;scheduledStartDate&#39;: &#39;2020-04-07T14:01:11.890Z&#39;,
-   &#39;actualStartDate&#39;: &#39;2020-04-07T14:01:12.741Z&#39;,
-   &#39;completionDate&#39;: &#39;2020-04-07T14:02:18.607Z&#39;,
-   &#39;runTime&#39;: 66,
-   &#39;status&#39;: &#39;completed&#39;,
-   &#39;result&#39;: &#39;warning&#39;,
-   &#39;siteId&#39;: &#39;bbb722b8-b902-4371-a87a-a8c79cbf1984&#39;,
-   &#39;creationDate&#39;: &#39;2020-04-07T14:01:11.879Z&#39;,
-   &#39;lastUpdate&#39;: &#39;2020-04-07T14:02:18.595Z&#39;,
-   &#39;assetVersion&#39;: 1,
-   &#39;retryCount&#39;: 0,
-   &#39;notes&#39;: None,
-   &#39;priority&#39;: 50,
-   &#39;jobNo&#39;: 9,
-   &#39;name&#39;: &#39;oracle_loader.yxzp&#39;,
-   &#39;userId&#39;: &#39;e1dbac67-cefb-4acb-aeb6-6761b0e41c3e&#39;,
-   &#39;assetId&#39;: &#39;ce9ab2b9-353b-44f2-a825-45b3f40ce058&#39;,
-   &#39;type&#39;: &#39;immediate&#39;,
-   &#39;frequencyInterval&#39;: &#39;manual&#39;,
-   &#39;outputs&#39;: []},
-  {&#39;jobId&#39;: &#39;5bb5bfc3-dc33-4828-b38d-3023370e5746&#39;,
-   &#39;workerId&#39;: &#39;3b0d8827-c3a9-4e1d-ba77-304d339c71a6&#39;,
-   &#39;scheduleId&#39;: &#39;770de2d1-e948-4cfc-9782-68c80f4c1db4&#39;,
-   &#39;executionOrdinal&#39;: 1,
-   &#39;queuedDate&#39;: &#39;2020-04-07T10:23:11.272Z&#39;,
-   &#39;scheduledStartDate&#39;: &#39;2020-04-07T10:23:11.272Z&#39;,
-   &#39;actualStartDate&#39;: &#39;2020-04-07T10:23:12.852Z&#39;,
-   &#39;completionDate&#39;: &#39;2020-04-07T10:23:13.069Z&#39;,
-   &#39;runTime&#39;: 0,
+   &#39;queuedDate&#39;: &#39;2020-04-29T19:40:56.806Z&#39;,
+   &#39;scheduledStartDate&#39;: &#39;2020-04-29T19:40:56.806Z&#39;,
+   &#39;actualStartDate&#39;: &#39;2020-04-29T19:40:59.237Z&#39;,
+   &#39;completionDate&#39;: &#39;2020-04-29T19:41:15.966Z&#39;,
+   &#39;runTime&#39;: 17,
    &#39;status&#39;: &#39;completed&#39;,
    &#39;result&#39;: &#39;success&#39;,
-   &#39;siteId&#39;: &#39;bbb722b8-b902-4371-a87a-a8c79cbf1984&#39;,
-   &#39;creationDate&#39;: &#39;2020-04-07T10:23:11.246Z&#39;,
-   &#39;lastUpdate&#39;: &#39;2020-04-07T10:23:13.065Z&#39;,
+   &#39;siteId&#39;: &#39;bdf81e7c-90ef-4a78-beb5-56bf3f6189fa&#39;,
+   &#39;creationDate&#39;: &#39;2020-04-29T19:40:56.798Z&#39;,
+   &#39;lastUpdate&#39;: &#39;2020-04-29T19:41:15.914Z&#39;,
    &#39;assetVersion&#39;: 1,
    &#39;retryCount&#39;: 0,
    &#39;notes&#39;: None,
    &#39;priority&#39;: 100,
-   &#39;jobNo&#39;: 2,
-   &#39;name&#39;: &#39;New Workflow1.yxmd&#39;,
-   &#39;userId&#39;: &#39;bda670a4-2009-452a-b330-f55978fb5525&#39;,
-   &#39;assetId&#39;: &#39;9b75b3d8-56c1-4ce6-bfe1-9aabaea1e65f&#39;,
+   &#39;jobNo&#39;: 33,
+   &#39;runStatus&#39;: &#39;completed&#39;,
+   &#39;name&#39;: &#39;New%20Workflow4.yxzp&#39;,
+   &#39;userId&#39;: &#39;8a8c0f7f-c48f-4b41-bb23-e0b3e69111a9&#39;,
+   &#39;assetId&#39;: &#39;1b6e8946-74dd-4845-a31f-e3d9c3f85545&#39;,
    &#39;type&#39;: &#39;validation&#39;,
    &#39;frequencyInterval&#39;: &#39;manual&#39;,
    &#39;outputs&#39;: []},
-  {&#39;jobId&#39;: &#39;70eb2c26-63e9-4727-8bca-d4640b5d0d31&#39;,
+  {&#39;jobId&#39;: &#39;8e4d620e-b604-48b9-9ea4-1ee553ae0b78&#39;,
    &#39;workerId&#39;: &#39;3b0d8827-c3a9-4e1d-ba77-304d339c71a6&#39;,
-   &#39;scheduleId&#39;: &#39;04d7841d-ff89-4a41-b1c0-aed9974cbc13&#39;,
+   &#39;scheduleId&#39;: &#39;acc080b8-85f2-4444-a8d6-0a45efaed09e&#39;,
    &#39;executionOrdinal&#39;: 1,
-   &#39;queuedDate&#39;: &#39;2020-04-07T10:18:30.847Z&#39;,
-   &#39;scheduledStartDate&#39;: &#39;2020-04-07T10:18:30.847Z&#39;,
-   &#39;actualStartDate&#39;: &#39;2020-04-07T10:22:00.556Z&#39;,
-   &#39;completionDate&#39;: &#39;2020-04-07T10:22:04.675Z&#39;,
-   &#39;runTime&#39;: 4,
+   &#39;queuedDate&#39;: &#39;2020-04-29T20:58:38.081Z&#39;,
+   &#39;scheduledStartDate&#39;: &#39;2020-04-29T20:58:38.081Z&#39;,
+   &#39;actualStartDate&#39;: &#39;2020-04-29T20:58:39.049Z&#39;,
+   &#39;completionDate&#39;: &#39;2020-04-29T20:58:40.550Z&#39;,
+   &#39;runTime&#39;: 2,
    &#39;status&#39;: &#39;completed&#39;,
    &#39;result&#39;: &#39;success&#39;,
-   &#39;siteId&#39;: &#39;bbb722b8-b902-4371-a87a-a8c79cbf1984&#39;,
-   &#39;creationDate&#39;: &#39;2020-04-07T10:18:30.856Z&#39;,
-   &#39;lastUpdate&#39;: &#39;2020-04-07T10:22:04.654Z&#39;,
+   &#39;siteId&#39;: &#39;bdf81e7c-90ef-4a78-beb5-56bf3f6189fa&#39;,
+   &#39;creationDate&#39;: &#39;2020-04-29T20:58:37.993Z&#39;,
+   &#39;lastUpdate&#39;: &#39;2020-04-29T20:58:40.485Z&#39;,
+   &#39;assetVersion&#39;: 1,
+   &#39;retryCount&#39;: 0,
+   &#39;notes&#39;: None,
+   &#39;priority&#39;: 50,
+   &#39;jobNo&#39;: 37,
+   &#39;runStatus&#39;: &#39;completed&#39;,
+   &#39;name&#39;: &#39;Job name&#39;,
+   &#39;userId&#39;: &#39;244d1d37-1438-4846-aa5d-ba0a58c4eccf&#39;,
+   &#39;assetId&#39;: &#39;238209fc-a13a-4469-97b5-5dd47e4461a3&#39;,
+   &#39;type&#39;: &#39;immediate&#39;,
+   &#39;frequencyInterval&#39;: &#39;manual&#39;,
+   &#39;outputs&#39;: [{&#39;fileName&#39;: &#39;states.csv&#39;,
+     &#39;assetId&#39;: &#39;ead6e7c4-cfb9-4dec-a8b6-9b023989991a&#39;,
+     &#39;version&#39;: 2,
+     &#39;permissions&#39;: [&#39;CREATE&#39;, &#39;DELETE&#39;, &#39;DOWNLOAD&#39;, &#39;EDIT&#39;, &#39;OWNER&#39;, &#39;VIEW&#39;],
+     &#39;breadcrumbs&#39;: [&#39;users&#39;, &#39;siteadmin1&#39;, &#39;states.csv&#39;]}]},
+  {&#39;jobId&#39;: &#39;c4ec3a86-b621-4ae8-bfb1-7e8dc286fa69&#39;,
+   &#39;workerId&#39;: &#39;3b0d8827-c3a9-4e1d-ba77-304d339c71a6&#39;,
+   &#39;scheduleId&#39;: &#39;6dc6cb3c-6156-4bcf-8930-5b8aef7b56f9&#39;,
+   &#39;executionOrdinal&#39;: 1,
+   &#39;queuedDate&#39;: &#39;2020-04-29T20:58:28.914Z&#39;,
+   &#39;scheduledStartDate&#39;: &#39;2020-04-29T20:58:28.914Z&#39;,
+   &#39;actualStartDate&#39;: &#39;2020-04-29T20:58:30.805Z&#39;,
+   &#39;completionDate&#39;: &#39;2020-04-29T20:58:32.583Z&#39;,
+   &#39;runTime&#39;: 2,
+   &#39;status&#39;: &#39;completed&#39;,
+   &#39;result&#39;: &#39;success&#39;,
+   &#39;siteId&#39;: &#39;bdf81e7c-90ef-4a78-beb5-56bf3f6189fa&#39;,
+   &#39;creationDate&#39;: &#39;2020-04-29T20:58:28.848Z&#39;,
+   &#39;lastUpdate&#39;: &#39;2020-04-29T20:58:32.517Z&#39;,
+   &#39;assetVersion&#39;: 1,
+   &#39;retryCount&#39;: 0,
+   &#39;notes&#39;: None,
+   &#39;priority&#39;: 50,
+   &#39;jobNo&#39;: 36,
+   &#39;runStatus&#39;: &#39;completed&#39;,
+   &#39;name&#39;: &#39;Schedule&#39;,
+   &#39;userId&#39;: &#39;244d1d37-1438-4846-aa5d-ba0a58c4eccf&#39;,
+   &#39;assetId&#39;: &#39;238209fc-a13a-4469-97b5-5dd47e4461a3&#39;,
+   &#39;type&#39;: &#39;once&#39;,
+   &#39;frequencyInterval&#39;: &#39;once&#39;,
+   &#39;outputs&#39;: [{&#39;fileName&#39;: &#39;states.csv&#39;,
+     &#39;assetId&#39;: &#39;ead6e7c4-cfb9-4dec-a8b6-9b023989991a&#39;,
+     &#39;version&#39;: 1,
+     &#39;permissions&#39;: [&#39;CREATE&#39;, &#39;DELETE&#39;, &#39;DOWNLOAD&#39;, &#39;EDIT&#39;, &#39;OWNER&#39;, &#39;VIEW&#39;],
+     &#39;breadcrumbs&#39;: [&#39;users&#39;, &#39;siteadmin1&#39;, &#39;states.csv&#39;]}]},
+  {&#39;jobId&#39;: &#39;b3645834-1fd1-4f99-891b-d74330418f6b&#39;,
+   &#39;workerId&#39;: &#39;3b0d8827-c3a9-4e1d-ba77-304d339c71a6&#39;,
+   &#39;scheduleId&#39;: &#39;a04a7ede-112c-4658-bfee-e0bb767972ff&#39;,
+   &#39;executionOrdinal&#39;: 1,
+   &#39;queuedDate&#39;: &#39;2020-04-29T12:38:47.115Z&#39;,
+   &#39;scheduledStartDate&#39;: &#39;2020-04-29T12:38:47.115Z&#39;,
+   &#39;actualStartDate&#39;: &#39;2020-04-29T12:38:49.031Z&#39;,
+   &#39;completionDate&#39;: &#39;2020-04-29T12:40:30.936Z&#39;,
+   &#39;runTime&#39;: 102,
+   &#39;status&#39;: &#39;completed&#39;,
+   &#39;result&#39;: &#39;success&#39;,
+   &#39;siteId&#39;: &#39;bdf81e7c-90ef-4a78-beb5-56bf3f6189fa&#39;,
+   &#39;creationDate&#39;: &#39;2020-04-29T12:38:47.106Z&#39;,
+   &#39;lastUpdate&#39;: &#39;2020-04-29T12:40:30.918Z&#39;,
+   &#39;assetVersion&#39;: 1,
+   &#39;retryCount&#39;: 0,
+   &#39;notes&#39;: None,
+   &#39;priority&#39;: 50,
+   &#39;jobNo&#39;: 4,
+   &#39;runStatus&#39;: &#39;completed&#39;,
+   &#39;name&#39;: &#39;oracle_loader.yxzp&#39;,
+   &#39;userId&#39;: &#39;244d1d37-1438-4846-aa5d-ba0a58c4eccf&#39;,
+   &#39;assetId&#39;: &#39;0ad2b873-3bbc-4d07-85ba-9319d4dcef9f&#39;,
+   &#39;type&#39;: &#39;immediate&#39;,
+   &#39;frequencyInterval&#39;: &#39;manual&#39;,
+   &#39;outputs&#39;: []},
+  {&#39;jobId&#39;: &#39;dc53cb46-563b-45c4-81e8-54e895d9d990&#39;,
+   &#39;workerId&#39;: &#39;3b0d8827-c3a9-4e1d-ba77-304d339c71a6&#39;,
+   &#39;scheduleId&#39;: &#39;eadd2025-1b02-4711-8801-33f215511d5b&#39;,
+   &#39;executionOrdinal&#39;: 1,
+   &#39;queuedDate&#39;: &#39;2020-04-29T12:37:03.860Z&#39;,
+   &#39;scheduledStartDate&#39;: &#39;2020-04-29T12:37:03.860Z&#39;,
+   &#39;actualStartDate&#39;: None,
+   &#39;completionDate&#39;: None,
+   &#39;runTime&#39;: None,
+   &#39;status&#39;: &#39;running&#39;,
+   &#39;result&#39;: &#39;unknown&#39;,
+   &#39;siteId&#39;: &#39;bdf81e7c-90ef-4a78-beb5-56bf3f6189fa&#39;,
+   &#39;creationDate&#39;: &#39;2020-04-29T12:37:03.857Z&#39;,
+   &#39;lastUpdate&#39;: &#39;2020-04-29T12:37:04.397Z&#39;,
+   &#39;assetVersion&#39;: 1,
+   &#39;retryCount&#39;: 0,
+   &#39;notes&#39;: None,
+   &#39;priority&#39;: 50,
+   &#39;jobNo&#39;: 3,
+   &#39;runStatus&#39;: &#39;running&#39;,
+   &#39;name&#39;: &#39;files_loader.yxzp&#39;,
+   &#39;userId&#39;: &#39;244d1d37-1438-4846-aa5d-ba0a58c4eccf&#39;,
+   &#39;assetId&#39;: &#39;b05c1b14-e4dd-4d8d-a264-9cb8094b3bac&#39;,
+   &#39;type&#39;: &#39;immediate&#39;,
+   &#39;frequencyInterval&#39;: &#39;manual&#39;,
+   &#39;outputs&#39;: []},
+  {&#39;jobId&#39;: &#39;2e3f1622-a872-4a4d-9b26-417dc75c1682&#39;,
+   &#39;workerId&#39;: &#39;3b0d8827-c3a9-4e1d-ba77-304d339c71a6&#39;,
+   &#39;scheduleId&#39;: &#39;3be25172-1aff-4472-bb96-cd4204f60db7&#39;,
+   &#39;executionOrdinal&#39;: 1,
+   &#39;queuedDate&#39;: &#39;2020-04-29T10:18:27.041Z&#39;,
+   &#39;scheduledStartDate&#39;: &#39;2020-04-29T10:18:27.041Z&#39;,
+   &#39;actualStartDate&#39;: &#39;2020-04-29T10:18:29.216Z&#39;,
+   &#39;completionDate&#39;: &#39;2020-04-29T10:18:39.931Z&#39;,
+   &#39;runTime&#39;: 11,
+   &#39;status&#39;: &#39;completed&#39;,
+   &#39;result&#39;: &#39;success&#39;,
+   &#39;siteId&#39;: &#39;bdf81e7c-90ef-4a78-beb5-56bf3f6189fa&#39;,
+   &#39;creationDate&#39;: &#39;2020-04-29T10:18:27.027Z&#39;,
+   &#39;lastUpdate&#39;: &#39;2020-04-29T10:18:39.898Z&#39;,
    &#39;assetVersion&#39;: 1,
    &#39;retryCount&#39;: 0,
    &#39;notes&#39;: None,
    &#39;priority&#39;: 50,
    &#39;jobNo&#39;: 1,
+   &#39;runStatus&#39;: &#39;completed&#39;,
    &#39;name&#39;: &#39;SeededOracleWorkflow.yxmd&#39;,
-   &#39;userId&#39;: &#39;e1dbac67-cefb-4acb-aeb6-6761b0e41c3e&#39;,
-   &#39;assetId&#39;: &#39;20838bf5-4bad-400d-aa11-14bb796e0005&#39;,
+   &#39;userId&#39;: &#39;244d1d37-1438-4846-aa5d-ba0a58c4eccf&#39;,
+   &#39;assetId&#39;: &#39;80073ef5-07d8-4d1a-8e08-71da19c6baf5&#39;,
    &#39;type&#39;: &#39;once&#39;,
    &#39;frequencyInterval&#39;: &#39;once&#39;,
    &#39;outputs&#39;: [{&#39;fileName&#39;: &#39;simple_question_outputs.csv&#39;,
-     &#39;assetId&#39;: &#39;7f7b46d6-9640-49e1-9685-2ac3edf0d926&#39;,
+     &#39;assetId&#39;: &#39;8daa137b-0fd7-4486-9bca-2a8fbd2c683c&#39;,
      &#39;version&#39;: 1,
      &#39;permissions&#39;: [&#39;CREATE&#39;, &#39;DELETE&#39;, &#39;DOWNLOAD&#39;, &#39;EDIT&#39;, &#39;OWNER&#39;, &#39;VIEW&#39;],
      &#39;breadcrumbs&#39;: [&#39;users&#39;, &#39;siteadmin1&#39;, &#39;simple_question_outputs.csv&#39;]}]},
-  {&#39;jobId&#39;: &#39;72728503-d1eb-4dc1-b9f7-7731871673f9&#39;,
+  {&#39;jobId&#39;: &#39;12c95584-d059-4011-a8c7-37a665181541&#39;,
    &#39;workerId&#39;: &#39;3b0d8827-c3a9-4e1d-ba77-304d339c71a6&#39;,
-   &#39;scheduleId&#39;: &#39;f50a763a-e8d1-4e34-8365-9a3109fb0009&#39;,
+   &#39;scheduleId&#39;: &#39;daec4333-ed41-438e-bce4-2ca2a5bd26aa&#39;,
    &#39;executionOrdinal&#39;: 1,
-   &#39;queuedDate&#39;: &#39;2020-04-07T10:24:49.432Z&#39;,
-   &#39;scheduledStartDate&#39;: &#39;2020-04-07T10:24:49.432Z&#39;,
-   &#39;actualStartDate&#39;: &#39;2020-04-07T10:24:49.556Z&#39;,
-   &#39;completionDate&#39;: &#39;2020-04-07T10:24:49.776Z&#39;,
-   &#39;runTime&#39;: 0,
+   &#39;queuedDate&#39;: &#39;2020-04-29T12:23:45.911Z&#39;,
+   &#39;scheduledStartDate&#39;: &#39;2020-04-29T12:23:45.911Z&#39;,
+   &#39;actualStartDate&#39;: &#39;2020-04-29T12:23:47.115Z&#39;,
+   &#39;completionDate&#39;: &#39;2020-04-29T12:24:18.585Z&#39;,
+   &#39;runTime&#39;: 31,
    &#39;status&#39;: &#39;completed&#39;,
    &#39;result&#39;: &#39;success&#39;,
-   &#39;siteId&#39;: &#39;bbb722b8-b902-4371-a87a-a8c79cbf1984&#39;,
-   &#39;creationDate&#39;: &#39;2020-04-07T10:24:49.416Z&#39;,
-   &#39;lastUpdate&#39;: &#39;2020-04-07T10:24:49.775Z&#39;,
-   &#39;assetVersion&#39;: 1,
-   &#39;retryCount&#39;: 0,
-   &#39;notes&#39;: None,
-   &#39;priority&#39;: 100,
-   &#39;jobNo&#39;: 3,
-   &#39;name&#39;: &#39;a a.yxmd&#39;,
-   &#39;userId&#39;: &#39;e1dbac67-cefb-4acb-aeb6-6761b0e41c3e&#39;,
-   &#39;assetId&#39;: &#39;d8ffaa9a-c56e-43a9-bbc4-9475319694aa&#39;,
-   &#39;type&#39;: &#39;validation&#39;,
-   &#39;frequencyInterval&#39;: &#39;manual&#39;,
-   &#39;outputs&#39;: []},
-  {&#39;jobId&#39;: &#39;4615db46-8c6e-45a6-a949-8a3679aee319&#39;,
-   &#39;workerId&#39;: &#39;3b0d8827-c3a9-4e1d-ba77-304d339c71a6&#39;,
-   &#39;scheduleId&#39;: &#39;cf000f13-8c38-4769-b89e-36966e44f508&#39;,
-   &#39;executionOrdinal&#39;: 1,
-   &#39;queuedDate&#39;: &#39;2020-04-07T10:46:43.453Z&#39;,
-   &#39;scheduledStartDate&#39;: &#39;2020-04-07T10:46:43.453Z&#39;,
-   &#39;actualStartDate&#39;: &#39;2020-04-07T10:46:44.459Z&#39;,
-   &#39;completionDate&#39;: &#39;2020-04-07T10:47:05.982Z&#39;,
-   &#39;runTime&#39;: 22,
-   &#39;status&#39;: &#39;completed&#39;,
-   &#39;result&#39;: &#39;success&#39;,
-   &#39;siteId&#39;: &#39;bbb722b8-b902-4371-a87a-a8c79cbf1984&#39;,
-   &#39;creationDate&#39;: &#39;2020-04-07T10:46:43.440Z&#39;,
-   &#39;lastUpdate&#39;: &#39;2020-04-07T10:47:05.973Z&#39;,
+   &#39;siteId&#39;: &#39;bdf81e7c-90ef-4a78-beb5-56bf3f6189fa&#39;,
+   &#39;creationDate&#39;: &#39;2020-04-29T12:23:45.902Z&#39;,
+   &#39;lastUpdate&#39;: &#39;2020-04-29T12:24:18.559Z&#39;,
    &#39;assetVersion&#39;: 1,
    &#39;retryCount&#39;: 0,
    &#39;notes&#39;: None,
    &#39;priority&#39;: 50,
-   &#39;jobNo&#39;: 6,
-   &#39;name&#39;: &#39;ChartingToolAEP.yxmd&#39;,
-   &#39;userId&#39;: &#39;e1dbac67-cefb-4acb-aeb6-6761b0e41c3e&#39;,
-   &#39;assetId&#39;: &#39;1706afd7-5c89-4992-8ba8-d723256169ac&#39;,
+   &#39;jobNo&#39;: 2,
+   &#39;runStatus&#39;: &#39;completed&#39;,
+   &#39;name&#39;: &#39;MillionsOfRows.yxmd&#39;,
+   &#39;userId&#39;: &#39;09014d3f-7f84-4752-bb3f-d750b670f500&#39;,
+   &#39;assetId&#39;: &#39;f4d8dc05-fbe9-410e-961d-f1067d528c3b&#39;,
    &#39;type&#39;: &#39;immediate&#39;,
    &#39;frequencyInterval&#39;: &#39;manual&#39;,
-   &#39;outputs&#39;: []},
-  {&#39;jobId&#39;: &#39;13caab67-f476-40e5-b83f-a9133b5d2c36&#39;,
-   &#39;workerId&#39;: &#39;3b0d8827-c3a9-4e1d-ba77-304d339c71a6&#39;,
-   &#39;scheduleId&#39;: &#39;f35f652a-25d9-4e00-a316-95272bd79916&#39;,
-   &#39;executionOrdinal&#39;: 1,
-   &#39;queuedDate&#39;: &#39;2020-04-07T10:46:26.516Z&#39;,
-   &#39;scheduledStartDate&#39;: &#39;2020-04-07T10:46:26.516Z&#39;,
-   &#39;actualStartDate&#39;: &#39;2020-04-07T10:46:28.369Z&#39;,
-   &#39;completionDate&#39;: &#39;2020-04-07T10:46:29.016Z&#39;,
-   &#39;runTime&#39;: 1,
-   &#39;status&#39;: &#39;completed&#39;,
-   &#39;result&#39;: &#39;success&#39;,
-   &#39;siteId&#39;: &#39;bbb722b8-b902-4371-a87a-a8c79cbf1984&#39;,
-   &#39;creationDate&#39;: &#39;2020-04-07T10:46:26.509Z&#39;,
-   &#39;lastUpdate&#39;: &#39;2020-04-07T10:46:29.008Z&#39;,
-   &#39;assetVersion&#39;: 1,
-   &#39;retryCount&#39;: 0,
-   &#39;notes&#39;: None,
-   &#39;priority&#39;: 100,
-   &#39;jobNo&#39;: 5,
-   &#39;name&#39;: &#39;ChartingToolAEP.yxmd&#39;,
-   &#39;userId&#39;: &#39;bda670a4-2009-452a-b330-f55978fb5525&#39;,
-   &#39;assetId&#39;: &#39;1706afd7-5c89-4992-8ba8-d723256169ac&#39;,
-   &#39;type&#39;: &#39;validation&#39;,
-   &#39;frequencyInterval&#39;: &#39;manual&#39;,
-   &#39;outputs&#39;: []},
-  {&#39;jobId&#39;: &#39;e9608f63-8517-41a1-ac5f-488ffa3093e9&#39;,
-   &#39;workerId&#39;: &#39;3b0d8827-c3a9-4e1d-ba77-304d339c71a6&#39;,
-   &#39;scheduleId&#39;: &#39;e633f210-7578-4044-a9cb-4532a4e60e86&#39;,
-   &#39;executionOrdinal&#39;: 1,
-   &#39;queuedDate&#39;: &#39;2020-04-07T18:46:38.543Z&#39;,
-   &#39;scheduledStartDate&#39;: &#39;2020-04-07T18:46:38.543Z&#39;,
-   &#39;actualStartDate&#39;: &#39;2020-04-07T18:46:38.738Z&#39;,
-   &#39;completionDate&#39;: &#39;2020-04-07T18:46:39.355Z&#39;,
-   &#39;runTime&#39;: 1,
-   &#39;status&#39;: &#39;completed&#39;,
-   &#39;result&#39;: &#39;warning&#39;,
-   &#39;siteId&#39;: &#39;bbb722b8-b902-4371-a87a-a8c79cbf1984&#39;,
-   &#39;creationDate&#39;: &#39;2020-04-07T18:46:38.531Z&#39;,
-   &#39;lastUpdate&#39;: &#39;2020-04-07T18:46:39.346Z&#39;,
-   &#39;assetVersion&#39;: 1,
-   &#39;retryCount&#39;: 0,
-   &#39;notes&#39;: None,
-   &#39;priority&#39;: 50,
-   &#39;jobNo&#39;: 21,
-   &#39;name&#39;: &#39;crane_rental_data.yxmd&#39;,
-   &#39;userId&#39;: &#39;e1dbac67-cefb-4acb-aeb6-6761b0e41c3e&#39;,
-   &#39;assetId&#39;: &#39;cbcd1fea-ae54-476c-9a3a-67f89b3bc9f9&#39;,
-   &#39;type&#39;: &#39;immediate&#39;,
-   &#39;frequencyInterval&#39;: &#39;manual&#39;,
-   &#39;outputs&#39;: [{&#39;fileName&#39;: &#39;output_results.csv&#39;,
-     &#39;assetId&#39;: &#39;40776e58-df8d-4713-b1bc-1245f29bf963&#39;,
-     &#39;version&#39;: 5,
-     &#39;permissions&#39;: [&#39;CREATE&#39;, &#39;DELETE&#39;, &#39;DOWNLOAD&#39;, &#39;EDIT&#39;, &#39;OWNER&#39;, &#39;VIEW&#39;],
-     &#39;breadcrumbs&#39;: [&#39;users&#39;, &#39;siteadmin1&#39;, &#39;output_results.csv&#39;]}]},
-  {&#39;jobId&#39;: &#39;106125e9-0482-4f18-9c2f-a0612560160f&#39;,
-   &#39;workerId&#39;: &#39;3b0d8827-c3a9-4e1d-ba77-304d339c71a6&#39;,
-   &#39;scheduleId&#39;: &#39;572eb966-7576-4f99-8a30-02bce5f04159&#39;,
-   &#39;executionOrdinal&#39;: 1,
-   &#39;queuedDate&#39;: &#39;2020-04-07T17:14:27.647Z&#39;,
-   &#39;scheduledStartDate&#39;: &#39;2020-04-07T17:14:27.647Z&#39;,
-   &#39;actualStartDate&#39;: &#39;2020-04-07T17:14:28.887Z&#39;,
-   &#39;completionDate&#39;: &#39;2020-04-07T17:14:29.475Z&#39;,
-   &#39;runTime&#39;: 1,
-   &#39;status&#39;: &#39;completed&#39;,
-   &#39;result&#39;: &#39;success&#39;,
-   &#39;siteId&#39;: &#39;bbb722b8-b902-4371-a87a-a8c79cbf1984&#39;,
-   &#39;creationDate&#39;: &#39;2020-04-07T17:14:27.637Z&#39;,
-   &#39;lastUpdate&#39;: &#39;2020-04-07T17:14:29.467Z&#39;,
-   &#39;assetVersion&#39;: 1,
-   &#39;retryCount&#39;: 0,
-   &#39;notes&#39;: None,
-   &#39;priority&#39;: 50,
-   &#39;jobNo&#39;: 11,
-   &#39;name&#39;: &#39;calculating_profit_margin.yxmd&#39;,
-   &#39;userId&#39;: &#39;e1dbac67-cefb-4acb-aeb6-6761b0e41c3e&#39;,
-   &#39;assetId&#39;: &#39;092bc07c-c187-4f99-93be-2433763f2fe3&#39;,
-   &#39;type&#39;: &#39;immediate&#39;,
-   &#39;frequencyInterval&#39;: &#39;manual&#39;,
-   &#39;outputs&#39;: [{&#39;fileName&#39;: &#39;output_results.csv&#39;,
-     &#39;assetId&#39;: &#39;40776e58-df8d-4713-b1bc-1245f29bf963&#39;,
+   &#39;outputs&#39;: [{&#39;fileName&#39;: &#39;output.yxdb&#39;,
+     &#39;assetId&#39;: &#39;4960bc5c-1cbe-4035-a7cf-a1133c5d5c3e&#39;,
      &#39;version&#39;: 1,
      &#39;permissions&#39;: [&#39;CREATE&#39;, &#39;DELETE&#39;, &#39;DOWNLOAD&#39;, &#39;EDIT&#39;, &#39;OWNER&#39;, &#39;VIEW&#39;],
-     &#39;breadcrumbs&#39;: [&#39;users&#39;, &#39;siteadmin1&#39;, &#39;output_results.csv&#39;]}]},
-  {&#39;jobId&#39;: &#39;ec822a04-9d4b-40b7-b970-bf9d5b56536c&#39;,
+     &#39;breadcrumbs&#39;: [&#39;users&#39;, &#39;contributor1&#39;, &#39;output.yxdb&#39;]}]},
+  {&#39;jobId&#39;: &#39;ecc00ea9-6ca6-469a-ade0-a1d4b7ddb06f&#39;,
    &#39;workerId&#39;: &#39;3b0d8827-c3a9-4e1d-ba77-304d339c71a6&#39;,
-   &#39;scheduleId&#39;: &#39;bec1fe2b-48c4-4d6b-9f92-68ff09968ffa&#39;,
+   &#39;scheduleId&#39;: &#39;44f63435-bb60-4b83-a15b-5455d3c8ebba&#39;,
    &#39;executionOrdinal&#39;: 1,
-   &#39;queuedDate&#39;: &#39;2020-04-07T10:27:07.118Z&#39;,
-   &#39;scheduledStartDate&#39;: &#39;2020-04-07T10:27:07.118Z&#39;,
-   &#39;actualStartDate&#39;: &#39;2020-04-07T10:27:08.031Z&#39;,
-   &#39;completionDate&#39;: &#39;2020-04-07T10:27:08.306Z&#39;,
+   &#39;queuedDate&#39;: &#39;2020-04-29T13:54:54.191Z&#39;,
+   &#39;scheduledStartDate&#39;: &#39;2020-04-29T13:54:54.191Z&#39;,
+   &#39;actualStartDate&#39;: &#39;2020-04-29T13:54:55.779Z&#39;,
+   &#39;completionDate&#39;: &#39;2020-04-29T13:54:56.097Z&#39;,
+   &#39;runTime&#39;: 0,
+   &#39;status&#39;: &#39;completed&#39;,
+   &#39;result&#39;: &#39;error&#39;,
+   &#39;siteId&#39;: &#39;bdf81e7c-90ef-4a78-beb5-56bf3f6189fa&#39;,
+   &#39;creationDate&#39;: &#39;2020-04-29T13:54:54.181Z&#39;,
+   &#39;lastUpdate&#39;: &#39;2020-04-29T13:54:56.079Z&#39;,
+   &#39;assetVersion&#39;: 2,
+   &#39;retryCount&#39;: 0,
+   &#39;notes&#39;: None,
+   &#39;priority&#39;: 100,
+   &#39;jobNo&#39;: 10,
+   &#39;runStatus&#39;: &#39;error&#39;,
+   &#39;name&#39;: &#39;MillionsOfRows.yxmd&#39;,
+   &#39;userId&#39;: &#39;5cf0579c-0da4-4b83-86fc-eb4b37aa62e8&#39;,
+   &#39;assetId&#39;: &#39;f32951fe-1526-46a1-b308-363ca3162c15&#39;,
+   &#39;type&#39;: &#39;validation&#39;,
+   &#39;frequencyInterval&#39;: &#39;manual&#39;,
+   &#39;outputs&#39;: []},
+  {&#39;jobId&#39;: &#39;17becb0f-8052-4cce-b732-8e5dcc3f4938&#39;,
+   &#39;workerId&#39;: &#39;3b0d8827-c3a9-4e1d-ba77-304d339c71a6&#39;,
+   &#39;scheduleId&#39;: &#39;e322cdae-06b8-4b6b-9c23-f5de60736822&#39;,
+   &#39;executionOrdinal&#39;: 1,
+   &#39;queuedDate&#39;: &#39;2020-04-29T13:54:43.378Z&#39;,
+   &#39;scheduledStartDate&#39;: &#39;2020-04-29T13:54:43.378Z&#39;,
+   &#39;actualStartDate&#39;: &#39;2020-04-29T13:54:43.628Z&#39;,
+   &#39;completionDate&#39;: &#39;2020-04-29T13:54:43.878Z&#39;,
    &#39;runTime&#39;: 0,
    &#39;status&#39;: &#39;completed&#39;,
    &#39;result&#39;: &#39;success&#39;,
-   &#39;siteId&#39;: &#39;bbb722b8-b902-4371-a87a-a8c79cbf1984&#39;,
-   &#39;creationDate&#39;: &#39;2020-04-07T10:27:07.110Z&#39;,
-   &#39;lastUpdate&#39;: &#39;2020-04-07T10:27:08.299Z&#39;,
+   &#39;siteId&#39;: &#39;bdf81e7c-90ef-4a78-beb5-56bf3f6189fa&#39;,
+   &#39;creationDate&#39;: &#39;2020-04-29T13:54:43.356Z&#39;,
+   &#39;lastUpdate&#39;: &#39;2020-04-29T13:54:43.855Z&#39;,
    &#39;assetVersion&#39;: 1,
    &#39;retryCount&#39;: 0,
    &#39;notes&#39;: None,
    &#39;priority&#39;: 100,
-   &#39;jobNo&#39;: 4,
-   &#39;name&#39;: &#39;a_a.yxmd&#39;,
-   &#39;userId&#39;: &#39;bda670a4-2009-452a-b330-f55978fb5525&#39;,
-   &#39;assetId&#39;: &#39;e796c59b-1540-4757-a93d-17392cdcc047&#39;,
+   &#39;jobNo&#39;: 9,
+   &#39;runStatus&#39;: &#39;completed&#39;,
+   &#39;name&#39;: &#39;MillionsOfRows.yxmd&#39;,
+   &#39;userId&#39;: &#39;5cf0579c-0da4-4b83-86fc-eb4b37aa62e8&#39;,
+   &#39;assetId&#39;: &#39;f32951fe-1526-46a1-b308-363ca3162c15&#39;,
    &#39;type&#39;: &#39;validation&#39;,
    &#39;frequencyInterval&#39;: &#39;manual&#39;,
    &#39;outputs&#39;: []},
-  {&#39;jobId&#39;: &#39;5fd41e9f-88a9-48db-b2f9-63221683e01d&#39;,
+  {&#39;jobId&#39;: &#39;f73dd01f-c778-4c25-af09-5bb01fbb40fb&#39;,
    &#39;workerId&#39;: &#39;3b0d8827-c3a9-4e1d-ba77-304d339c71a6&#39;,
-   &#39;scheduleId&#39;: &#39;699daa2c-c47b-4134-ae94-74f302ed2c32&#39;,
+   &#39;scheduleId&#39;: &#39;79125d2a-c2e4-41ca-8b03-e3ab880e5609&#39;,
    &#39;executionOrdinal&#39;: 1,
-   &#39;queuedDate&#39;: &#39;2020-04-07T20:06:12.697Z&#39;,
-   &#39;scheduledStartDate&#39;: &#39;2020-04-07T20:06:12.697Z&#39;,
-   &#39;actualStartDate&#39;: &#39;2020-04-07T20:06:14.109Z&#39;,
-   &#39;completionDate&#39;: &#39;2020-04-07T20:06:14.650Z&#39;,
-   &#39;runTime&#39;: 1,
+   &#39;queuedDate&#39;: &#39;2020-04-29T19:58:29.686Z&#39;,
+   &#39;scheduledStartDate&#39;: &#39;2020-04-29T19:58:29.686Z&#39;,
+   &#39;actualStartDate&#39;: &#39;2020-04-29T19:58:32.056Z&#39;,
+   &#39;completionDate&#39;: &#39;2020-04-29T19:58:34.280Z&#39;,
+   &#39;runTime&#39;: 2,
    &#39;status&#39;: &#39;completed&#39;,
    &#39;result&#39;: &#39;error&#39;,
-   &#39;siteId&#39;: &#39;bbb722b8-b902-4371-a87a-a8c79cbf1984&#39;,
-   &#39;creationDate&#39;: &#39;2020-04-07T20:06:12.684Z&#39;,
-   &#39;lastUpdate&#39;: &#39;2020-04-07T20:06:14.635Z&#39;,
+   &#39;siteId&#39;: &#39;bdf81e7c-90ef-4a78-beb5-56bf3f6189fa&#39;,
+   &#39;creationDate&#39;: &#39;2020-04-29T19:58:29.502Z&#39;,
+   &#39;lastUpdate&#39;: &#39;2020-04-29T19:58:34.167Z&#39;,
    &#39;assetVersion&#39;: 1,
    &#39;retryCount&#39;: 0,
    &#39;notes&#39;: None,
-   &#39;priority&#39;: 50,
-   &#39;jobNo&#39;: 35,
-   &#39;name&#39;: &#39;Supply_Chain_Management2.yxmd&#39;,
-   &#39;userId&#39;: &#39;e1dbac67-cefb-4acb-aeb6-6761b0e41c3e&#39;,
-   &#39;assetId&#39;: &#39;0c2e4317-6b60-4513-a872-4574fd71518d&#39;,
-   &#39;type&#39;: &#39;immediate&#39;,
+   &#39;priority&#39;: 100,
+   &#39;jobNo&#39;: 34,
+   &#39;runStatus&#39;: &#39;error&#39;,
+   &#39;name&#39;: &#39;COUNTRIES%20%2813%29.yxmd&#39;,
+   &#39;userId&#39;: &#39;8a8c0f7f-c48f-4b41-bb23-e0b3e69111a9&#39;,
+   &#39;assetId&#39;: &#39;b9b18165-7403-4dd8-ab25-1750a1884d64&#39;,
+   &#39;type&#39;: &#39;validation&#39;,
    &#39;frequencyInterval&#39;: &#39;manual&#39;,
    &#39;outputs&#39;: []}],
  &#39;offset&#39;: 0,
  &#39;limit&#39;: 10,
- &#39;total&#39;: 36}</pre>
+ &#39;total&#39;: 29}</pre>
 </div>
 
+</div>
+
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="Fetch-a-Single-Job-by-Job_Id">Fetch a Single Job by Job_Id<a class="anchor-link" href="#Fetch-a-Single-Job-by-Job_Id"> </a></h4>
+</div>
+</div>
+</div>
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">response</span> <span class="o">=</span> <span class="n">jobs</span><span class="o">.</span><span class="n">get_job</span><span class="p">(</span><span class="n">job_id</span><span class="o">=</span><span class="n">example_job_id</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>GET sent to: https://test.aep-mono.devops.alteryx.com/api/v1/jobs/fd0c2e1b-30cd-4567-a2f9-8ea2c4d28679
+with headers: {&#39;User-Agent&#39;: &#39;python-requests/2.23.0&#39;, &#39;Accept-Encoding&#39;: &#39;gzip,deflate&#39;, &#39;Accept&#39;: &#39;*/*&#39;, &#39;Connection&#39;: &#39;keep-alive&#39;, &#39;Content-Type&#39;: &#39;application/json&#39;, &#39;Accept-Language&#39;: &#39;en-US,en;q=0.5&#39;, &#39;Cookie&#39;: &#39;ayxSession=s%3Ad11557f7-e9b1-4bff-b881-6db10120c31e.JOuyBVy9PwXUTe%2Fd%2BNj07blgt4R2stkAyqzxgvWPom0&#39;}
+Response Status: 200
+</pre>
+</div>
 </div>
 
 </div>
@@ -412,10 +499,308 @@ description: "summary"
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">assert</span> <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()</span> <span class="o">==</span> <span class="n">get_job_noargs_response</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
 </pre></div>
 
     </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>{&#39;jobId&#39;: &#39;fd0c2e1b-30cd-4567-a2f9-8ea2c4d28679&#39;,
+ &#39;workerId&#39;: &#39;3b0d8827-c3a9-4e1d-ba77-304d339c71a6&#39;,
+ &#39;scheduleId&#39;: &#39;9b60e020-1f81-4d8f-aae0-e54bdb3d5a92&#39;,
+ &#39;executionOrdinal&#39;: 1,
+ &#39;queuedDate&#39;: &#39;2020-04-29T19:40:56.806Z&#39;,
+ &#39;scheduledStartDate&#39;: &#39;2020-04-29T19:40:56.806Z&#39;,
+ &#39;actualStartDate&#39;: &#39;2020-04-29T19:40:59.237Z&#39;,
+ &#39;completionDate&#39;: &#39;2020-04-29T19:41:15.966Z&#39;,
+ &#39;runTime&#39;: 17,
+ &#39;status&#39;: &#39;completed&#39;,
+ &#39;result&#39;: &#39;success&#39;,
+ &#39;siteId&#39;: &#39;bdf81e7c-90ef-4a78-beb5-56bf3f6189fa&#39;,
+ &#39;creationDate&#39;: &#39;2020-04-29T19:40:56.798Z&#39;,
+ &#39;lastUpdate&#39;: &#39;2020-04-29T19:41:15.914Z&#39;,
+ &#39;assetVersion&#39;: 1,
+ &#39;retryCount&#39;: 0,
+ &#39;notes&#39;: None,
+ &#39;priority&#39;: 100,
+ &#39;jobNo&#39;: 33,
+ &#39;runStatus&#39;: &#39;completed&#39;,
+ &#39;name&#39;: &#39;New%20Workflow4.yxzp&#39;,
+ &#39;userId&#39;: &#39;8a8c0f7f-c48f-4b41-bb23-e0b3e69111a9&#39;,
+ &#39;assetId&#39;: &#39;1b6e8946-74dd-4845-a31f-e3d9c3f85545&#39;,
+ &#39;type&#39;: &#39;validation&#39;,
+ &#39;frequencyInterval&#39;: &#39;manual&#39;,
+ &#39;outputs&#39;: []}</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_markdown rendered_html output_subarea ">
+<h4 id="Jobs.get_log" class="doc_header"><code>Jobs.get_log</code><a href="__main__.py#L18" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>Jobs.get_log</code>(<strong><code>job_id</code></strong>:<code>str</code>)</p>
+</blockquote>
+
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Fetch log for a given job_id.</p>
+<p><strong>Arguments</strong>:</p>
+<ul>
+<li>job_id: The unique identifier for an AAH job.</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="Get-the-Log-for-a-Job">Get the Log for a Job<a class="anchor-link" href="#Get-the-Log-for-a-Job"> </a></h4>
+</div>
+</div>
+</div>
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">jobs</span> <span class="o">=</span> <span class="n">Jobs</span><span class="p">(</span><span class="n">example_client</span><span class="o">.</span><span class="n">api</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">response</span> <span class="o">=</span> <span class="n">jobs</span><span class="o">.</span><span class="n">get_log</span><span class="p">(</span><span class="n">job_id</span><span class="o">=</span><span class="n">example_job_id</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>GET sent to: https://test.aep-mono.devops.alteryx.com/api/v1/jobs/fd0c2e1b-30cd-4567-a2f9-8ea2c4d28679/logs
+with headers: {&#39;User-Agent&#39;: &#39;python-requests/2.23.0&#39;, &#39;Accept-Encoding&#39;: &#39;gzip,deflate&#39;, &#39;Accept&#39;: &#39;*/*&#39;, &#39;Connection&#39;: &#39;keep-alive&#39;, &#39;Content-Type&#39;: &#39;application/json&#39;, &#39;Accept-Language&#39;: &#39;en-US,en;q=0.5&#39;, &#39;Cookie&#39;: &#39;ayxSession=s%3Ad11557f7-e9b1-4bff-b881-6db10120c31e.JOuyBVy9PwXUTe%2Fd%2BNj07blgt4R2stkAyqzxgvWPom0&#39;}
+Response Status: 200
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>{&#39;jobId&#39;: &#39;fd0c2e1b-30cd-4567-a2f9-8ea2c4d28679&#39;,
+ &#39;name&#39;: &#39;New%20Workflow4.yxzp&#39;,
+ &#39;entries&#39;: [{&#39;toolId&#39;: &#39;-&#39;,
+   &#39;logType&#39;: &#39;worker&#39;,
+   &#39;details&#39;: &#39;Retrieved file New%20Workflow4.yxzp&#39;},
+  {&#39;toolId&#39;: &#39;-&#39;, &#39;logType&#39;: &#39;worker&#39;, &#39;details&#39;: &#39;Engine run started&#39;},
+  {&#39;toolId&#39;: &#39;1&#39;,
+   &#39;logType&#39;: &#39;8&#39;,
+   &#39;details&#39;: &#39;_externals\\1\\% complete calculation.xlsx; 0 records were read from &#34;_externals\\1\\% complete calculation.xlsx&#34; (`Sheet1$`) (limit reached)&#39;},
+  {&#39;toolId&#39;: &#39;-&#39;,
+   &#39;logType&#39;: &#39;worker&#39;,
+   &#39;details&#39;: &#39;Engine run finished in 16.61 seconds&#39;}],
+ &#39;completionDate&#39;: &#39;2020-04-29T19:41:15.966Z&#39;}</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_markdown rendered_html output_subarea ">
+<h4 id="Jobs.cancel_job" class="doc_header"><code>Jobs.cancel_job</code><a href="__main__.py#L22" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>Jobs.cancel_job</code>(<strong><code>job_id</code></strong>:<code>str</code>)</p>
+</blockquote>
+
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Cancel a running job with the given job_id.</p>
+<p><strong>Arguments</strong>:</p>
+<ul>
+<li>job_id: Unique identifier for the job you'd like to cancel.  </li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="Cancel-a-Running-Job">Cancel a Running Job<a class="anchor-link" href="#Cancel-a-Running-Job"> </a></h4>
+</div>
+</div>
+</div>
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># For demonstration purposes, I trigger a workflow on AAH which takes 30 </span>
+<span class="c1"># seconds to run.  I then run this code as soon as the job is kicked off, </span>
+<span class="c1"># to ensure I can cancel the job before it completes.</span>
+
+<span class="n">running_job_id</span> <span class="o">=</span> <span class="n">jobs</span><span class="o">.</span><span class="n">get_job</span><span class="p">()</span><span class="o">.</span><span class="n">json</span><span class="p">()[</span><span class="s1">&#39;jobs&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;jobId&#39;</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">jobs</span><span class="o">.</span><span class="n">get_job</span><span class="p">()</span><span class="o">.</span><span class="n">json</span><span class="p">()[</span><span class="s1">&#39;jobs&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;status&#39;</span><span class="p">])</span>
+
+<span class="n">response</span> <span class="o">=</span> <span class="n">jobs</span><span class="o">.</span><span class="n">cancel_job</span><span class="p">(</span><span class="n">job_id</span><span class="o">=</span><span class="n">running_job_id</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>GET sent to: https://test.aep-mono.devops.alteryx.com/api/v1/jobs/
+with headers: {&#39;User-Agent&#39;: &#39;python-requests/2.23.0&#39;, &#39;Accept-Encoding&#39;: &#39;gzip,deflate&#39;, &#39;Accept&#39;: &#39;*/*&#39;, &#39;Connection&#39;: &#39;keep-alive&#39;, &#39;Content-Type&#39;: &#39;application/json&#39;, &#39;Accept-Language&#39;: &#39;en-US,en;q=0.5&#39;, &#39;Cookie&#39;: &#39;ayxSession=s%3Ad11557f7-e9b1-4bff-b881-6db10120c31e.JOuyBVy9PwXUTe%2Fd%2BNj07blgt4R2stkAyqzxgvWPom0&#39;}
+Response Status: 200
+GET sent to: https://test.aep-mono.devops.alteryx.com/api/v1/jobs/
+with headers: {&#39;User-Agent&#39;: &#39;python-requests/2.23.0&#39;, &#39;Accept-Encoding&#39;: &#39;gzip,deflate&#39;, &#39;Accept&#39;: &#39;*/*&#39;, &#39;Connection&#39;: &#39;keep-alive&#39;, &#39;Content-Type&#39;: &#39;application/json&#39;, &#39;Accept-Language&#39;: &#39;en-US,en;q=0.5&#39;, &#39;Cookie&#39;: &#39;ayxSession=s%3Ad11557f7-e9b1-4bff-b881-6db10120c31e.JOuyBVy9PwXUTe%2Fd%2BNj07blgt4R2stkAyqzxgvWPom0&#39;}
+Response Status: 200
+running
+POST sent to: https://test.aep-mono.devops.alteryx.com/api/v1/jobs/ce7f61cf-fa68-46e3-9acd-d635873c12fc/cancel
+with headers: {&#39;User-Agent&#39;: &#39;python-requests/2.23.0&#39;, &#39;Accept-Encoding&#39;: &#39;gzip,deflate&#39;, &#39;Accept&#39;: &#39;*/*&#39;, &#39;Connection&#39;: &#39;keep-alive&#39;, &#39;Content-Type&#39;: &#39;application/json&#39;, &#39;Accept-Language&#39;: &#39;en-US,en;q=0.5&#39;, &#39;Cookie&#39;: &#39;ayxSession=s%3Ad11557f7-e9b1-4bff-b881-6db10120c31e.JOuyBVy9PwXUTe%2Fd%2BNj07blgt4R2stkAyqzxgvWPom0&#39;, &#39;Content-Length&#39;: &#39;0&#39;}
+Response Status: 204
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">response</span><span class="o">.</span><span class="n">status_code</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>204</pre>
+</div>
+
+</div>
+
 </div>
 </div>
 
