@@ -6,6 +6,7 @@
     "api": "/api",
     "authenticate": "/authenticate",
     "files": "/files",
-    "workflows": "/workflows"
+    "workflows": "/workflows",
+    "Title": "/integration_tests"
   }
 }
