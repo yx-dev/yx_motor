@@ -198,59 +198,10 @@ Response Status: 200
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">example_client</span><span class="o">.</span><span class="n">files</span><span class="o">.</span><span class="n">download_file</span><span class="p">()</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div>
-    {% endraw %}
-
-    {% raw %}
-    
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">file_a_uuid</span> <span class="o">=</span> <span class="n">file_a</span><span class="p">[</span><span class="s1">&#39;uuid&#39;</span><span class="p">]</span>
 <span class="n">file_b_uuid</span> <span class="o">=</span> <span class="n">file_b</span><span class="p">[</span><span class="s1">&#39;uuid&#39;</span><span class="p">]</span>
-</pre></div>
 
-    </div>
-</div>
-</div>
-
-</div>
-    {% endraw %}
-
-    {% raw %}
-    
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">example_client</span><span class="o">.</span><span class="n">files</span><span class="o">.</span><span class="n">download_file</span><span class="p">()</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div>
-    {% endraw %}
-
-    {% raw %}
-    
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">files</span> <span class="o">=</span> <span class="n">example_client</span><span class="o">.</span><span class="n">files</span>
+<span class="n">files</span> <span class="o">=</span> <span class="n">example_client</span><span class="o">.</span><span class="n">files</span>
 
 <span class="n">response_a</span> <span class="o">=</span> <span class="n">files</span><span class="o">.</span><span class="n">download_file</span><span class="p">(</span><span class="n">file_uuid</span><span class="o">=</span><span class="n">file_a_uuid</span><span class="p">,</span>
                                <span class="n">download_path</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;example_downloads/file_a.yxmd&quot;</span><span class="p">)</span>
@@ -291,6 +242,133 @@ Response Status: 200
 </div>
 </div>
 </div>
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">run_workflow_response</span> <span class="o">=</span> <span class="n">example_client</span><span class="o">.</span><span class="n">workflows</span><span class="o">.</span><span class="n">run_workflow</span><span class="p">(</span>
+    <span class="n">asset_id</span><span class="o">=</span><span class="n">file_a_uuid</span><span class="p">,</span>
+    <span class="n">schedule_name</span><span class="o">=</span><span class="s1">&#39;aah api trigger workflow&#39;</span>
+<span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>POST sent to: https://hub-beta.demo.alteryx.com/api/v1/workflows/run
+with headers: {&#39;User-Agent&#39;: &#39;python-requests/2.23.0&#39;, &#39;Accept-Encoding&#39;: &#39;gzip,deflate&#39;, &#39;Accept&#39;: &#39;*/*&#39;, &#39;Connection&#39;: &#39;keep-alive&#39;, &#39;Content-Type&#39;: &#39;application/json&#39;, &#39;Accept-Language&#39;: &#39;en-US,en;q=0.5&#39;, &#39;Cookie&#39;: &#39;ayxSession=s%3A44afbe59-8af5-4917-8290-ec987d0a1e56.TEd0guEXnm%2FCfQMTtkJw8g1WvWbobeFi%2FfkXcO4dvuo&#39;, &#39;Content-Length&#39;: &#39;101&#39;}
+Response Status: 200
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">run_workflow_response</span><span class="o">.</span><span class="n">json</span><span class="p">()[</span><span class="s1">&#39;status&#39;</span><span class="p">]</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&#39;active&#39;</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">schedule_id</span> <span class="o">=</span> <span class="n">run_workflow_response</span><span class="o">.</span><span class="n">json</span><span class="p">()[</span><span class="s1">&#39;scheduleId&#39;</span><span class="p">]</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">output_path</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;example_downloads/workflow_results.csv&quot;</span>
+
+<span class="n">download_workflow_results_response</span> <span class="o">=</span> <span class="n">example_client</span><span class="o">.</span><span class="n">workflows</span><span class="o">.</span><span class="n">download_workflow_results</span><span class="p">(</span>
+    <span class="n">schedule_id</span><span class="o">=</span><span class="n">schedule_id</span><span class="p">,</span> 
+    <span class="n">download_path</span><span class="o">=</span><span class="n">output_path</span>
+<span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>GET sent to: https://hub-beta.demo.alteryx.com/api/v1/jobs/?scheduleId=231fc776-4112-47af-9d5a-ca147e81b7ad
+with headers: {&#39;User-Agent&#39;: &#39;python-requests/2.23.0&#39;, &#39;Accept-Encoding&#39;: &#39;gzip,deflate&#39;, &#39;Accept&#39;: &#39;*/*&#39;, &#39;Connection&#39;: &#39;keep-alive&#39;, &#39;Content-Type&#39;: &#39;application/json&#39;, &#39;Accept-Language&#39;: &#39;en-US,en;q=0.5&#39;, &#39;Cookie&#39;: &#39;ayxSession=s%3A44afbe59-8af5-4917-8290-ec987d0a1e56.TEd0guEXnm%2FCfQMTtkJw8g1WvWbobeFi%2FfkXcO4dvuo&#39;}
+Response Status: 200
+GET sent to: https://hub-beta.demo.alteryx.com/api/v1/files/content?id=0214dd72-e846-40a7-923c-0e6c47b78b5f
+with headers: {&#39;User-Agent&#39;: &#39;python-requests/2.23.0&#39;, &#39;Accept-Encoding&#39;: &#39;gzip,deflate&#39;, &#39;Accept&#39;: &#39;*/*&#39;, &#39;Connection&#39;: &#39;keep-alive&#39;, &#39;Content-Type&#39;: &#39;application/json&#39;, &#39;Accept-Language&#39;: &#39;en-US,en;q=0.5&#39;, &#39;Cookie&#39;: &#39;ayxSession=s%3A44afbe59-8af5-4917-8290-ec987d0a1e56.TEd0guEXnm%2FCfQMTtkJw8g1WvWbobeFi%2FfkXcO4dvuo&#39;}
+Response Status: 200
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
 </div>
  
 

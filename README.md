@@ -62,19 +62,9 @@ jobs_api_response.json()['jobs'][0].keys()
 ### Download and Upload Files
 
 ```python
-example_client.files.download_file()
-```
-
-```python
 file_a_uuid = file_a['uuid']
 file_b_uuid = file_b['uuid']
-```
 
-```python
-example_client.files.download_file()
-```
-
-```python
 files = example_client.files
 
 response_a = files.download_file(file_uuid=file_a_uuid,
@@ -93,3 +83,47 @@ response_b = files.download_file(file_uuid=file_b_uuid,
     
 
 ### Trigger Workflows and Fetch Results
+
+```python
+run_workflow_response = example_client.workflows.run_workflow(
+    asset_id=file_a_uuid,
+    schedule_name='aah api trigger workflow'
+)
+```
+
+    POST sent to: https://hub-beta.demo.alteryx.com/api/v1/workflows/run
+    with headers: {'User-Agent': 'python-requests/2.23.0', 'Accept-Encoding': 'gzip,deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/json', 'Accept-Language': 'en-US,en;q=0.5', 'Cookie': 'ayxSession=s%3A44afbe59-8af5-4917-8290-ec987d0a1e56.TEd0guEXnm%2FCfQMTtkJw8g1WvWbobeFi%2FfkXcO4dvuo', 'Content-Length': '101'}
+    Response Status: 200
+    
+
+```python
+run_workflow_response.json()['status']
+```
+
+
+
+
+    'active'
+
+
+
+```python
+schedule_id = run_workflow_response.json()['scheduleId']
+```
+
+```python
+output_path = f"example_downloads/workflow_results.csv"
+
+download_workflow_results_response = example_client.workflows.download_workflow_results(
+    schedule_id=schedule_id, 
+    download_path=output_path
+)
+```
+
+    GET sent to: https://hub-beta.demo.alteryx.com/api/v1/jobs/?scheduleId=231fc776-4112-47af-9d5a-ca147e81b7ad
+    with headers: {'User-Agent': 'python-requests/2.23.0', 'Accept-Encoding': 'gzip,deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/json', 'Accept-Language': 'en-US,en;q=0.5', 'Cookie': 'ayxSession=s%3A44afbe59-8af5-4917-8290-ec987d0a1e56.TEd0guEXnm%2FCfQMTtkJw8g1WvWbobeFi%2FfkXcO4dvuo'}
+    Response Status: 200
+    GET sent to: https://hub-beta.demo.alteryx.com/api/v1/files/content?id=0214dd72-e846-40a7-923c-0e6c47b78b5f
+    with headers: {'User-Agent': 'python-requests/2.23.0', 'Accept-Encoding': 'gzip,deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/json', 'Accept-Language': 'en-US,en;q=0.5', 'Cookie': 'ayxSession=s%3A44afbe59-8af5-4917-8290-ec987d0a1e56.TEd0guEXnm%2FCfQMTtkJw8g1WvWbobeFi%2FfkXcO4dvuo'}
+    Response Status: 200
+    
