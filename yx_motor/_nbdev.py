@@ -18,7 +18,8 @@ index = {"Client": "01_client.ipynb",
          "test_that_server_has_jobs_available": "integration_tests.ipynb",
          "test_can_get_job_by_id": "integration_tests.ipynb",
          "test_get_log_functionality": "integration_tests.ipynb",
-         "test_cancel_job_functionality": "integration_tests.ipynb"}
+         "test_cancel_job_functionality": "integration_tests.ipynb",
+         "seed_workflow_files": "integration_tests.ipynb"}
 
 modules = ["client.py",
            "jobs.py",

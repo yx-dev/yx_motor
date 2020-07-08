@@ -59,6 +59,91 @@ description: "Easily upload, download, and manage files on Server."
 </div>
     {% endraw %}
 
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">yx_motor.client</span> <span class="kn">import</span> <span class="n">Client</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">dev_client</span><span class="o">.</span><span class="n">api</span><span class="o">.</span><span class="n">is_authenticated</span>
+<span class="n">files</span> <span class="o">=</span> <span class="n">Files</span><span class="p">(</span><span class="n">dev_client</span><span class="o">.</span><span class="n">api</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">response</span> <span class="o">=</span> <span class="n">files</span><span class="o">.</span><span class="n">download_file</span><span class="p">(</span><span class="s2">&quot;68efa737-d9e0-4a91-8379-737062ddc158&quot;</span><span class="p">,</span><span class="s2">&quot;test.log&quot;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">response</span><span class="o">.</span><span class="n">content</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>b&#39;-|worker|Retrieved file example.yxzp\r\n-|worker|Engine run started\r\n2|1|Autodetected Code Page: UTF-8\r\n2|8|input_one.csv|4 records were read from &#34;input_one.csv&#34;\r\n3|1|Autodetected Code Page: UTF-8\r\n3|8|input_two.csv|1 records were read from &#34;input_two.csv&#34; (ended by a downstream tool)\r\n-|worker|Engine run finished in 0.47 seconds&#39;</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="Examples">Examples<a class="anchor-link" href="#Examples"> </a></h2><p><strong>Note</strong>:

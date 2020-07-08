@@ -7,6 +7,6 @@
     "authenticate": "/authenticate",
     "files": "/files",
     "workflows": "/workflows",
-    "Title": "/integration_tests"
+    "YX_Motor Integration Tests": "/integration_tests"
   }
 }

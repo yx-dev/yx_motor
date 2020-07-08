@@ -28,7 +28,7 @@ entries:
       title: workflows
       url: /workflows
     - output: web,pdf
-      title: Title
+      title: YX_Motor Integration Tests
       url: /integration_tests
     output: web
     title: yx_motor

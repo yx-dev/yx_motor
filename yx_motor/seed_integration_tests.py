@@ -2,7 +2,7 @@
 
 __all__ = ['seed_workflow', 'scaffold_workflows_integration_tests', 'fetch_all_jobs', 'test_can_get_jobs_with_no_args',
            'test_that_server_has_jobs_available', 'test_can_get_job_by_id', 'test_get_log_functionality',
-           'test_cancel_job_functionality']
+           'test_cancel_job_functionality', 'seed_workflow_files']
 
 # Cell
 
@@ -127,3 +127,17 @@ def test_cancel_job_functionality(client):
         assert(cancelled_job.json().get('status') == 'canceled')
 
     assert(schedule_id is not None)
+
+# Cell
+
+def seed_workflow_files(client):
+    files = client.files
+    workflow_A_name = "WorkflowA.yxmd"
+    workflow_B_name = "WorkflowB.yxmd"
+    workflow_A = files.upload_file(workflow_A_name,
+                                   upload_path=f"/Workspaces/Public/{workflow_A_name}",
+                                   conflict_action="MERGE").json()
+    workflow_B = files.upload_file(workflow_B_name,
+                                   upload_path=f"/Workspaces/Public/{workflow_B_name}",
+                                   conflict_action="MERGE").json()
+    return (workflow_A, workflow_B)
