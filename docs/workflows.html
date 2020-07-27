@@ -59,118 +59,6 @@ description: "Execute workflows on Server"
 </div>
     {% endraw %}
 
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Why-is-get-questions-broken?-Look-at-API-docs">Why is get questions broken? Look at API docs<a class="anchor-link" href="#Why-is-get-questions-broken?-Look-at-API-docs"> </a></h1>
-</div>
-</div>
-</div>
-    {% raw %}
-    
-<div class="cell border-box-sizing code_cell rendered">
-
-<div class="output_wrapper">
-<div class="output">
-
-<div class="output_area">
-
-
-<div class="output_markdown rendered_html output_subarea ">
-<h4 id="Workflows.get_questions" class="doc_header"><code>Workflows.get_questions</code><a href="__main__.py#L23" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>Workflows.get_questions</code>(<strong><code>asset_id</code></strong>:<code>str</code>)</p>
-</blockquote>
-<p>Return question payload for an asset of type analytic app.</p>
-
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-    {% endraw %}
-
-    {% raw %}
-    
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">workflows</span> <span class="o">=</span> <span class="n">Workflows</span><span class="p">(</span><span class="n">dev_client</span><span class="o">.</span><span class="n">api</span><span class="p">)</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div>
-    {% endraw %}
-
-    {% raw %}
-    
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">asset_uid</span> <span class="o">=</span> <span class="n">questions_wf_uuid</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div>
-    {% endraw %}
-
-    {% raw %}
-    
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">workflows</span><span class="o">.</span><span class="n">get_questions</span><span class="p">(</span><span class="n">asset_id</span><span class="o">=</span><span class="n">asset_uid</span><span class="p">)</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-<div class="output_area">
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>POST sent to: https://ec2-44-234-86-100.us-west-2.compute.amazonaws.com/api/v1/workflows/061ccef2-42bc-45f6-b6ed-77cc6a211dc5/questions
-with headers: {&#39;User-Agent&#39;: &#39;python-requests/2.23.0&#39;, &#39;Accept-Encoding&#39;: &#39;gzip,deflate&#39;, &#39;Accept&#39;: &#39;*/*&#39;, &#39;Connection&#39;: &#39;keep-alive&#39;, &#39;Content-Type&#39;: &#39;application/json&#39;, &#39;Accept-Language&#39;: &#39;en-US,en;q=0.5&#39;, &#39;Cookie&#39;: &#39;ayxSession=s%3Ae5792dbf-36ad-4fb4-bffd-2d3d449b08c4.OTu4BC6lMigmko%2FjBZ9k%2BHb8h9aLG7DZjlNS22n0uNk&#39;, &#39;Content-Length&#39;: &#39;0&#39;}
-Response Status: 500
-</pre>
-</div>
-</div>
-
-<div class="output_area">
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>{&#39;requestUuid&#39;: &#39;614951e1-6dcb-4026-a296-f381b73e42bf&#39;,
- &#39;errors&#39;: [{&#39;code&#39;: &#39;&#39;,
-   &#39;message&#39;: &#39;WorkflowOrchestrator.getQuestions() with args: [ { &#34;requestUuid&#34;: &#34;614951e1-6dcb-4026-a296-f381b73e42bf&#34;,&#34;auditEvents&#34;: &#34;[  ]&#34;,&#34;privateSession&#34;: &#34;{ NESTED OBJECT }&#34;,&#34;privateSiteId&#34;: &#34;f6a2add6-7f4b-4c62-9b21-b9959faac597&#34;,&#34;clientIp&#34;: &#34;::ffff:66.35.44.241&#34; },&#34;061ccef2-42bc-45f6-b6ed-77cc6a211dc5&#34;,undefined,undefined,undefined]&#39;},
-  {&#39;code&#39;: &#39;&#39;,
-   &#39;message&#39;: &#39;EngineWorkerService.getQuestions() with args: [ { &#34;requestUuid&#34;: &#34;614951e1-6dcb-4026-a296-f381b73e42bf&#34;,&#34;auditEvents&#34;: &#34;[  ]&#34;,&#34;privateSession&#34;: &#34;{ NESTED OBJECT }&#34;,&#34;privateSiteId&#34;: &#34;f6a2add6-7f4b-4c62-9b21-b9959faac597&#34;,&#34;clientIp&#34;: &#34;::ffff:66.35.44.241&#34; }, { &#34;created&#34;: &#34;\\&#34;2020-07-01T21:47:31.549Z\\&#34;&#34;,&#34;versionCreated&#34;: &#34;\\&#34;2020-07-01T21:47:31.549Z\\&#34;&#34;,&#34;folderType&#34;:  [[[ this argument failed to process ]]],&#34;links&#34;:  [[[ this argument failed to process ]]],&#34;metadata&#34;: &#34;{ NESTED OBJECT }&#34;,&#34;metaHash&#34;: &#34;f1425e61763e6a7fae79 ... 8722de8a69d0bc6c94fa&#34;,&#34;maxVersion&#34;: 1,&#34;isHidden&#34;: false,&#34;onlyOwnerShares&#34;: false,&#34;onlySiteAdminShares&#34;: false,&#34;extension&#34;: &#34;yxwz&#34;,&#34;assetCategory&#34;: &#34;WORKFLOW_APP&#34;,&#34;contentId&#34;: &#34;c35c7462-f267-40f6-8cbb-8574ac3538de&#34;,&#34;contentHash&#34;: &#34;e9afe10edf2a644a849b ... 990555eb1ac1d95822db&#34;,&#34;contentSize&#34;: 22646,&#34;comment&#34;:  [[[ this argument failed to process ]]],&#34;entryOwner&#34;: &#34;{ NESTED OBJECT }&#34;,&#34;fileName&#34;: &#34;simple_questions2.yxwz&#34;,&#34;inherits&#34;: true,&#34;path&#34;: &#34;/Workspaces/Public/simple_questions2.yxwz&#34;,&#34;version&#34;: 1,&#34;assignedPermissionsDateUpdated&#34;:  [[[ this argument failed to process ]]],&#34;location&#34;: &#34;&#34;,&#34;uuid&#34;: &#34;061ccef2-42bc-45f6-b6ed-77cc6a211dc5&#34;,&#34;md5Hash&#34;: &#34;7b499f621571181bd7d348d905c67272&#34; },undefined,undefined]&#39;}]}</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-    {% endraw %}
-
     {% raw %}
     
 <div class="cell border-box-sizing code_cell rendered">
@@ -196,6 +84,16 @@ Response Status: 500
 </div>
     {% endraw %}
 
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>Arguments</strong>:</p>
+<ul>
+<li>asset_id: Unique VFS identifier for the workflow you want to execute.</li>
+</ul>
+
+</div>
+</div>
+</div>
     {% raw %}
     
 <div class="cell border-box-sizing code_cell rendered">
@@ -265,6 +163,16 @@ Response Status: 200
 </div>
     {% endraw %}
 
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>Arguments</strong>:</p>
+<ul>
+<li>asset_id: Unique VFS identifier for the workflow you want to execute.</li>
+</ul>
+
+</div>
+</div>
+</div>
     {% raw %}
     
 <div class="cell border-box-sizing code_cell rendered">
@@ -460,6 +368,17 @@ Response Status: 200
 </div>
     {% endraw %}
 
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>Arguments</strong>:</p>
+<ul>
+<li>schedule_id: Unique identifier for the completed schedule that orchestrated the workflow execution</li>
+<li>download_path: Local path to download the scheduled workflow results file to</li>
+</ul>
+
+</div>
+</div>
+</div>
     {% raw %}
     
 <div class="cell border-box-sizing code_cell rendered">

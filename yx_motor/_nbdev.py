@@ -11,6 +11,8 @@ index = {"Client": "01_client.ipynb",
          "Authenticate": "04_authenticate.ipynb",
          "Files": "05_files.ipynb",
          "Workflows": "06_workflows.ipynb",
+         "paths": "07_constants.ipynb",
+         "get_workflow_attributes": "07_constants.ipynb",
          "seed_workflow": "integration_tests.ipynb",
          "scaffold_workflows_integration_tests": "integration_tests.ipynb",
          "fetch_all_jobs": "integration_tests.ipynb",
@@ -27,6 +29,7 @@ modules = ["client.py",
            "authenticate.py",
            "files.py",
            "workflows.py",
+           "tests/utils/constants.py",
            "seed_integration_tests.py"]
 
 doc_url = "https://jesseclarkayx.github.io/yx_motor/"
