@@ -13,6 +13,10 @@ index = {"Client": "01_client.ipynb",
          "Workflows": "06_workflows.ipynb",
          "paths": "07_constants.ipynb",
          "get_workflow_attributes": "07_constants.ipynb",
+         "pickle_object": "08_unit_test_helpers.ipynb",
+         "unpickle_object": "08_unit_test_helpers.ipynb",
+         "workflow_test_pickles": "08_unit_test_helpers.ipynb",
+         "jobs_test_pickles": "08_unit_test_helpers.ipynb",
          "seed_workflow": "integration_tests.ipynb",
          "scaffold_workflows_integration_tests": "integration_tests.ipynb",
          "fetch_all_jobs": "integration_tests.ipynb",
@@ -30,6 +34,7 @@ modules = ["client.py",
            "files.py",
            "workflows.py",
            "tests/utils/constants.py",
+           "tests/utils/unit_test_helpers.py",
            "seed_integration_tests.py"]
 
 doc_url = "https://jesseclarkayx.github.io/yx_motor/"
