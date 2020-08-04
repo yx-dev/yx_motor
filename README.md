@@ -18,7 +18,7 @@ Create a virtual environment in your venv manager of choice.  Activate the envir
 
 ### Initialize Client
 
-```python
+```
 from yx_motor.client import Client
 
 from private import server_vars
@@ -39,7 +39,7 @@ example_client = Client(base_url,
 
 ### View Jobs
 
-```python
+```
 jobs_api_response = example_client.jobs.get_job()
 ```
 
@@ -48,7 +48,7 @@ jobs_api_response = example_client.jobs.get_job()
     Response Status: 200
     
 
-```python
+```
 jobs_api_response.json()['jobs'][0].keys()
 ```
 
@@ -61,7 +61,7 @@ jobs_api_response.json()['jobs'][0].keys()
 
 ### Download and Upload Files
 
-```python
+```
 file_a_uuid = file_a['uuid']
 file_b_uuid = file_b['uuid']
 
@@ -84,7 +84,7 @@ response_b = files.download_file(file_uuid=file_b_uuid,
 
 ### Trigger Workflows and Fetch Results
 
-```python
+```
 run_workflow_response = example_client.workflows.run_workflow(
     asset_id=file_a_uuid,
     schedule_name='aah api trigger workflow'
@@ -96,7 +96,7 @@ run_workflow_response = example_client.workflows.run_workflow(
     Response Status: 200
     
 
-```python
+```
 run_workflow_response.json()['status']
 ```
 
@@ -107,11 +107,11 @@ run_workflow_response.json()['status']
 
 
 
-```python
+```
 schedule_id = run_workflow_response.json()['scheduleId']
 ```
 
-```python
+```
 output_path = f"example_downloads/workflow_results.csv"
 
 download_workflow_results_response = example_client.workflows.download_workflow_results(

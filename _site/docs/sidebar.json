@@ -1,0 +1,14 @@
+{
+  "yx_motor": {
+    "Overview": "/",
+    "client": "/client",
+    "jobs": "/jobs",
+    "api": "/api",
+    "authenticate": "/authenticate",
+    "files": "/files",
+    "workflows": "/workflows",
+    "Test Constants": "/constants",
+    "Unit Test Helpers": "/unit_test_helpers",
+    "Integration Tests": "/integration_tests"
+  }
+}
