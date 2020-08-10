@@ -59,118 +59,6 @@ description: "Execute workflows on Server"
 </div>
     {% endraw %}
 
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Why-is-get-questions-broken?-Look-at-API-docs">Why is get questions broken? Look at API docs<a class="anchor-link" href="#Why-is-get-questions-broken?-Look-at-API-docs"> </a></h1>
-</div>
-</div>
-</div>
-    {% raw %}
-    
-<div class="cell border-box-sizing code_cell rendered">
-
-<div class="output_wrapper">
-<div class="output">
-
-<div class="output_area">
-
-
-<div class="output_markdown rendered_html output_subarea ">
-<h4 id="Workflows.get_questions" class="doc_header"><code>Workflows.get_questions</code><a href="__main__.py#L23" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>Workflows.get_questions</code>(<strong><code>asset_id</code></strong>:<code>str</code>)</p>
-</blockquote>
-<p>Return question payload for an asset of type analytic app.</p>
-
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-    {% endraw %}
-
-    {% raw %}
-    
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">workflows</span> <span class="o">=</span> <span class="n">Workflows</span><span class="p">(</span><span class="n">dev_client</span><span class="o">.</span><span class="n">api</span><span class="p">)</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div>
-    {% endraw %}
-
-    {% raw %}
-    
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">asset_uid</span> <span class="o">=</span> <span class="n">questions_wf_uuid</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div>
-    {% endraw %}
-
-    {% raw %}
-    
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">workflows</span><span class="o">.</span><span class="n">get_questions</span><span class="p">(</span><span class="n">asset_id</span><span class="o">=</span><span class="n">asset_uid</span><span class="p">)</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-<div class="output_area">
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>POST sent to: https://ec2-44-234-86-100.us-west-2.compute.amazonaws.com/api/v1/workflows/061ccef2-42bc-45f6-b6ed-77cc6a211dc5/questions
-with headers: {&#39;User-Agent&#39;: &#39;python-requests/2.23.0&#39;, &#39;Accept-Encoding&#39;: &#39;gzip,deflate&#39;, &#39;Accept&#39;: &#39;*/*&#39;, &#39;Connection&#39;: &#39;keep-alive&#39;, &#39;Content-Type&#39;: &#39;application/json&#39;, &#39;Accept-Language&#39;: &#39;en-US,en;q=0.5&#39;, &#39;Cookie&#39;: &#39;ayxSession=s%3Ae5792dbf-36ad-4fb4-bffd-2d3d449b08c4.OTu4BC6lMigmko%2FjBZ9k%2BHb8h9aLG7DZjlNS22n0uNk&#39;, &#39;Content-Length&#39;: &#39;0&#39;}
-Response Status: 500
-</pre>
-</div>
-</div>
-
-<div class="output_area">
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>{&#39;requestUuid&#39;: &#39;614951e1-6dcb-4026-a296-f381b73e42bf&#39;,
- &#39;errors&#39;: [{&#39;code&#39;: &#39;&#39;,
-   &#39;message&#39;: &#39;WorkflowOrchestrator.getQuestions() with args: [ { &#34;requestUuid&#34;: &#34;614951e1-6dcb-4026-a296-f381b73e42bf&#34;,&#34;auditEvents&#34;: &#34;[  ]&#34;,&#34;privateSession&#34;: &#34;{ NESTED OBJECT }&#34;,&#34;privateSiteId&#34;: &#34;f6a2add6-7f4b-4c62-9b21-b9959faac597&#34;,&#34;clientIp&#34;: &#34;::ffff:66.35.44.241&#34; },&#34;061ccef2-42bc-45f6-b6ed-77cc6a211dc5&#34;,undefined,undefined,undefined]&#39;},
-  {&#39;code&#39;: &#39;&#39;,
-   &#39;message&#39;: &#39;EngineWorkerService.getQuestions() with args: [ { &#34;requestUuid&#34;: &#34;614951e1-6dcb-4026-a296-f381b73e42bf&#34;,&#34;auditEvents&#34;: &#34;[  ]&#34;,&#34;privateSession&#34;: &#34;{ NESTED OBJECT }&#34;,&#34;privateSiteId&#34;: &#34;f6a2add6-7f4b-4c62-9b21-b9959faac597&#34;,&#34;clientIp&#34;: &#34;::ffff:66.35.44.241&#34; }, { &#34;created&#34;: &#34;\\&#34;2020-07-01T21:47:31.549Z\\&#34;&#34;,&#34;versionCreated&#34;: &#34;\\&#34;2020-07-01T21:47:31.549Z\\&#34;&#34;,&#34;folderType&#34;:  [[[ this argument failed to process ]]],&#34;links&#34;:  [[[ this argument failed to process ]]],&#34;metadata&#34;: &#34;{ NESTED OBJECT }&#34;,&#34;metaHash&#34;: &#34;f1425e61763e6a7fae79 ... 8722de8a69d0bc6c94fa&#34;,&#34;maxVersion&#34;: 1,&#34;isHidden&#34;: false,&#34;onlyOwnerShares&#34;: false,&#34;onlySiteAdminShares&#34;: false,&#34;extension&#34;: &#34;yxwz&#34;,&#34;assetCategory&#34;: &#34;WORKFLOW_APP&#34;,&#34;contentId&#34;: &#34;c35c7462-f267-40f6-8cbb-8574ac3538de&#34;,&#34;contentHash&#34;: &#34;e9afe10edf2a644a849b ... 990555eb1ac1d95822db&#34;,&#34;contentSize&#34;: 22646,&#34;comment&#34;:  [[[ this argument failed to process ]]],&#34;entryOwner&#34;: &#34;{ NESTED OBJECT }&#34;,&#34;fileName&#34;: &#34;simple_questions2.yxwz&#34;,&#34;inherits&#34;: true,&#34;path&#34;: &#34;/Workspaces/Public/simple_questions2.yxwz&#34;,&#34;version&#34;: 1,&#34;assignedPermissionsDateUpdated&#34;:  [[[ this argument failed to process ]]],&#34;location&#34;: &#34;&#34;,&#34;uuid&#34;: &#34;061ccef2-42bc-45f6-b6ed-77cc6a211dc5&#34;,&#34;md5Hash&#34;: &#34;7b499f621571181bd7d348d905c67272&#34; },undefined,undefined]&#39;}]}</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-    {% endraw %}
-
     {% raw %}
     
 <div class="cell border-box-sizing code_cell rendered">
@@ -196,6 +84,16 @@ Response Status: 500
 </div>
     {% endraw %}
 
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>Arguments</strong>:</p>
+<ul>
+<li>asset_id: Unique VFS identifier for the workflow you want to execute.</li>
+</ul>
+
+</div>
+</div>
+</div>
     {% raw %}
     
 <div class="cell border-box-sizing code_cell rendered">
@@ -203,8 +101,9 @@ Response Status: 500
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">workflows</span> <span class="o">=</span> <span class="n">Workflows</span><span class="p">(</span><span class="n">dev_client</span><span class="o">.</span><span class="n">api</span><span class="p">)</span>
-<span class="n">workflows</span><span class="o">.</span><span class="n">get_vfs_inputs</span><span class="p">(</span><span class="n">asset_id</span><span class="o">=</span><span class="n">asset_uid</span><span class="p">)</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">workflows</span> <span class="o">=</span> <span class="n">Workflows</span><span class="p">(</span><span class="n">api</span><span class="p">)</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">workflows</span><span class="o">.</span><span class="n">get_vfs_inputs</span><span class="p">(</span><span class="n">asset_id</span><span class="o">=</span><span class="s1">&#39;test_id&#39;</span><span class="p">)</span>
+<span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
 </pre></div>
 
     </div>
@@ -216,20 +115,61 @@ Response Status: 500
 
 <div class="output_area">
 
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>GET sent to: https://ec2-44-234-86-100.us-west-2.compute.amazonaws.com/api/v1/workflows/ed2085aa-6c6f-4e45-b5ce-5ccc2bfa6771/vfsInputs
-with headers: {&#39;User-Agent&#39;: &#39;python-requests/2.23.0&#39;, &#39;Accept-Encoding&#39;: &#39;gzip,deflate&#39;, &#39;Accept&#39;: &#39;*/*&#39;, &#39;Connection&#39;: &#39;keep-alive&#39;, &#39;Content-Type&#39;: &#39;application/json&#39;, &#39;Accept-Language&#39;: &#39;en-US,en;q=0.5&#39;, &#39;Cookie&#39;: &#39;ayxSession=s%3A174b59ad-dd9c-47e4-ace7-e6abf63094e7.4UsHXVoFG%2B5AWeDcp0lfsE4BF59GfxlaPo3tDz1G5qM&#39;}
-Response Status: 200
-</pre>
-</div>
-</div>
-
-<div class="output_area">
-
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>[]</pre>
+<pre>[{&#39;connectionHash&#39;: &#39;ecde0973a04241b152e0d9b8f120c45fa265ff9130f47759dc321d9e8522298e&#39;,
+  &#39;externalPath&#39;: &#39;C:/projects/covid19/county_location_data.csv&#39;,
+  &#39;isInput&#39;: True,
+  &#39;vfsInputMembers&#39;: {&#39;effective&#39;: [{&#39;permissions&#39;: [&#39;CREATE&#39;,
+      &#39;DOWNLOAD&#39;,
+      &#39;EDIT&#39;,
+      &#39;VIEW&#39;],
+     &#39;partyType&#39;: 0,
+     &#39;partyId&#39;: &#39;a1100000-0000-4000-9000-000000000000&#39;,
+     &#39;createdBy&#39;: None,
+     &#39;fromEntryPath&#39;: &#39;/Workspaces/Public&#39;,
+     &#39;fromEntryFolderType&#39;: &#39;GENERIC&#39;,
+     &#39;isOwner&#39;: False,
+     &#39;identity&#39;: {&#39;groupId&#39;: &#39;a1100000-0000-4000-9000-000000000000&#39;,
+      &#39;userId&#39;: &#39;a1100000-0000-4000-9000-000000000000&#39;,
+      &#39;id&#39;: &#39;a1100000-0000-4000-9000-000000000000&#39;,
+      &#39;avatar&#39;: None,
+      &#39;email&#39;: None,
+      &#39;name&#39;: &#39;All Users&#39;,
+      &#39;firstName&#39;: &#39;All&#39;,
+      &#39;lastName&#39;: &#39;Users&#39;}},
+    {&#39;permissions&#39;: [&#39;DOWNLOAD&#39;, &#39;VIEW&#39;],
+     &#39;partyType&#39;: 0,
+     &#39;partyId&#39;: &#39;a1100000-0000-4000-9000-000000000000&#39;,
+     &#39;createdBy&#39;: None,
+     &#39;fromEntryPath&#39;: &#39;/Workspaces&#39;,
+     &#39;fromEntryFolderType&#39;: &#39;GENERIC&#39;,
+     &#39;isOwner&#39;: False,
+     &#39;identity&#39;: {&#39;groupId&#39;: &#39;a1100000-0000-4000-9000-000000000000&#39;,
+      &#39;userId&#39;: &#39;a1100000-0000-4000-9000-000000000000&#39;,
+      &#39;id&#39;: &#39;a1100000-0000-4000-9000-000000000000&#39;,
+      &#39;avatar&#39;: None,
+      &#39;email&#39;: None,
+      &#39;name&#39;: &#39;All Users&#39;,
+      &#39;firstName&#39;: &#39;All&#39;,
+      &#39;lastName&#39;: &#39;Users&#39;}}],
+   &#39;path&#39;: &#39;/Workspaces/Public/county_location_data.csv&#39;,
+   &#39;assigned&#39;: []},
+  &#39;vfsInputOwner&#39;: {&#39;avatar&#39;: None,
+   &#39;email&#39;: &#39;apiuser@example.com&#39;,
+   &#39;firstName&#39;: &#39;Aaaaaaaaaaa&#39;,
+   &#39;id&#39;: &#39;d57f3054-8eeb-4993-b021-cc7c6764d27c&#39;,
+   &#39;lastName&#39;: &#39;ApiTest&#39;,
+   &#39;name&#39;: &#39;Aaaaaaaaaaa ApiTest&#39;,
+   &#39;userName&#39;: &#39;apiuser&#39;},
+  &#39;hasAccess&#39;: True,
+  &#39;vfsSource&#39;: &#39;/Workspaces/Public/county_location_data.csv&#39;,
+  &#39;tools&#39;: [{&#39;toolId&#39;: 1,
+    &#39;fileName&#39;: &#39;covid_flow_test.yxmd&#39;,
+    &#39;toolName&#39;: &#39;DbFileInput&#39;,
+    &#39;annotation&#39;: &#39;county_location_data.csv&#39;,
+    &#39;fileFormat&#39;: 0}]}]</pre>
 </div>
 
 </div>
@@ -265,6 +205,16 @@ Response Status: 200
 </div>
     {% endraw %}
 
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>Arguments</strong>:</p>
+<ul>
+<li>asset_id: Unique VFS identifier for the workflow you want to execute.</li>
+</ul>
+
+</div>
+</div>
+</div>
     {% raw %}
     
 <div class="cell border-box-sizing code_cell rendered">
@@ -272,8 +222,9 @@ Response Status: 200
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">workflows</span> <span class="o">=</span> <span class="n">Workflows</span><span class="p">(</span><span class="n">dev_client</span><span class="o">.</span><span class="n">api</span><span class="p">)</span>
-<span class="n">workflows</span><span class="o">.</span><span class="n">get_workflow_dependencies</span><span class="p">(</span><span class="n">asset_id</span><span class="o">=</span><span class="n">asset_uid</span><span class="p">)</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">workflows</span> <span class="o">=</span> <span class="n">Workflows</span><span class="p">(</span><span class="n">api</span><span class="p">)</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">workflows</span><span class="o">.</span><span class="n">get_workflow_dependencies</span><span class="p">(</span><span class="n">asset_id</span><span class="o">=</span><span class="s1">&#39;test_id&#39;</span><span class="p">)</span>
+<span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
 </pre></div>
 
     </div>
@@ -285,20 +236,61 @@ Response Status: 200
 
 <div class="output_area">
 
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>GET sent to: https://ec2-44-234-86-100.us-west-2.compute.amazonaws.com/api/v1/workflows/ed2085aa-6c6f-4e45-b5ce-5ccc2bfa6771/dependencies
-with headers: {&#39;User-Agent&#39;: &#39;python-requests/2.23.0&#39;, &#39;Accept-Encoding&#39;: &#39;gzip,deflate&#39;, &#39;Accept&#39;: &#39;*/*&#39;, &#39;Connection&#39;: &#39;keep-alive&#39;, &#39;Content-Type&#39;: &#39;application/json&#39;, &#39;Accept-Language&#39;: &#39;en-US,en;q=0.5&#39;, &#39;Cookie&#39;: &#39;ayxSession=s%3A174b59ad-dd9c-47e4-ace7-e6abf63094e7.4UsHXVoFG%2B5AWeDcp0lfsE4BF59GfxlaPo3tDz1G5qM&#39;}
-Response Status: 200
-</pre>
-</div>
-</div>
-
-<div class="output_area">
-
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>[]</pre>
+<pre>[{&#39;connectionHash&#39;: &#39;ecde0973a04241b152e0d9b8f120c45fa265ff9130f47759dc321d9e8522298e&#39;,
+  &#39;externalPath&#39;: &#39;C:/projects/covid19/county_location_data.csv&#39;,
+  &#39;isInput&#39;: True,
+  &#39;vfsInputMembers&#39;: {&#39;effective&#39;: [{&#39;permissions&#39;: [&#39;CREATE&#39;,
+      &#39;DOWNLOAD&#39;,
+      &#39;EDIT&#39;,
+      &#39;VIEW&#39;],
+     &#39;partyType&#39;: 0,
+     &#39;partyId&#39;: &#39;a1100000-0000-4000-9000-000000000000&#39;,
+     &#39;createdBy&#39;: None,
+     &#39;fromEntryPath&#39;: &#39;/Workspaces/Public&#39;,
+     &#39;fromEntryFolderType&#39;: &#39;GENERIC&#39;,
+     &#39;isOwner&#39;: False,
+     &#39;identity&#39;: {&#39;groupId&#39;: &#39;a1100000-0000-4000-9000-000000000000&#39;,
+      &#39;userId&#39;: &#39;a1100000-0000-4000-9000-000000000000&#39;,
+      &#39;id&#39;: &#39;a1100000-0000-4000-9000-000000000000&#39;,
+      &#39;avatar&#39;: None,
+      &#39;email&#39;: None,
+      &#39;name&#39;: &#39;All Users&#39;,
+      &#39;firstName&#39;: &#39;All&#39;,
+      &#39;lastName&#39;: &#39;Users&#39;}},
+    {&#39;permissions&#39;: [&#39;DOWNLOAD&#39;, &#39;VIEW&#39;],
+     &#39;partyType&#39;: 0,
+     &#39;partyId&#39;: &#39;a1100000-0000-4000-9000-000000000000&#39;,
+     &#39;createdBy&#39;: None,
+     &#39;fromEntryPath&#39;: &#39;/Workspaces&#39;,
+     &#39;fromEntryFolderType&#39;: &#39;GENERIC&#39;,
+     &#39;isOwner&#39;: False,
+     &#39;identity&#39;: {&#39;groupId&#39;: &#39;a1100000-0000-4000-9000-000000000000&#39;,
+      &#39;userId&#39;: &#39;a1100000-0000-4000-9000-000000000000&#39;,
+      &#39;id&#39;: &#39;a1100000-0000-4000-9000-000000000000&#39;,
+      &#39;avatar&#39;: None,
+      &#39;email&#39;: None,
+      &#39;name&#39;: &#39;All Users&#39;,
+      &#39;firstName&#39;: &#39;All&#39;,
+      &#39;lastName&#39;: &#39;Users&#39;}}],
+   &#39;path&#39;: &#39;/Workspaces/Public/county_location_data.csv&#39;,
+   &#39;assigned&#39;: []},
+  &#39;vfsInputOwner&#39;: {&#39;avatar&#39;: None,
+   &#39;email&#39;: &#39;apiuser@example.com&#39;,
+   &#39;firstName&#39;: &#39;Aaaaaaaaaaa&#39;,
+   &#39;id&#39;: &#39;d57f3054-8eeb-4993-b021-cc7c6764d27c&#39;,
+   &#39;lastName&#39;: &#39;ApiTest&#39;,
+   &#39;name&#39;: &#39;Aaaaaaaaaaa ApiTest&#39;,
+   &#39;userName&#39;: &#39;apiuser&#39;},
+  &#39;hasAccess&#39;: True,
+  &#39;vfsSource&#39;: &#39;/Workspaces/Public/county_location_data.csv&#39;,
+  &#39;tools&#39;: [{&#39;toolId&#39;: 1,
+    &#39;fileName&#39;: &#39;covid_flow_test.yxmd&#39;,
+    &#39;toolName&#39;: &#39;DbFileInput&#39;,
+    &#39;annotation&#39;: &#39;county_location_data.csv&#39;,
+    &#39;fileFormat&#39;: 0}]}]</pre>
 </div>
 
 </div>
@@ -341,7 +333,7 @@ Returns a schedule object.</p>
 <ul>
 <li>asset_id: Unique VFS identifier for the workflow you want to execute.</li>
 <li>schedule_name: Optional: Name of the schedule that will be created when workflow execution is triggered.</li>
-<li>vfs_inputs: TODO, need to research this more and test it.</li>
+<li>vfs_inputs: Optional: List of vfs asset ids, if desired</li>
 </ul>
 
 </div>
@@ -354,25 +346,8 @@ Returns a schedule object.</p>
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">asset_uid</span> <span class="o">=</span> <span class="n">questions_wf_uuid</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div>
-    {% endraw %}
-
-    {% raw %}
-    
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">workflows</span> <span class="o">=</span> <span class="n">Workflows</span><span class="p">(</span><span class="n">dev_client</span><span class="o">.</span><span class="n">api</span><span class="p">)</span>
-<span class="n">workflows</span><span class="o">.</span><span class="n">run_workflow</span><span class="p">(</span><span class="n">asset_id</span><span class="o">=</span><span class="n">asset_uid</span><span class="p">,</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">workflows</span> <span class="o">=</span> <span class="n">Workflows</span><span class="p">(</span><span class="n">api</span><span class="p">)</span>
+<span class="n">workflows</span><span class="o">.</span><span class="n">run_workflow</span><span class="p">(</span><span class="n">asset_id</span><span class="o">=</span><span class="s2">&quot;test_id&quot;</span><span class="p">,</span>
                        <span class="n">schedule_name</span><span class="o">=</span><span class="s2">&quot;jp_client_test&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
 </pre></div>
 
@@ -385,23 +360,13 @@ Returns a schedule object.</p>
 
 <div class="output_area">
 
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>POST sent to: https://ec2-44-234-86-100.us-west-2.compute.amazonaws.com/api/v1/workflows/run
-with headers: {&#39;User-Agent&#39;: &#39;python-requests/2.23.0&#39;, &#39;Accept-Encoding&#39;: &#39;gzip,deflate&#39;, &#39;Accept&#39;: &#39;*/*&#39;, &#39;Connection&#39;: &#39;keep-alive&#39;, &#39;Content-Type&#39;: &#39;application/json&#39;, &#39;Accept-Language&#39;: &#39;en-US,en;q=0.5&#39;, &#39;Cookie&#39;: &#39;ayxSession=s%3Ae5792dbf-36ad-4fb4-bffd-2d3d449b08c4.OTu4BC6lMigmko%2FjBZ9k%2BHb8h9aLG7DZjlNS22n0uNk&#39;, &#39;Content-Length&#39;: &#39;91&#39;}
-Response Status: 200
-</pre>
-</div>
-</div>
-
-<div class="output_area">
-
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>{&#39;scheduleId&#39;: &#39;c4e886d1-423b-4cb4-a985-195ac511d108&#39;,
- &#39;name&#39;: &#39;jp_client_test&#39;,
- &#39;userId&#39;: &#39;88eec279-7769-414e-94ae-d0fd9f83a686&#39;,
- &#39;assetId&#39;: &#39;061ccef2-42bc-45f6-b6ed-77cc6a211dc5&#39;,
+<pre>{&#39;scheduleId&#39;: &#39;f35045d4-5298-43d2-918b-3281159e05dd&#39;,
+ &#39;name&#39;: &#39;schedule_name_test&#39;,
+ &#39;userId&#39;: &#39;d57f3054-8eeb-4993-b021-cc7c6764d27c&#39;,
+ &#39;assetId&#39;: &#39;cd68ff45-fc21-4a32-b2e9-8d5b85881b7e&#39;,
  &#39;assetVersion&#39;: None,
  &#39;runAsId&#39;: None,
  &#39;toolConnections&#39;: None,
@@ -416,12 +381,12 @@ Response Status: 200
  &#39;isDisabled&#39;: False,
  &#39;isDeleted&#39;: False,
  &#39;comment&#39;: None,
- &#39;siteId&#39;: &#39;f6a2add6-7f4b-4c62-9b21-b9959faac597&#39;,
+ &#39;siteId&#39;: &#39;2d05e824-7421-4c7a-8e4e-a22d984953c2&#39;,
  &#39;parameters&#39;: {&#39;runMode&#39;: 0},
  &#39;analyticAppAnswers&#39;: None,
  &#39;inputFiles&#39;: None,
- &#39;creationDate&#39;: &#39;2020-07-01T21:49:02.748Z&#39;,
- &#39;lastUpdate&#39;: &#39;2020-07-01T21:49:02.748Z&#39;,
+ &#39;creationDate&#39;: &#39;2020-07-27T21:09:25.035Z&#39;,
+ &#39;lastUpdate&#39;: &#39;2020-07-27T21:09:25.035Z&#39;,
  &#39;outputLocation&#39;: None,
  &#39;timezone&#39;: &#39;UTC&#39;,
  &#39;utcOffset&#39;: 0,
@@ -460,6 +425,17 @@ Response Status: 200
 </div>
     {% endraw %}
 
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>Arguments</strong>:</p>
+<ul>
+<li>schedule_id: Unique identifier for the completed schedule that orchestrated the workflow execution</li>
+<li>download_path: Local path to download the scheduled workflow results file to</li>
+</ul>
+
+</div>
+</div>
+</div>
     {% raw %}
     
 <div class="cell border-box-sizing code_cell rendered">
@@ -467,59 +443,7 @@ Response Status: 200
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">workflows</span> <span class="o">=</span> <span class="n">Workflows</span><span class="p">(</span><span class="n">dev_client</span><span class="o">.</span><span class="n">api</span><span class="p">)</span>
-<span class="n">response</span> <span class="o">=</span> <span class="n">workflows</span><span class="o">.</span><span class="n">run_workflow</span><span class="p">(</span><span class="n">asset_id</span><span class="o">=</span><span class="n">asset_uid</span><span class="p">,</span>
-                       <span class="n">schedule_name</span><span class="o">=</span><span class="s2">&quot;jp_client_test&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-<div class="output_area">
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>POST sent to: https://ec2-44-234-86-100.us-west-2.compute.amazonaws.com/api/v1/workflows/run
-with headers: {&#39;User-Agent&#39;: &#39;python-requests/2.23.0&#39;, &#39;Accept-Encoding&#39;: &#39;gzip,deflate&#39;, &#39;Accept&#39;: &#39;*/*&#39;, &#39;Connection&#39;: &#39;keep-alive&#39;, &#39;Content-Type&#39;: &#39;application/json&#39;, &#39;Accept-Language&#39;: &#39;en-US,en;q=0.5&#39;, &#39;Cookie&#39;: &#39;ayxSession=s%3A174b59ad-dd9c-47e4-ace7-e6abf63094e7.4UsHXVoFG%2B5AWeDcp0lfsE4BF59GfxlaPo3tDz1G5qM&#39;, &#39;Content-Length&#39;: &#39;91&#39;}
-Response Status: 200
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-    {% endraw %}
-
-    {% raw %}
-    
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">schedule_id</span> <span class="o">=</span> <span class="n">response</span><span class="p">[</span><span class="s1">&#39;scheduleId&#39;</span><span class="p">]</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div>
-    {% endraw %}
-
-    {% raw %}
-    
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">workflows</span><span class="o">.</span><span class="n">download_workflow_results</span><span class="p">(</span><span class="n">schedule_id</span><span class="o">=</span><span class="n">schedule_id</span><span class="p">,</span> 
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">workflows</span><span class="o">.</span><span class="n">download_workflow_results</span><span class="p">(</span><span class="n">schedule_id</span><span class="o">=</span><span class="s1">&#39;test_schedule_id&#39;</span><span class="p">,</span> 
                                     <span class="n">download_path</span><span class="o">=</span><span class="s1">&#39;wf_out_test.csv&#39;</span><span class="p">)</span>
 </pre></div>
 
@@ -532,19 +456,6 @@ Response Status: 200
 
 <div class="output_area">
 
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>GET sent to: https://ec2-44-234-86-100.us-west-2.compute.amazonaws.com/api/v1/jobs/?scheduleId=22317f84-5a10-4633-8079-64c77f1dc740
-with headers: {&#39;User-Agent&#39;: &#39;python-requests/2.23.0&#39;, &#39;Accept-Encoding&#39;: &#39;gzip,deflate&#39;, &#39;Accept&#39;: &#39;*/*&#39;, &#39;Connection&#39;: &#39;keep-alive&#39;, &#39;Content-Type&#39;: &#39;application/json&#39;, &#39;Accept-Language&#39;: &#39;en-US,en;q=0.5&#39;, &#39;Cookie&#39;: &#39;ayxSession=s%3A174b59ad-dd9c-47e4-ace7-e6abf63094e7.4UsHXVoFG%2B5AWeDcp0lfsE4BF59GfxlaPo3tDz1G5qM&#39;}
-Response Status: 200
-GET sent to: https://ec2-44-234-86-100.us-west-2.compute.amazonaws.com/api/v1/files/content?id=ddc6c43d-f7ee-4d76-9c9b-320afe74b292
-with headers: {&#39;User-Agent&#39;: &#39;python-requests/2.23.0&#39;, &#39;Accept-Encoding&#39;: &#39;gzip,deflate&#39;, &#39;Accept&#39;: &#39;*/*&#39;, &#39;Connection&#39;: &#39;keep-alive&#39;, &#39;Content-Type&#39;: &#39;application/json&#39;, &#39;Accept-Language&#39;: &#39;en-US,en;q=0.5&#39;, &#39;Cookie&#39;: &#39;ayxSession=s%3A174b59ad-dd9c-47e4-ace7-e6abf63094e7.4UsHXVoFG%2B5AWeDcp0lfsE4BF59GfxlaPo3tDz1G5qM&#39;}
-Response Status: 200
-</pre>
-</div>
-</div>
-
-<div class="output_area">
-
 
 
 <div class="output_text output_subarea output_execute_result">
@@ -553,24 +464,6 @@ Response Status: 200
 
 </div>
 
-</div>
-</div>
-
-</div>
-    {% endraw %}
-
-    {% raw %}
-    
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">nbdev.sync</span> <span class="kn">import</span> <span class="n">script2notebook</span>
-<span class="n">script2notebook</span><span class="p">()</span>
-</pre></div>
-
-    </div>
 </div>
 </div>
 

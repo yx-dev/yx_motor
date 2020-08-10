@@ -28,7 +28,13 @@ entries:
       title: workflows
       url: /workflows
     - output: web,pdf
-      title: Title
+      title: Test Constants
+      url: /constants
+    - output: web,pdf
+      title: Unit Test Helpers
+      url: /unit_test_helpers
+    - output: web,pdf
+      title: Integration Tests
       url: /integration_tests
     output: web
     title: yx_motor

@@ -120,7 +120,7 @@ The files commands are intended to be called by users through the Client class. 
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Initialize the files object the same way the Client object does.</span>
-<span class="n">files</span> <span class="o">=</span> <span class="n">Files</span><span class="p">(</span><span class="n">example_client</span><span class="o">.</span><span class="n">api</span><span class="p">)</span>
+<span class="n">files</span> <span class="o">=</span> <span class="n">Files</span><span class="p">(</span><span class="n">api</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -144,7 +144,7 @@ The files commands are intended to be called by users through the Client class. 
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">asset_id</span> <span class="o">=</span> <span class="n">workflow_A_uuid</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">asset_id</span> <span class="o">=</span> <span class="s2">&quot;9b75b3d8-56c1-4ce6-bfe1-9aabaea1e65f&quot;</span>
 </pre></div>
 
     </div>
@@ -157,70 +157,12 @@ The files commands are intended to be called by users through the Client class. 
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>Next, we will trigger the method.  To better illustrate what the download_file method does, we are going to capture the response.  It is important to note that this is not necessary.  Simply calling the <code>files.download_file</code> command is all that is necessary to successfully download a file to the specified path.</p>
-<p>First, let's show the contents of the directory we wish to download the file to.</p>
 
 </div>
 </div>
 </div>
-    {% raw %}
-    
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="o">!</span>mkdir example_downloads
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div>
-    {% endraw %}
-
-    {% raw %}
-    
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="o">!</span>dir example_downloads
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-<div class="output_area">
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre> Volume in drive C is Windows
- Volume Serial Number is 241B-A66E
-
- Directory of C:\Users\jesse.clark\Documents\GitHub\yx_motor\example_downloads
-
-04/28/2020  12:24 PM    &lt;DIR&gt;          .
-04/28/2020  12:24 PM    &lt;DIR&gt;          ..
-               0 File(s)              0 bytes
-               2 Dir(s)  689,385,291,776 bytes free
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-    {% endraw %}
-
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>As we can see, the directory is currently empty.</p>
 <p>Next, let's trigger the download_file command.</p>
 
 </div>
@@ -234,73 +176,10 @@ The files commands are intended to be called by users through the Client class. 
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">response</span> <span class="o">=</span> <span class="n">files</span><span class="o">.</span><span class="n">download_file</span><span class="p">(</span><span class="n">file_uuid</span><span class="o">=</span><span class="n">asset_id</span><span class="p">,</span>
-                               <span class="n">download_path</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;example_downloads/</span><span class="si">{</span><span class="n">workflow_A_name</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+                               <span class="n">download_path</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;example_downloads/some_name.yxmd&quot;</span><span class="p">)</span>
 </pre></div>
 
     </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-<div class="output_area">
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>GET sent to: https://test.aep-mono.devops.alteryx.com/api/v1/files/content?id=a836329c-2ea4-40c0-968e-275b43ff00d7
-with headers: {&#39;User-Agent&#39;: &#39;python-requests/2.23.0&#39;, &#39;Accept-Encoding&#39;: &#39;gzip,deflate&#39;, &#39;Accept&#39;: &#39;*/*&#39;, &#39;Connection&#39;: &#39;keep-alive&#39;, &#39;Content-Type&#39;: &#39;application/json&#39;, &#39;Accept-Language&#39;: &#39;en-US,en;q=0.5&#39;, &#39;Cookie&#39;: &#39;ayxSession=s%3A17f3e051-7832-4e0e-ab4e-184cbb835e98.%2BhT5ggwd2RXV5BDot3q93ert5f2kXqM02CPfZtpsjnU&#39;}
-Response Status: 200
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-    {% endraw %}
-
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Now let's check the same directory from above.  We will inspect the response object after this.</p>
-
-</div>
-</div>
-</div>
-    {% raw %}
-    
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="o">!</span>dir example_downloads
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-<div class="output_area">
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre> Volume in drive C is Windows
- Volume Serial Number is 241B-A66E
-
- Directory of C:\Users\jesse.clark\Documents\GitHub\yx_motor\example_downloads
-
-04/28/2020  12:26 PM    &lt;DIR&gt;          .
-04/28/2020  12:26 PM    &lt;DIR&gt;          ..
-04/28/2020  12:26 PM             3,250 WorkflowA.yxmd
-               1 File(s)          3,250 bytes
-               2 Dir(s)  689,396,101,120 bytes free
-</pre>
-</div>
-</div>
-
 </div>
 </div>
 
@@ -337,7 +216,7 @@ Response Status: 200
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>b&#39;&lt;?xml version=&#34;1.0&#34;?&gt;\n&lt;AlteryxDocument yxmdVer=&#34;2019.1&#34;&gt;\n  &lt;Nodes&gt;\n    &lt;Node ToolID=&#34;2&#34;&gt;\n      &lt;GuiSettings Plugin=&#34;AlteryxBasePluginsGui.GenerateRows.GenerateRows&#34;&gt;\n        &lt;Position x=&#34;318&#34; y=&#34;258&#34; /&gt;\n      &lt;/GuiSettings&gt;\n      &lt;Properties&gt;\n        &lt;Configuration&gt;\n          &lt;UpdateField value=&#34;False&#34; /&gt;\n          &lt;UpdateField_Name /&gt;\n          &lt;CreateField_Name&gt;RowCount&lt;/CreateField_Name&gt;\n          &lt;CreateField_Type&gt;Int32&lt;/CreateField_Type&gt;\n          &lt;CreateField_Size&gt;4&lt;/CreateField_Size&gt;\n          &lt;Expression_Init&gt;1&lt;/Expression_Init&gt;\n          &lt;Expression_Cond&gt;RowCount &amp;lt;= 100000000&lt;/Expression_Cond&gt;\n          &lt;Expression_Loop&gt;RowCount + 1&lt;/Expression_Loop&gt;\n        &lt;/Configuration&gt;\n        &lt;Annotation DisplayMode=&#34;0&#34;&gt;\n          &lt;Name /&gt;\n          &lt;DefaultAnnotationText /&gt;\n          &lt;Left value=&#34;False&#34; /&gt;\n        &lt;/Annotation&gt;\n      &lt;/Properties&gt;\n      &lt;EngineSettings EngineDll=&#34;AlteryxBasePluginsEngine.dll&#34; EngineDllEntryPoint=&#34;AlteryxGenerateRows&#34; /&gt;\n    &lt;/Node&gt;\n    &lt;Node ToolID=&#34;3&#34;&gt;\n      &lt;GuiSettings Plugin=&#34;AlteryxBasePluginsGui.DbFileOutput.DbFileOutput&#34;&gt;\n        &lt;Position x=&#34;438&#34; y=&#34;258&#34; /&gt;\n      &lt;/GuiSettings&gt;\n      &lt;Properties&gt;\n        &lt;Configuration&gt;\n          &lt;File FileFormat=&#34;19&#34; MaxRecords=&#34;&#34;&gt;output.yxdb&lt;/File&gt;\n          &lt;Passwords /&gt;\n          &lt;FormatSpecificOptions&gt;\n            &lt;NoSpatialIndex&gt;False&lt;/NoSpatialIndex&gt;\n            &lt;SaveSource&gt;True&lt;/SaveSource&gt;\n          &lt;/FormatSpecificOptions&gt;\n          &lt;MultiFile value=&#34;False&#34; /&gt;\n        &lt;/Configuration&gt;\n        &lt;Annotation DisplayMode=&#34;0&#34;&gt;\n          &lt;Name /&gt;\n          &lt;DefaultAnnotationText&gt;output.yxdb&lt;/DefaultAnnotationText&gt;\n          &lt;Left value=&#34;False&#34; /&gt;\n        &lt;/Annotation&gt;\n        &lt;Dependencies&gt;\n          &lt;Implicit /&gt;\n        &lt;/Dependencies&gt;\n      &lt;/Properties&gt;\n      &lt;EngineSettings EngineDll=&#34;AlteryxBasePluginsEngine.dll&#34; EngineDllEntryPoint=&#34;AlteryxDbFileOutput&#34; /&gt;\n    &lt;/Node&gt;\n  &lt;/Nodes&gt;\n  &lt;Connections&gt;\n    &lt;Connection&gt;\n      &lt;Origin ToolID=&#34;2&#34; Connection=&#34;Output&#34; /&gt;\n      &lt;Destination ToolID=&#34;3&#34; Connection=&#34;Input&#34; /&gt;\n    &lt;/Connection&gt;\n  &lt;/Connections&gt;\n  &lt;Properties&gt;\n    &lt;Memory default=&#34;True&#34; /&gt;\n    &lt;GlobalRecordLimit value=&#34;0&#34; /&gt;\n    &lt;TempFiles default=&#34;True&#34; /&gt;\n    &lt;Annotation on=&#34;True&#34; includeToolName=&#34;False&#34; /&gt;\n    &lt;ConvErrorLimit value=&#34;10&#34; /&gt;\n    &lt;ConvErrorLimit_Stop value=&#34;False&#34; /&gt;\n    &lt;CancelOnError value=&#34;False&#34; /&gt;\n    &lt;DisableBrowse value=&#34;False&#34; /&gt;\n    &lt;EnablePerformanceProfiling value=&#34;False&#34; /&gt;\n    &lt;DisableAllOutput value=&#34;False&#34; /&gt;\n    &lt;ShowAllMacroMessages value=&#34;False&#34; /&gt;\n    &lt;ShowConnectionStatusIsOn value=&#34;True&#34; /&gt;\n    &lt;ShowConnectionStatusOnlyWhenRunning value=&#34;True&#34; /&gt;\n    &lt;ZoomLevel value=&#34;0&#34; /&gt;\n    &lt;LayoutType&gt;Horizontal&lt;/LayoutType&gt;\n    &lt;MetaInfo&gt;\n      &lt;NameIsFileName value=&#34;True&#34; /&gt;\n      &lt;Name&gt;MillionsOfRows&lt;/Name&gt;\n      &lt;Description /&gt;\n      &lt;RootToolName /&gt;\n      &lt;ToolVersion /&gt;\n      &lt;ToolInDb value=&#34;False&#34; /&gt;\n      &lt;CategoryName /&gt;\n      &lt;SearchTags /&gt;\n      &lt;Author /&gt;\n      &lt;Company /&gt;\n      &lt;Copyright /&gt;\n      &lt;DescriptionLink actual=&#34;&#34; displayed=&#34;&#34; /&gt;\n      &lt;Example&gt;\n        &lt;Description /&gt;\n        &lt;File /&gt;\n      &lt;/Example&gt;\n    &lt;/MetaInfo&gt;\n    &lt;Events&gt;\n      &lt;Enabled value=&#34;True&#34; /&gt;\n    &lt;/Events&gt;\n  &lt;/Properties&gt;\n&lt;/AlteryxDocument&gt;&#39;</pre>
+<pre>b&#39;&lt;?xml version=&#34;1.0&#34;?&gt;\r\n&lt;AlteryxDocument yxmdVer=&#34;2020.1&#34;&gt;\r\n  &lt;Nodes&gt;\r\n    &lt;Node ToolID=&#34;1&#34;&gt;\r\n      &lt;GuiSettings Plugin=&#34;AlteryxBasePluginsGui.TextInput.TextInput&#34;&gt;\r\n        &lt;Position x=&#34;222&#34; y=&#34;174&#34; /&gt;\r\n      &lt;/GuiSettings&gt;\r\n      &lt;Properties&gt;\r\n        &lt;Configuration&gt;\r\n          &lt;NumRows value=&#34;1&#34; /&gt;\r\n          &lt;Fields&gt;\r\n            &lt;Field name=&#34;Field1&#34; /&gt;\r\n          &lt;/Fields&gt;\r\n          &lt;Data&gt;\r\n            &lt;r&gt;\r\n              &lt;c&gt;WorkflowA&lt;/c&gt;\r\n            &lt;/r&gt;\r\n          &lt;/Data&gt;\r\n        &lt;/Configuration&gt;\r\n        &lt;Annotation DisplayMode=&#34;0&#34;&gt;\r\n          &lt;Name /&gt;\r\n          &lt;DefaultAnnotationText /&gt;\r\n          &lt;Left value=&#34;False&#34; /&gt;\r\n        &lt;/Annotation&gt;\r\n      &lt;/Properties&gt;\r\n      &lt;EngineSettings EngineDll=&#34;AlteryxBasePluginsEngine.dll&#34; EngineDllEntryPoint=&#34;AlteryxTextInput&#34; /&gt;\r\n    &lt;/Node&gt;\r\n    &lt;Node ToolID=&#34;2&#34;&gt;\r\n      &lt;GuiSettings Plugin=&#34;AlteryxBasePluginsGui.DbFileOutput.DbFileOutput&#34;&gt;\r\n        &lt;Position x=&#34;378&#34; y=&#34;174&#34; /&gt;\r\n      &lt;/GuiSettings&gt;\r\n      &lt;Properties&gt;\r\n        &lt;Configuration&gt;\r\n          &lt;File MaxRecords=&#34;&#34; FileFormat=&#34;0&#34;&gt;WorkflowAout.csv&lt;/File&gt;\r\n          &lt;Passwords /&gt;\r\n          &lt;FormatSpecificOptions&gt;\r\n            &lt;LineEndStyle&gt;CRLF&lt;/LineEndStyle&gt;\r\n            &lt;Delimeter&gt;,&lt;/Delimeter&gt;\r\n            &lt;ForceQuotes&gt;False&lt;/ForceQuotes&gt;\r\n            &lt;HeaderRow&gt;True&lt;/HeaderRow&gt;\r\n            &lt;CodePage&gt;28591&lt;/CodePage&gt;\r\n            &lt;WriteBOM&gt;True&lt;/WriteBOM&gt;\r\n          &lt;/FormatSpecificOptions&gt;\r\n          &lt;MultiFile value=&#34;False&#34; /&gt;\r\n        &lt;/Configuration&gt;\r\n        &lt;Annotation DisplayMode=&#34;0&#34;&gt;\r\n          &lt;Name /&gt;\r\n          &lt;DefaultAnnotationText&gt;WorkflowAout.csv&lt;/DefaultAnnotationText&gt;\r\n          &lt;Left value=&#34;False&#34; /&gt;\r\n        &lt;/Annotation&gt;\r\n        &lt;Dependencies&gt;\r\n          &lt;Implicit /&gt;\r\n        &lt;/Dependencies&gt;\r\n      &lt;/Properties&gt;\r\n      &lt;EngineSettings EngineDll=&#34;AlteryxBasePluginsEngine.dll&#34; EngineDllEntryPoint=&#34;AlteryxDbFileOutput&#34; /&gt;\r\n    &lt;/Node&gt;\r\n  &lt;/Nodes&gt;\r\n  &lt;Connections&gt;\r\n    &lt;Connection&gt;\r\n      &lt;Origin ToolID=&#34;1&#34; Connection=&#34;Output&#34; /&gt;\r\n      &lt;Destination ToolID=&#34;2&#34; Connection=&#34;Input&#34; /&gt;\r\n    &lt;/Connection&gt;\r\n  &lt;/Connections&gt;\r\n  &lt;Properties&gt;\r\n    &lt;Memory default=&#34;True&#34; /&gt;\r\n    &lt;GlobalRecordLimit value=&#34;0&#34; /&gt;\r\n    &lt;TempFiles default=&#34;True&#34; /&gt;\r\n    &lt;Annotation on=&#34;True&#34; includeToolName=&#34;False&#34; /&gt;\r\n    &lt;ConvErrorLimit value=&#34;10&#34; /&gt;\r\n    &lt;ConvErrorLimit_Stop value=&#34;False&#34; /&gt;\r\n    &lt;CancelOnError value=&#34;False&#34; /&gt;\r\n    &lt;DisableBrowse value=&#34;False&#34; /&gt;\r\n    &lt;EnablePerformanceProfiling value=&#34;False&#34; /&gt;\r\n    &lt;DisableAllOutput value=&#34;False&#34; /&gt;\r\n    &lt;ShowAllMacroMessages value=&#34;False&#34; /&gt;\r\n    &lt;ShowConnectionStatusIsOn value=&#34;True&#34; /&gt;\r\n    &lt;ShowConnectionStatusOnlyWhenRunning value=&#34;True&#34; /&gt;\r\n    &lt;ZoomLevel value=&#34;0&#34; /&gt;\r\n    &lt;LayoutType&gt;Horizontal&lt;/LayoutType&gt;\r\n    &lt;MetaInfo&gt;\r\n      &lt;NameIsFileName value=&#34;True&#34; /&gt;\r\n      &lt;Name&gt;WorkflowA&lt;/Name&gt;\r\n      &lt;Description /&gt;\r\n      &lt;RootToolName /&gt;\r\n      &lt;ToolVersion /&gt;\r\n      &lt;ToolInDb value=&#34;False&#34; /&gt;\r\n      &lt;CategoryName /&gt;\r\n      &lt;SearchTags /&gt;\r\n      &lt;Author /&gt;\r\n      &lt;Company /&gt;\r\n      &lt;Copyright /&gt;\r\n      &lt;DescriptionLink actual=&#34;&#34; displayed=&#34;&#34; /&gt;\r\n      &lt;Example&gt;\r\n        &lt;Description /&gt;\r\n        &lt;File /&gt;\r\n      &lt;/Example&gt;\r\n    &lt;/MetaInfo&gt;\r\n    &lt;Events&gt;\r\n      &lt;Enabled value=&#34;True&#34; /&gt;\r\n    &lt;/Events&gt;\r\n  &lt;/Properties&gt;\r\n&lt;/AlteryxDocument&gt;&#39;</pre>
 </div>
 
 </div>
@@ -412,7 +291,7 @@ Response Status: 200
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Initialize the files object the same way the Client object does.</span>
-<span class="n">files</span> <span class="o">=</span> <span class="n">Files</span><span class="p">(</span><span class="n">example_client</span><span class="o">.</span><span class="n">api</span><span class="p">)</span>
+<span class="n">files</span> <span class="o">=</span> <span class="n">Files</span><span class="p">(</span><span class="n">api</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -436,27 +315,11 @@ Response Status: 200
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">response</span> <span class="o">=</span> <span class="n">files</span><span class="o">.</span><span class="n">upload_file</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="sa">r</span><span class="s2">&quot;test.yxzp&quot;</span><span class="p">,</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">response</span> <span class="o">=</span> <span class="n">files</span><span class="o">.</span><span class="n">upload_file</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="sa">r</span><span class="s2">&quot;example_downloads/some_name.yxmd&quot;</span><span class="p">,</span>
                              <span class="n">upload_path</span><span class="o">=</span><span class="s2">&quot;/Workspaces/Public/example_1.yxzp&quot;</span><span class="p">)</span>
 </pre></div>
 
     </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-<div class="output_area">
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>POST sent to: https://test.aep-mono.devops.alteryx.com/api/v1/files/
-with headers: {&#39;User-Agent&#39;: &#39;python-requests/2.23.0&#39;, &#39;Accept-Encoding&#39;: &#39;gzip,deflate&#39;, &#39;Accept&#39;: &#39;*/*&#39;, &#39;Connection&#39;: &#39;keep-alive&#39;, &#39;Content-Type&#39;: &#39;application/json&#39;, &#39;Accept-Language&#39;: &#39;en-US,en;q=0.5&#39;, &#39;path&#39;: &#39;/Workspaces/Public/example_1.yxzp&#39;, &#39;conflict_action&#39;: &#39;CREATE_COPY&#39;, &#39;Cookie&#39;: &#39;ayxSession=s%3Aa4e6c322-5a8d-4909-ad85-0f72de9e19cf.jbxJCEZNLq3mmxW0RWJbCiayPjQvxEj0sP2moTAkFZs&#39;, &#39;Content-Length&#39;: &#39;2176&#39;}
-Response Status: 200
-</pre>
-</div>
-</div>
-
 </div>
 </div>
 
@@ -485,35 +348,37 @@ Response Status: 200
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>{&#39;fileName&#39;: &#39;example_1.yxzp&#39;,
- &#39;extension&#39;: &#39;yxzp&#39;,
- &#39;inherits&#39;: True,
- &#39;isHidden&#39;: False,
- &#39;onlyOwnerShares&#39;: False,
- &#39;path&#39;: &#39;/Workspaces/Public/example_1.yxzp&#39;,
- &#39;folderType&#39;: None,
- &#39;version&#39;: 1,
- &#39;created&#39;: &#39;2020-04-28T15:56:36.357Z&#39;,
- &#39;versionCreated&#39;: &#39;2020-04-28T15:56:36.357Z&#39;,
+<pre>{&#39;folderType&#39;: None,
+ &#39;comment&#39;: None,
  &#39;maxVersion&#39;: 1,
  &#39;links&#39;: None,
- &#39;location&#39;: &#39;&#39;,
- &#39;uuid&#39;: &#39;51cc3f05-2bed-4854-83e4-905465af9957&#39;,
+ &#39;created&#39;: &#39;2020-08-04T22:55:02.066Z&#39;,
+ &#39;versionCreated&#39;: &#39;2020-08-04T22:55:02.066Z&#39;,
  &#39;metaHash&#39;: &#39;d214d65ab55a2a1c73de7c90fcc1aecfc28dd88dbec71cdeaeb3ffb1ef170053&#39;,
- &#39;metadata&#39;: {&#39;yxType&#39;: &#39;WORKFLOW_APP&#39;},
+ &#39;isHidden&#39;: False,
+ &#39;assetCategory&#39;: &#39;WORKFLOW_APP&#39;,
+ &#39;extension&#39;: &#39;yxzp&#39;,
+ &#39;onlyOwnerShares&#39;: False,
+ &#39;onlySiteAdminShares&#39;: False,
+ &#39;contentId&#39;: &#39;ed3146c9-8cf5-4099-8008-c3657b29e3a6&#39;,
  &#39;contentHash&#39;: &#39;b7960c08c75e5e4e2bcf5fa32582eee75a07560554c6993c603759a8a2ce2f5f&#39;,
- &#39;contentId&#39;: &#39;6925a8c7-09f8-4dea-b365-b117130d597a&#39;,
  &#39;contentSize&#39;: 2176,
  &#39;entryOwner&#39;: {&#39;avatar&#39;: None,
-  &#39;email&#39;: &#39;siteadmin3@example.com&#39;,
-  &#39;firstName&#39;: &#39;Seeded&#39;,
-  &#39;id&#39;: &#39;0625e3e2-10fb-4df6-99c6-4e38712c9c36&#39;,
-  &#39;lastName&#39;: &#39;siteadmin3&#39;,
-  &#39;name&#39;: &#39;Seeded siteadmin3&#39;,
-  &#39;userName&#39;: &#39;siteadmin3&#39;},
- &#39;md5Hash&#39;: &#39;1316e622c535fcfef109f75484910f38&#39;,
- &#39;assetCategory&#39;: &#39;WORKFLOW_APP&#39;,
- &#39;onlySiteAdminShares&#39;: False}</pre>
+  &#39;email&#39;: &#39;apiuser@example.com&#39;,
+  &#39;firstName&#39;: &#39;Aaaaaaaaaaa&#39;,
+  &#39;id&#39;: &#39;d57f3054-8eeb-4993-b021-cc7c6764d27c&#39;,
+  &#39;lastName&#39;: &#39;ApiTest&#39;,
+  &#39;name&#39;: &#39;Aaaaaaaaaaa ApiTest&#39;,
+  &#39;userName&#39;: &#39;apiuser&#39;},
+ &#39;metadata&#39;: {&#39;yxType&#39;: &#39;WORKFLOW_APP&#39;},
+ &#39;fileName&#39;: &#39;example_1.yxzp&#39;,
+ &#39;inherits&#39;: True,
+ &#39;path&#39;: &#39;/Workspaces/Public/example_1.yxzp&#39;,
+ &#39;version&#39;: 1,
+ &#39;assignedPermissionsDateUpdated&#39;: None,
+ &#39;location&#39;: &#39;&#39;,
+ &#39;uuid&#39;: &#39;5ee160b4-51fa-4baf-8d36-145be6a247c0&#39;,
+ &#39;md5Hash&#39;: &#39;1316e622c535fcfef109f75484910f38&#39;}</pre>
 </div>
 
 </div>
@@ -545,27 +410,11 @@ Response Status: 200
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">response</span> <span class="o">=</span> <span class="n">files</span><span class="o">.</span><span class="n">upload_file</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="sa">r</span><span class="s2">&quot;test.yxzp&quot;</span><span class="p">,</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">response</span> <span class="o">=</span> <span class="n">files</span><span class="o">.</span><span class="n">upload_file</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="sa">r</span><span class="s2">&quot;example_downloads/some_name.yxmd&quot;</span><span class="p">,</span>
                              <span class="n">upload_path</span><span class="o">=</span><span class="s2">&quot;/Workspaces/Public/example_1.yxzp&quot;</span><span class="p">)</span>
 </pre></div>
 
     </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-<div class="output_area">
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>POST sent to: https://test.aep-mono.devops.alteryx.com/api/v1/files/
-with headers: {&#39;User-Agent&#39;: &#39;python-requests/2.23.0&#39;, &#39;Accept-Encoding&#39;: &#39;gzip,deflate&#39;, &#39;Accept&#39;: &#39;*/*&#39;, &#39;Connection&#39;: &#39;keep-alive&#39;, &#39;Content-Type&#39;: &#39;application/json&#39;, &#39;Accept-Language&#39;: &#39;en-US,en;q=0.5&#39;, &#39;path&#39;: &#39;/Workspaces/Public/example_1.yxzp&#39;, &#39;conflict_action&#39;: &#39;CREATE_COPY&#39;, &#39;Cookie&#39;: &#39;ayxSession=s%3A9da4a129-5363-4127-8554-8a7c54202951.bPxpXPlo4zYsmjVBXhKuQ%2BYu2n5KFpD36z7pkSrbjW4&#39;, &#39;Content-Length&#39;: &#39;2176&#39;}
-Response Status: 200
-</pre>
-</div>
-</div>
-
 </div>
 </div>
 
@@ -594,35 +443,37 @@ Response Status: 200
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>{&#39;fileName&#39;: &#39;example_128129.yxzp&#39;,
- &#39;extension&#39;: &#39;yxzp&#39;,
- &#39;inherits&#39;: True,
- &#39;isHidden&#39;: False,
- &#39;onlyOwnerShares&#39;: False,
- &#39;path&#39;: &#39;/Workspaces/Public/example_128129.yxzp&#39;,
- &#39;folderType&#39;: None,
- &#39;version&#39;: 1,
- &#39;created&#39;: &#39;2020-04-27T18:42:54.938Z&#39;,
- &#39;versionCreated&#39;: &#39;2020-04-27T18:42:54.938Z&#39;,
+<pre>{&#39;folderType&#39;: None,
+ &#39;comment&#39;: None,
  &#39;maxVersion&#39;: 1,
  &#39;links&#39;: None,
- &#39;location&#39;: &#39;&#39;,
- &#39;uuid&#39;: &#39;314a8283-0bb7-43b8-84b7-70d5fa734c6f&#39;,
+ &#39;created&#39;: &#39;2020-08-04T22:55:02.066Z&#39;,
+ &#39;versionCreated&#39;: &#39;2020-08-04T22:55:02.066Z&#39;,
  &#39;metaHash&#39;: &#39;d214d65ab55a2a1c73de7c90fcc1aecfc28dd88dbec71cdeaeb3ffb1ef170053&#39;,
- &#39;metadata&#39;: {&#39;yxType&#39;: &#39;WORKFLOW_APP&#39;},
+ &#39;isHidden&#39;: False,
+ &#39;assetCategory&#39;: &#39;WORKFLOW_APP&#39;,
+ &#39;extension&#39;: &#39;yxzp&#39;,
+ &#39;onlyOwnerShares&#39;: False,
+ &#39;onlySiteAdminShares&#39;: False,
+ &#39;contentId&#39;: &#39;ed3146c9-8cf5-4099-8008-c3657b29e3a6&#39;,
  &#39;contentHash&#39;: &#39;b7960c08c75e5e4e2bcf5fa32582eee75a07560554c6993c603759a8a2ce2f5f&#39;,
- &#39;contentId&#39;: &#39;52d6897a-a07c-47aa-a66e-e85dfb2f6399&#39;,
  &#39;contentSize&#39;: 2176,
  &#39;entryOwner&#39;: {&#39;avatar&#39;: None,
-  &#39;email&#39;: &#39;siteadmin3@example.com&#39;,
-  &#39;firstName&#39;: &#39;Seeded&#39;,
-  &#39;id&#39;: &#39;977d6d2d-a6be-4533-9d29-c8936138b833&#39;,
-  &#39;lastName&#39;: &#39;siteadmin3&#39;,
-  &#39;name&#39;: &#39;Seeded siteadmin3&#39;,
-  &#39;userName&#39;: &#39;siteadmin3&#39;},
- &#39;md5Hash&#39;: &#39;1316e622c535fcfef109f75484910f38&#39;,
- &#39;assetCategory&#39;: &#39;WORKFLOW_APP&#39;,
- &#39;onlySiteAdminShares&#39;: False}</pre>
+  &#39;email&#39;: &#39;apiuser@example.com&#39;,
+  &#39;firstName&#39;: &#39;Aaaaaaaaaaa&#39;,
+  &#39;id&#39;: &#39;d57f3054-8eeb-4993-b021-cc7c6764d27c&#39;,
+  &#39;lastName&#39;: &#39;ApiTest&#39;,
+  &#39;name&#39;: &#39;Aaaaaaaaaaa ApiTest&#39;,
+  &#39;userName&#39;: &#39;apiuser&#39;},
+ &#39;metadata&#39;: {&#39;yxType&#39;: &#39;WORKFLOW_APP&#39;},
+ &#39;fileName&#39;: &#39;example_1.yxzp&#39;,
+ &#39;inherits&#39;: True,
+ &#39;path&#39;: &#39;/Workspaces/Public/example_1.yxzp&#39;,
+ &#39;version&#39;: 1,
+ &#39;assignedPermissionsDateUpdated&#39;: None,
+ &#39;location&#39;: &#39;&#39;,
+ &#39;uuid&#39;: &#39;5ee160b4-51fa-4baf-8d36-145be6a247c0&#39;,
+ &#39;md5Hash&#39;: &#39;1316e622c535fcfef109f75484910f38&#39;}</pre>
 </div>
 
 </div>
@@ -656,28 +507,12 @@ Response Status: 200
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">response</span> <span class="o">=</span> <span class="n">files</span><span class="o">.</span><span class="n">upload_file</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="sa">r</span><span class="s2">&quot;czech_devops.yxmd&quot;</span><span class="p">,</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">response</span> <span class="o">=</span> <span class="n">files</span><span class="o">.</span><span class="n">upload_file</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="sa">r</span><span class="s2">&quot;example_downloads/some_name.yxmd&quot;</span><span class="p">,</span>
                              <span class="n">upload_path</span><span class="o">=</span><span class="s2">&quot;/Workspaces/Public/example_1.yxzp&quot;</span><span class="p">,</span>
                              <span class="n">conflict_action</span><span class="o">=</span><span class="s1">&#39;MERGE&#39;</span><span class="p">)</span>
 </pre></div>
 
     </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-<div class="output_area">
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>POST sent to: https://test.aep-mono.devops.alteryx.com/api/v1/files/
-with headers: {&#39;User-Agent&#39;: &#39;python-requests/2.23.0&#39;, &#39;Accept-Encoding&#39;: &#39;gzip,deflate&#39;, &#39;Accept&#39;: &#39;*/*&#39;, &#39;Connection&#39;: &#39;keep-alive&#39;, &#39;Content-Type&#39;: &#39;application/json&#39;, &#39;Accept-Language&#39;: &#39;en-US,en;q=0.5&#39;, &#39;path&#39;: &#39;/Workspaces/Public/example_1.yxzp&#39;, &#39;conflict_action&#39;: &#39;MERGE&#39;, &#39;Cookie&#39;: &#39;ayxSession=s%3A9da4a129-5363-4127-8554-8a7c54202951.bPxpXPlo4zYsmjVBXhKuQ%2BYu2n5KFpD36z7pkSrbjW4&#39;, &#39;Content-Length&#39;: &#39;4055&#39;}
-Response Status: 200
-</pre>
-</div>
-</div>
-
 </div>
 </div>
 
@@ -706,39 +541,44 @@ Response Status: 200
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>{&#39;fileName&#39;: &#39;example_1.yxzp&#39;,
- &#39;extension&#39;: &#39;yxzp&#39;,
- &#39;inherits&#39;: True,
- &#39;isHidden&#39;: False,
- &#39;onlyOwnerShares&#39;: False,
- &#39;path&#39;: &#39;/Workspaces/Public/example_1.yxzp&#39;,
- &#39;folderType&#39;: None,
- &#39;version&#39;: 2,
- &#39;created&#39;: &#39;2020-04-27T18:42:21.595Z&#39;,
- &#39;versionCreated&#39;: &#39;2020-04-27T22:44:26.724Z&#39;,
+<pre>{&#39;folderType&#39;: None,
+ &#39;comment&#39;: None,
  &#39;maxVersion&#39;: 2,
  &#39;links&#39;: None,
- &#39;location&#39;: &#39;&#39;,
- &#39;uuid&#39;: &#39;d0c39ee9-4725-49ed-966b-c03dbf33005d&#39;,
- &#39;metaHash&#39;: &#39;105263d9a1f6534fbbbb9abed4c9b7815c145c6792fcf66df7bb5576c6474af1&#39;,
+ &#39;created&#39;: &#39;2020-08-04T22:55:02.066Z&#39;,
+ &#39;versionCreated&#39;: &#39;2020-08-04T22:56:49.425Z&#39;,
+ &#39;metaHash&#39;: &#39;54cdf04ba27078ce1a537f264048e53ee6ade4dcbfcc6bc483c58861909cf184&#39;,
+ &#39;isHidden&#39;: False,
+ &#39;assetCategory&#39;: &#39;WORKFLOW_APP&#39;,
+ &#39;extension&#39;: &#39;yxzp&#39;,
+ &#39;onlyOwnerShares&#39;: False,
+ &#39;onlySiteAdminShares&#39;: False,
+ &#39;contentId&#39;: &#39;03cfebd9-a031-4b98-a1ec-7176224e0762&#39;,
+ &#39;contentHash&#39;: &#39;c1d63578a41c19764af294616acac0f84c6aa40781496b643ebcbf644b79b642&#39;,
+ &#39;contentSize&#39;: 4055,
+ &#39;entryOwner&#39;: {&#39;avatar&#39;: None,
+  &#39;email&#39;: &#39;apiuser@example.com&#39;,
+  &#39;firstName&#39;: &#39;Aaaaaaaaaaa&#39;,
+  &#39;id&#39;: &#39;d57f3054-8eeb-4993-b021-cc7c6764d27c&#39;,
+  &#39;lastName&#39;: &#39;ApiTest&#39;,
+  &#39;name&#39;: &#39;Aaaaaaaaaaa ApiTest&#39;,
+  &#39;userName&#39;: &#39;apiuser&#39;},
  &#39;metadata&#39;: {&#39;tools&#39;: [],
   &#39;yxType&#39;: &#39;WORKFLOW&#39;,
   &#39;vfsInputs&#39;: {},
-  &#39;workflowInfo&#39;: {&#39;isE2&#39;: False, &#39;modules&#39;: [&#39;Magic-8-Ball.yxmd&#39;]},
-  &#39;packageAssets&#39;: [&#39;Magic-8-Ball.yxmd&#39;]},
- &#39;contentHash&#39;: &#39;c1d63578a41c19764af294616acac0f84c6aa40781496b643ebcbf644b79b642&#39;,
- &#39;contentId&#39;: &#39;b07087f3-3c39-4349-88f0-363f94afa570&#39;,
- &#39;contentSize&#39;: 4055,
- &#39;entryOwner&#39;: {&#39;avatar&#39;: None,
-  &#39;email&#39;: &#39;siteadmin3@example.com&#39;,
-  &#39;firstName&#39;: &#39;Seeded&#39;,
-  &#39;id&#39;: &#39;977d6d2d-a6be-4533-9d29-c8936138b833&#39;,
-  &#39;lastName&#39;: &#39;siteadmin3&#39;,
-  &#39;name&#39;: &#39;Seeded siteadmin3&#39;,
-  &#39;userName&#39;: &#39;siteadmin3&#39;},
- &#39;md5Hash&#39;: &#39;5d7daa67eb92d429e8b215654d9f52f9&#39;,
- &#39;assetCategory&#39;: &#39;WORKFLOW_APP&#39;,
- &#39;onlySiteAdminShares&#39;: False}</pre>
+  &#39;dependencies&#39;: {},
+  &#39;parsedHashes&#39;: [],
+  &#39;workflowInfo&#39;: {&#39;isE2&#39;: False,
+   &#39;modules&#39;: [&#39;Magic-8-Ball.yxmd&#39;],
+   &#39;otherFiles&#39;: []}},
+ &#39;fileName&#39;: &#39;example_1.yxzp&#39;,
+ &#39;inherits&#39;: True,
+ &#39;path&#39;: &#39;/Workspaces/Public/example_1.yxzp&#39;,
+ &#39;version&#39;: 2,
+ &#39;assignedPermissionsDateUpdated&#39;: None,
+ &#39;location&#39;: &#39;&#39;,
+ &#39;uuid&#39;: &#39;5ee160b4-51fa-4baf-8d36-145be6a247c0&#39;,
+ &#39;md5Hash&#39;: &#39;5d7daa67eb92d429e8b215654d9f52f9&#39;}</pre>
 </div>
 
 </div>
@@ -819,44 +659,10 @@ Response Status: 200
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Initialize the files object the same way the Client object does.</span>
-<span class="n">files</span> <span class="o">=</span> <span class="n">Files</span><span class="p">(</span><span class="n">example_client</span><span class="o">.</span><span class="n">api</span><span class="p">)</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div>
-    {% endraw %}
-
-    {% raw %}
-    
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">response</span> <span class="o">=</span> <span class="n">files</span><span class="o">.</span><span class="n">get_file_versions</span><span class="p">(</span><span class="n">file_uuid</span><span class="o">=</span><span class="n">uploaded_file_uuid</span><span class="p">)</span>
 </pre></div>
 
     </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-<div class="output_area">
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>GET sent to: https://test.aep-mono.devops.alteryx.com/api/v1/files/versions/?fileUuid=d0c39ee9-4725-49ed-966b-c03dbf33005d
-with headers: {&#39;User-Agent&#39;: &#39;python-requests/2.23.0&#39;, &#39;Accept-Encoding&#39;: &#39;gzip,deflate&#39;, &#39;Accept&#39;: &#39;*/*&#39;, &#39;Connection&#39;: &#39;keep-alive&#39;, &#39;Content-Type&#39;: &#39;application/json&#39;, &#39;Accept-Language&#39;: &#39;en-US,en;q=0.5&#39;, &#39;Cookie&#39;: &#39;ayxSession=s%3A9da4a129-5363-4127-8554-8a7c54202951.bPxpXPlo4zYsmjVBXhKuQ%2BYu2n5KFpD36z7pkSrbjW4&#39;}
-Response Status: 200
-</pre>
-</div>
-</div>
-
 </div>
 </div>
 
@@ -889,42 +695,48 @@ Response Status: 200
   &#39;metadata&#39;: {&#39;tools&#39;: [],
    &#39;yxType&#39;: &#39;WORKFLOW&#39;,
    &#39;vfsInputs&#39;: {},
-   &#39;workflowInfo&#39;: {&#39;isE2&#39;: False, &#39;modules&#39;: [&#39;Magic-8-Ball.yxmd&#39;]},
-   &#39;packageAssets&#39;: [&#39;Magic-8-Ball.yxmd&#39;]},
+   &#39;dependencies&#39;: {},
+   &#39;parsedHashes&#39;: [],
+   &#39;workflowInfo&#39;: {&#39;isE2&#39;: False,
+    &#39;modules&#39;: [&#39;Magic-8-Ball.yxmd&#39;],
+    &#39;otherFiles&#39;: []}},
   &#39;comment&#39;: None,
   &#39;creator&#39;: {&#39;avatar&#39;: None,
-   &#39;email&#39;: &#39;siteadmin3@example.com&#39;,
-   &#39;firstName&#39;: &#39;Seeded&#39;,
-   &#39;id&#39;: &#39;977d6d2d-a6be-4533-9d29-c8936138b833&#39;,
-   &#39;lastName&#39;: &#39;siteadmin3&#39;,
-   &#39;name&#39;: &#39;Seeded siteadmin3&#39;},
+   &#39;email&#39;: &#39;apiuser@example.com&#39;,
+   &#39;firstName&#39;: &#39;Aaaaaaaaaaa&#39;,
+   &#39;id&#39;: &#39;d57f3054-8eeb-4993-b021-cc7c6764d27c&#39;,
+   &#39;lastName&#39;: &#39;ApiTest&#39;,
+   &#39;name&#39;: &#39;Aaaaaaaaaaa ApiTest&#39;},
   &#39;owner&#39;: {&#39;avatar&#39;: None,
-   &#39;email&#39;: &#39;siteadmin3@example.com&#39;,
-   &#39;firstName&#39;: &#39;Seeded&#39;,
-   &#39;id&#39;: &#39;977d6d2d-a6be-4533-9d29-c8936138b833&#39;,
-   &#39;lastName&#39;: &#39;siteadmin3&#39;,
-   &#39;name&#39;: &#39;Seeded siteadmin3&#39;},
-  &#39;createdAt&#39;: &#39;2020-04-27T22:44:26.724Z&#39;},
+   &#39;email&#39;: &#39;apiuser@example.com&#39;,
+   &#39;firstName&#39;: &#39;Aaaaaaaaaaa&#39;,
+   &#39;id&#39;: &#39;d57f3054-8eeb-4993-b021-cc7c6764d27c&#39;,
+   &#39;lastName&#39;: &#39;ApiTest&#39;,
+   &#39;name&#39;: &#39;Aaaaaaaaaaa ApiTest&#39;},
+  &#39;createdAt&#39;: &#39;2020-08-04T22:57:59.824Z&#39;},
  {&#39;version&#39;: 1,
   &#39;metadata&#39;: {&#39;tools&#39;: [],
    &#39;yxType&#39;: &#39;WORKFLOW&#39;,
    &#39;vfsInputs&#39;: {},
-   &#39;workflowInfo&#39;: {&#39;isE2&#39;: False, &#39;modules&#39;: [&#39;Magic-8-Ball.yxmd&#39;]},
-   &#39;packageAssets&#39;: [&#39;Magic-8-Ball.yxmd&#39;]},
+   &#39;dependencies&#39;: {},
+   &#39;parsedHashes&#39;: [],
+   &#39;workflowInfo&#39;: {&#39;isE2&#39;: False,
+    &#39;modules&#39;: [&#39;Magic-8-Ball.yxmd&#39;],
+    &#39;otherFiles&#39;: []}},
   &#39;comment&#39;: None,
   &#39;creator&#39;: {&#39;avatar&#39;: None,
-   &#39;email&#39;: &#39;siteadmin3@example.com&#39;,
-   &#39;firstName&#39;: &#39;Seeded&#39;,
-   &#39;id&#39;: &#39;977d6d2d-a6be-4533-9d29-c8936138b833&#39;,
-   &#39;lastName&#39;: &#39;siteadmin3&#39;,
-   &#39;name&#39;: &#39;Seeded siteadmin3&#39;},
+   &#39;email&#39;: &#39;apiuser@example.com&#39;,
+   &#39;firstName&#39;: &#39;Aaaaaaaaaaa&#39;,
+   &#39;id&#39;: &#39;d57f3054-8eeb-4993-b021-cc7c6764d27c&#39;,
+   &#39;lastName&#39;: &#39;ApiTest&#39;,
+   &#39;name&#39;: &#39;Aaaaaaaaaaa ApiTest&#39;},
   &#39;owner&#39;: {&#39;avatar&#39;: None,
-   &#39;email&#39;: &#39;siteadmin3@example.com&#39;,
-   &#39;firstName&#39;: &#39;Seeded&#39;,
-   &#39;id&#39;: &#39;977d6d2d-a6be-4533-9d29-c8936138b833&#39;,
-   &#39;lastName&#39;: &#39;siteadmin3&#39;,
-   &#39;name&#39;: &#39;Seeded siteadmin3&#39;},
-  &#39;createdAt&#39;: &#39;2020-04-27T18:42:21.595Z&#39;}]</pre>
+   &#39;email&#39;: &#39;apiuser@example.com&#39;,
+   &#39;firstName&#39;: &#39;Aaaaaaaaaaa&#39;,
+   &#39;id&#39;: &#39;d57f3054-8eeb-4993-b021-cc7c6764d27c&#39;,
+   &#39;lastName&#39;: &#39;ApiTest&#39;,
+   &#39;name&#39;: &#39;Aaaaaaaaaaa ApiTest&#39;},
+  &#39;createdAt&#39;: &#39;2020-08-04T22:55:02.066Z&#39;}]</pre>
 </div>
 
 </div>
@@ -978,45 +790,11 @@ Response Status: 200
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Initialize the files object the same way the Client object does.</span>
-<span class="n">files</span> <span class="o">=</span> <span class="n">Files</span><span class="p">(</span><span class="n">example_client</span><span class="o">.</span><span class="n">api</span><span class="p">)</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div>
-    {% endraw %}
-
-    {% raw %}
-    
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">response</span> <span class="o">=</span> <span class="n">files</span><span class="o">.</span><span class="n">delete_file</span><span class="p">(</span><span class="n">asset_path</span><span class="o">=</span><span class="sa">r</span><span class="s1">&#39;/Workspaces/Public/example_1.yxzp&#39;</span><span class="p">,</span> 
                              <span class="n">hard</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 
     </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-<div class="output_area">
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>POST sent to: https://test.aep-mono.devops.alteryx.com/api/v1/files/remove
-with headers: {&#39;User-Agent&#39;: &#39;python-requests/2.23.0&#39;, &#39;Accept-Encoding&#39;: &#39;gzip,deflate&#39;, &#39;Accept&#39;: &#39;*/*&#39;, &#39;Connection&#39;: &#39;keep-alive&#39;, &#39;Content-Type&#39;: &#39;application/json&#39;, &#39;Accept-Language&#39;: &#39;en-US,en;q=0.5&#39;, &#39;Cookie&#39;: &#39;ayxSession=s%3Aa4e6c322-5a8d-4909-ad85-0f72de9e19cf.jbxJCEZNLq3mmxW0RWJbCiayPjQvxEj0sP2moTAkFZs&#39;, &#39;Content-Length&#39;: &#39;53&#39;}
-Response Status: 401
-</pre>
-</div>
-</div>
-
 </div>
 </div>
 
@@ -1045,7 +823,13 @@ Response Status: 401
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>{&#39;errors&#39;: [{&#39;code&#39;: &#39;USR_SESSION_INVALID&#39;, &#39;message&#39;: &#39;Session is invalid&#39;}]}</pre>
+<pre>{&#39;removed&#39;: [{&#39;assetPath&#39;: &#39;/Workspaces/Public/example_1.yxzp&#39;,
+   &#39;assetId&#39;: &#39;5ee160b4-51fa-4baf-8d36-145be6a247c0&#39;,
+   &#39;contentSize&#39;: 4055,
+   &#39;version&#39;: 2,
+   &#39;originalLocation&#39;: None,
+   &#39;folderType&#39;: None}],
+ &#39;failed&#39;: []}</pre>
 </div>
 
 </div>
@@ -1095,24 +879,6 @@ Response Status: 401
 </div>
 </div>
 </div>
-    {% raw %}
-    
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Initialize the files object the same way the Client object does.</span>
-<span class="n">files</span> <span class="o">=</span> <span class="n">Files</span><span class="p">(</span><span class="n">example_client</span><span class="o">.</span><span class="n">api</span><span class="p">)</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div>
-    {% endraw %}
-
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="Simple-move-example">Simple move example<a class="anchor-link" href="#Simple-move-example"> </a></h3><p>Lets try using a move command to rename a file</p>
@@ -1127,26 +893,13 @@ Response Status: 401
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">response</span> <span class="o">=</span> <span class="n">files</span><span class="o">.</span><span class="n">move_file</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">move_file_path</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span><span class="sa">r</span><span class="s2">&quot;/Workspaces/Public/move_file_destination.yxmd&quot;</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">response</span> <span class="o">=</span> <span class="n">files</span><span class="o">.</span><span class="n">move_file</span><span class="p">(</span>
+    <span class="sa">r</span><span class="s2">&quot;/Workspaces/Public/move_file_example.yxmd&quot;</span><span class="p">,</span>
+    <span class="sa">r</span><span class="s2">&quot;/Workspaces/Public/move_file_destination.yxmd&quot;</span>
+<span class="p">)</span>
 </pre></div>
 
     </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-<div class="output_area">
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>POST sent to: https://test.aep-mono.devops.alteryx.com/api/v1/files/moveFiles
-with headers: {&#39;User-Agent&#39;: &#39;python-requests/2.23.0&#39;, &#39;Accept-Encoding&#39;: &#39;gzip,deflate&#39;, &#39;Accept&#39;: &#39;*/*&#39;, &#39;Connection&#39;: &#39;keep-alive&#39;, &#39;Content-Type&#39;: &#39;application/json&#39;, &#39;Accept-Language&#39;: &#39;en-US,en;q=0.5&#39;, &#39;Cookie&#39;: &#39;ayxSession=s%3A5b8d4316-2840-4aa4-a375-d7c224444acc.PnmVo6YILudIgbnDRNuZAs%2F84eXXL1f16IIR7e9f4pU&#39;, &#39;Content-Length&#39;: &#39;197&#39;}
-Response Status: 200
-</pre>
-</div>
-</div>
-
 </div>
 </div>
 
@@ -1178,8 +931,8 @@ Response Status: 200
 <pre>[{&#39;assetPath&#39;: &#39;/Workspaces/Public/move_file_example.yxmd&#39;,
   &#39;successMoved&#39;: [{&#39;version&#39;: 1,
     &#39;folderType&#39;: None,
-    &#39;targetId&#39;: &#39;ba550013-d96c-42d7-a72d-5b3ba226a509&#39;,
-    &#39;sourceId&#39;: &#39;ba550013-d96c-42d7-a72d-5b3ba226a509&#39;,
+    &#39;targetId&#39;: &#39;037e00a0-16ce-4a2a-a953-704c34772477&#39;,
+    &#39;sourceId&#39;: &#39;037e00a0-16ce-4a2a-a953-704c34772477&#39;,
     &#39;involvedVersions&#39;: 1,
     &#39;isMergeOperation&#39;: False,
     &#39;sourcePath&#39;: &#39;/Workspaces/Public/move_file_example.yxmd&#39;,
@@ -1208,26 +961,14 @@ Response Status: 200
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">response</span> <span class="o">=</span> <span class="n">files</span><span class="o">.</span><span class="n">move_file</span><span class="p">(</span><span class="n">move_file_path</span><span class="p">,</span><span class="sa">r</span><span class="s2">&quot;/Workspaces/Public/copied_file.yxmd&quot;</span><span class="p">,</span><span class="s2">&quot;copy&quot;</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">response</span> <span class="o">=</span> <span class="n">files</span><span class="o">.</span><span class="n">move_file</span><span class="p">(</span>
+    <span class="sa">r</span><span class="s2">&quot;/Workspaces/Public/move_file_example.yxmd&quot;</span><span class="p">,</span>
+    <span class="sa">r</span><span class="s2">&quot;/Workspaces/Public/copied_file.yxmd&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;copy&quot;</span>
+<span class="p">)</span>
 </pre></div>
 
     </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-<div class="output_area">
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>POST sent to: https://test.aep-mono.devops.alteryx.com/api/v1/files/copy
-with headers: {&#39;User-Agent&#39;: &#39;python-requests/2.23.0&#39;, &#39;Accept-Encoding&#39;: &#39;gzip,deflate&#39;, &#39;Accept&#39;: &#39;*/*&#39;, &#39;Connection&#39;: &#39;keep-alive&#39;, &#39;Content-Type&#39;: &#39;application/json&#39;, &#39;Accept-Language&#39;: &#39;en-US,en;q=0.5&#39;, &#39;Cookie&#39;: &#39;ayxSession=s%3A5b8d4316-2840-4aa4-a375-d7c224444acc.PnmVo6YILudIgbnDRNuZAs%2F84eXXL1f16IIR7e9f4pU&#39;, &#39;Content-Length&#39;: &#39;187&#39;}
-Response Status: 200
-</pre>
-</div>
-</div>
-
 </div>
 </div>
 
@@ -1261,10 +1002,10 @@ Response Status: 200
     &#39;sourcePath&#39;: &#39;/Workspaces/Public/move_file_example.yxmd&#39;,
     &#39;version&#39;: 1,
     &#39;folderType&#39;: None,
-    &#39;sourceId&#39;: &#39;adfecbb7-e210-4fba-8975-b0f1713b422f&#39;,
+    &#39;sourceId&#39;: &#39;27be134c-423f-4040-8262-98359be4d2ae&#39;,
     &#39;involvedVersions&#39;: 1,
     &#39;isMergeOperation&#39;: False,
-    &#39;targetId&#39;: &#39;fbe53e7e-d68d-4d78-a558-e282ebcba9b8&#39;}]}]</pre>
+    &#39;targetId&#39;: &#39;fbb72c87-0bcb-4179-bce8-d4149a17e68f&#39;}]}]</pre>
 </div>
 
 </div>
@@ -1332,26 +1073,10 @@ Response Status: 200
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">response</span> <span class="o">=</span> <span class="n">files</span><span class="o">.</span><span class="n">restore_deleted_file</span><span class="p">(</span><span class="n">asset_id</span><span class="o">=</span><span class="n">delete_file_uuid</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">response</span> <span class="o">=</span> <span class="n">files</span><span class="o">.</span><span class="n">restore_deleted_file</span><span class="p">(</span><span class="n">asset_id</span><span class="o">=</span><span class="s1">&#39;9b75b3d8-56c1-4ce6-bfe1-9aabaea1e65f&#39;</span><span class="p">)</span>
 </pre></div>
 
     </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-<div class="output_area">
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>POST sent to: https://test.aep-mono.devops.alteryx.com/api/v1/files/restoreDeleted
-with headers: {&#39;User-Agent&#39;: &#39;python-requests/2.23.0&#39;, &#39;Accept-Encoding&#39;: &#39;gzip,deflate&#39;, &#39;Accept&#39;: &#39;*/*&#39;, &#39;Connection&#39;: &#39;keep-alive&#39;, &#39;Content-Type&#39;: &#39;application/json&#39;, &#39;Accept-Language&#39;: &#39;en-US,en;q=0.5&#39;, &#39;Cookie&#39;: &#39;ayxSession=s%3A734318b6-ccc9-4c4e-a293-c8335d113121.k%2BmIPQ6vHeUa6TsiMjKijXXrRVvSm1QYfnap6GI7Jak&#39;, &#39;Content-Length&#39;: &#39;54&#39;}
-Response Status: 200
-</pre>
-</div>
-</div>
-
 </div>
 </div>
 
@@ -1381,9 +1106,9 @@ Response Status: 200
 
 <div class="output_text output_subarea output_execute_result">
 <pre>{&#39;failed&#39;: [],
- &#39;restored&#39;: [{&#39;assetPath&#39;: &#39;/Trash/delete_file_example28729.yxmd&#39;,
-   &#39;successRestored&#39;: [{&#39;trashPath&#39;: &#39;/Trash/delete_file_example28729.yxmd&#39;,
-     &#39;assetId&#39;: &#39;fe5156c4-bf12-4929-9a32-c4f1da41693d&#39;,
+ &#39;restored&#39;: [{&#39;assetPath&#39;: &#39;/Trash/delete_file_example.yxmd&#39;,
+   &#39;successRestored&#39;: [{&#39;trashPath&#39;: &#39;/Trash/delete_file_example.yxmd&#39;,
+     &#39;assetId&#39;: &#39;4852b7ce-e84b-4cbc-9f8b-24b304dc4af4&#39;,
      &#39;folderType&#39;: None,
      &#39;version&#39;: 1,
      &#39;restorePath&#39;: &#39;/Workspaces/Public/delete_file_example.yxmd&#39;}]}]}</pre>
@@ -1411,26 +1136,10 @@ Response Status: 200
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">response</span> <span class="o">=</span> <span class="n">files</span><span class="o">.</span><span class="n">restore_deleted_file</span><span class="p">(</span><span class="n">asset_path</span><span class="o">=</span><span class="n">delete_file_trashpath</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">response</span> <span class="o">=</span> <span class="n">files</span><span class="o">.</span><span class="n">restore_deleted_file</span><span class="p">(</span><span class="n">asset_path</span><span class="o">=</span><span class="sa">r</span><span class="s1">&#39;/Trash/delete_file_example.yxmd&#39;</span><span class="p">)</span>
 </pre></div>
 
     </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-<div class="output_area">
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>POST sent to: https://test.aep-mono.devops.alteryx.com/api/v1/files/restoreDeleted
-with headers: {&#39;User-Agent&#39;: &#39;python-requests/2.23.0&#39;, &#39;Accept-Encoding&#39;: &#39;gzip,deflate&#39;, &#39;Accept&#39;: &#39;*/*&#39;, &#39;Connection&#39;: &#39;keep-alive&#39;, &#39;Content-Type&#39;: &#39;application/json&#39;, &#39;Accept-Language&#39;: &#39;en-US,en;q=0.5&#39;, &#39;Cookie&#39;: &#39;ayxSession=s%3A734318b6-ccc9-4c4e-a293-c8335d113121.k%2BmIPQ6vHeUa6TsiMjKijXXrRVvSm1QYfnap6GI7Jak&#39;, &#39;Content-Length&#39;: &#39;56&#39;}
-Response Status: 200
-</pre>
-</div>
-</div>
-
 </div>
 </div>
 
@@ -1460,9 +1169,9 @@ Response Status: 200
 
 <div class="output_text output_subarea output_execute_result">
 <pre>{&#39;failed&#39;: [],
- &#39;restored&#39;: [{&#39;assetPath&#39;: &#39;/Trash/delete_file_example28929.yxmd&#39;,
-   &#39;successRestored&#39;: [{&#39;trashPath&#39;: &#39;/Trash/delete_file_example28929.yxmd&#39;,
-     &#39;assetId&#39;: &#39;b0d82f4c-634b-4ce3-b889-d386beb696fb&#39;,
+ &#39;restored&#39;: [{&#39;assetPath&#39;: &#39;/Trash/delete_file_example.yxmd&#39;,
+   &#39;successRestored&#39;: [{&#39;trashPath&#39;: &#39;/Trash/delete_file_example.yxmd&#39;,
+     &#39;assetId&#39;: &#39;4852b7ce-e84b-4cbc-9f8b-24b304dc4af4&#39;,
      &#39;folderType&#39;: None,
      &#39;version&#39;: 1,
      &#39;restorePath&#39;: &#39;/Workspaces/Public/delete_file_example.yxmd&#39;}]}]}</pre>

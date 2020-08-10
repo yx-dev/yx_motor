@@ -7,6 +7,8 @@
     "authenticate": "/authenticate",
     "files": "/files",
     "workflows": "/workflows",
-    "Title": "/integration_tests"
+    "Test Constants": "/constants",
+    "Unit Test Helpers": "/unit_test_helpers",
+    "Integration Tests": "/integration_tests"
   }
 }
