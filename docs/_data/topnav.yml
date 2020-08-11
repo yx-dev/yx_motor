@@ -2,7 +2,7 @@ topnav:
 - title: Topnav
   items:
     - title: GitHub
-      external_url: https://github.com/johnkabler/lasso
+      external_url: https://github.com/yx-dev/yx_motor
 
 #Topnav dropdowns
 topnav_dropdowns:
