@@ -34,7 +34,7 @@ entries:
       title: Unit Test Helpers
       url: /unit_test_helpers
     - output: web,pdf
-      title: Integration Tests
+      title: Integration Test Helpers
       url: /integration_tests
     output: web
     title: yx_motor

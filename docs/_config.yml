@@ -1,9 +1,9 @@
-repository: Jesse-Clarkayx/yx_motor
+repository: yx-dev/yx_motor
 output: web
 topnav_title: yx_motor
 site_title: yx_motor
-company_name: Jesse Clark
-description: testing
+company_name: Alteryx
+description: yx_motor
 # Set to false to disable KaTeX math
 use_math: true
 # Add Google analytics id if you have one and want to use it here
