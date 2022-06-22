@@ -35,7 +35,7 @@ nbdev==0.2.18
 nbformat==5.0.5
 notebook==6.0.3
 nteract-on-jupyter==2.1.3
-numpy==1.18.4
+numpy==1.22.0
 packaging==20.3
 pandas==1.0.3
 pandocfilters==1.4.2
